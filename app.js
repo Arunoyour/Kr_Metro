@@ -163,14 +163,29 @@ document.addEventListener("DOMContentLoaded", () => {
       const first = seg.stations[0];
       const last = seg.stations[seg.stations.length - 1];
       const stops = seg.stations.length - 1;
+      const stopDetailId = `stop-detail-${i}`;
+      // Every station after the boarding one, in travel order — what the rider
+      // will actually see go by, ending at the switch/alight point.
+      const passedStations = seg.stations.slice(1);
 
       html += `<li class="itinerary-step" style="--line-color:${line.color}">
         <div class="step-marker"></div>
         <div class="step-body">
           <div class="step-action">
-            ${i === 0 ? "Board" : "Switch to"} <strong>${line.name}</strong> at ${STATION_NAMES[first]}
+            ${i === 0 ? "Board" : "Switch to"} <strong>${line.name}</strong>
+            towards <strong>${STATION_NAMES[seg.towards]}</strong> at ${STATION_NAMES[first]}
           </div>
-          <div class="step-ride">Ride ${stops} stop${stops === 1 ? "" : "s"} to ${STATION_NAMES[last]}</div>
+          <button type="button" class="step-ride-toggle" aria-expanded="false" aria-controls="${stopDetailId}">
+            <span class="toggle-caret">&#9656;</span>
+            Ride ${stops} stop${stops === 1 ? "" : "s"} to ${STATION_NAMES[last]}
+          </button>
+          <ol class="stop-detail" id="${stopDetailId}">
+            ${passedStations
+              .map(
+                (st, idx) => `<li${idx === passedStations.length - 1 ? ' class="stop-final"' : ""}>${STATION_NAMES[st]}</li>`
+              )
+              .join("")}
+          </ol>
         </div>
       </li>`;
     });
@@ -178,5 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
     html += `<div class="arrive">You arrive at <strong>${STATION_NAMES[toId]}</strong></div>`;
 
     resultsEl.innerHTML = html;
+
+    resultsEl.querySelectorAll(".step-ride-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+        document.getElementById(btn.getAttribute("aria-controls")).classList.toggle("open", !expanded);
+      });
+    });
   }
 });

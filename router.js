@@ -103,12 +103,22 @@ function dijkstra(originId, destId) {
   return path;
 }
 
+// A line runs through a station in one of two directions; the platform/train
+// board identifies it by the terminal station at the far end, not the line
+// name alone. This figures out which terminal a segment is headed toward.
+function directionTerminal(lineKey, segStations) {
+  const fullStops = METRO_LINES[lineKey].stations;
+  const firstIdx = fullStops.indexOf(segStations[0]);
+  const lastIdx = fullStops.indexOf(segStations[segStations.length - 1]);
+  return lastIdx > firstIdx ? fullStops[fullStops.length - 1] : fullStops[0];
+}
+
 // Groups a raw (station|line) path into ride segments, splitting wherever
 // the line changes (i.e. wherever a switch happened).
 function buildItinerary(path) {
   if (!path || path.length === 0) return [];
 
-  const segments = [];
+  const rawSegments = [];
   let segLine = null;
   let segStations = [];
 
@@ -120,13 +130,17 @@ function buildItinerary(path) {
     } else if (line === segLine) {
       segStations.push(station);
     } else {
-      segments.push({ line: segLine, stations: segStations });
+      rawSegments.push({ line: segLine, stations: segStations });
       segLine = line;
       segStations = [station];
     }
   }
-  segments.push({ line: segLine, stations: segStations });
-  return segments;
+  rawSegments.push({ line: segLine, stations: segStations });
+
+  return rawSegments.map((seg) => ({
+    ...seg,
+    towards: directionTerminal(seg.line, seg.stations)
+  }));
 }
 
 function findRoute(originId, destId) {
