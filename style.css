@@ -298,6 +298,19 @@ main {
   color: #1c7a3c;
 }
 
+/* Plays once when the live status bar actually transitions into the
+   arrived state (GPS-confirmed) — not shown for the static route summary
+   anymore, so this is a genuine "you made it" moment worth a flourish. */
+.arrive-pop {
+  animation: arrive-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes arrive-pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  60% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
 .status-approaching {
   background: #fff4e0;
   color: #9a5b00;
@@ -307,6 +320,45 @@ main {
 @keyframes flash-approach {
   0%, 100% { background: #fff4e0; }
   50% { background: #ffe3ad; }
+}
+
+/* The repeating, unacknowledged alert — text + button side by side, with
+   its own attention-getting pulse independent of the flash above (which
+   only plays twice on entry). */
+.status-approaching.alert-active {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  animation: alert-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes alert-pulse {
+  0%, 100% { background: #fff4e0; }
+  50% { background: #ffdd9e; }
+}
+
+.alert-text {
+  flex: 1 1 200px;
+}
+
+.acknowledge-btn {
+  flex: none;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  background: #9a5b00;
+  color: #fff;
+  cursor: pointer;
+  min-height: 36px;
+}
+
+.acknowledge-btn:hover {
+  background: #7a4700;
 }
 
 .itinerary {
@@ -440,8 +492,11 @@ main {
   text-decoration: line-through;
 }
 
+/* Faded toward white rather than recolored, so a passed stop stays
+   recognizably on its real line (purple/green/yellow) instead of jumping
+   to an unrelated fixed color. */
 .stop-detail li.passed::before {
-  background: #1c7a3c;
+  background: color-mix(in srgb, var(--line-color, var(--accent)) 45%, white);
   opacity: 1;
 }
 
@@ -457,33 +512,36 @@ main {
 }
 
 .step-marker.passed {
-  background: #1c7a3c;
-  box-shadow: 0 0 0 2px #1c7a3c;
+  position: relative;
+  background: color-mix(in srgb, var(--line-color, var(--accent)) 55%, white);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--line-color, var(--accent)) 55%, white);
+}
+
+/* Checkmark badge instead of a color change — the marker is big enough
+   (20px) for this to read clearly, unlike the small inline stop dots. */
+.step-marker.passed::after {
+  content: "\2713";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .step-marker.next-station {
   animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
-.step-action.passed strong {
-  color: #1c7a3c;
+.step-action.passed {
+  opacity: 0.6;
 }
 
 @keyframes pulse-dot {
   0%, 100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--line-color, var(--accent)) 25%, transparent); }
   50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--line-color, var(--accent)) 10%, transparent); }
-}
-
-.arrive {
-  margin-top: 4px;
-  font-size: 0.95rem;
-  padding-top: 10px;
-  border-top: 1px dashed var(--border);
-}
-
-.arrive.passed {
-  color: #1c7a3c;
-  font-weight: 600;
 }
 
 footer.site-footer {

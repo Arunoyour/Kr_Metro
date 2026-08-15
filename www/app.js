@@ -229,6 +229,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let tracker = null;
+  let alertRepeatTimer = null;
+  let activeAlert = null; // { station, type } while an alert is unacknowledged
+  let lastTrackState = null; // most recent onTrackUpdate state, replayed after Acknowledge
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -305,7 +308,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </li>`;
     });
     html += `</ol>`;
-    html += `<div class="arrive" data-station="${toId}">You arrive at <strong>${STATION_NAMES[toId]}</strong></div>`;
 
     resultsEl.innerHTML = html;
 
@@ -328,6 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (tracker) {
         tracker.stop();
         tracker = null;
+        stopAlertRepeat();
+        lastTrackState = null;
         trackBtn.textContent = "\u{1F4CD} Track my journey live";
         trackBtn.classList.remove("active");
         statusEl.hidden = true;
@@ -352,6 +356,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusEl = document.getElementById("live-status");
     if (!statusEl) return;
 
+    lastTrackState = state;
+
     resultsEl.querySelectorAll("[data-station]").forEach((el) => {
       el.classList.toggle("passed", state.passedStations && state.passedStations.includes(el.dataset.station));
       el.classList.toggle("next-station", state.nextStation === el.dataset.station);
@@ -369,29 +375,42 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    if (state.approachingAlert) {
-      playChime();
-      vibrateAlert();
-    }
-
+    // Errors and arrival are terminal — they always win, even over an
+    // in-progress alert. This matters because a single sparse GPS fix can
+    // cross the 200m alert threshold and the 150m arrival threshold in the
+    // same update (e.g. a big jump); tracking stops right after an arrival
+    // is detected, so if an "approaching" alert were allowed to win here
+    // instead, there'd be no later update left to correct it — the rider
+    // would be stuck looking at "still approaching" forever.
     if (state.errorMessage) {
+      stopAlertRepeat();
       statusEl.className = "live-status status-error";
       statusEl.textContent = state.errorMessage;
       return;
     }
     if (state.arrived) {
-      statusEl.className = "live-status status-arrived";
+      stopAlertRepeat();
+      statusEl.className = "live-status status-arrived arrive-pop";
       statusEl.textContent = `\u{1F3C1} You've arrived at ${STATION_NAMES[toId]}!`;
       return;
     }
+
+    // A fresh alert takes over the status area immediately.
     if (state.approachingAlert) {
-      const a = state.approachingAlert;
-      const verb =
-        a.type === "switch" ? "get ready to switch lines" : a.type === "arrival" ? "get ready to get off" : "coming up";
-      statusEl.className = "live-status status-approaching";
-      statusEl.textContent = `\u{1F514} Approaching ${STATION_NAMES[a.station]} (~${a.distance}m) — ${verb}`;
+      startAlertRepeat(state.approachingAlert, toId);
       return;
     }
+
+    // An alert already showing owns the status area until the rider taps
+    // Acknowledge — nothing below should silently replace it.
+    if (activeAlert) {
+      return;
+    }
+
+    renderNormalStatus(state, statusEl);
+  }
+
+  function renderNormalStatus(state, statusEl) {
     if (state.signalStatus === "lost") {
       statusEl.className = "live-status status-lost";
       statusEl.textContent = `⚠️ GPS signal lost — last confirmed at ${STATION_NAMES[state.currentStation]}`;
@@ -406,5 +425,55 @@ document.addEventListener("DOMContentLoaded", () => {
     statusEl.textContent = state.nextStation
       ? `\u{1F7E2} Tracking live — next stop: ${STATION_NAMES[state.nextStation]}`
       : `\u{1F7E2} Tracking live`;
+  }
+
+  // Keeps chiming + vibrating every few seconds until the rider explicitly
+  // taps Acknowledge — a single alert is too easy to miss (phone in a
+  // pocket, earbuds in, etc.), and per design this never auto-stops on its
+  // own, even after the stop has actually been passed.
+  function startAlertRepeat(alert, toId) {
+    activeAlert = alert;
+    if (alertRepeatTimer) clearInterval(alertRepeatTimer);
+
+    playChime();
+    vibrateAlert();
+    alertRepeatTimer = setInterval(() => {
+      playChime();
+      vibrateAlert();
+    }, 2500);
+
+    renderAlertBanner(alert, toId);
+  }
+
+  function stopAlertRepeat() {
+    if (alertRepeatTimer) {
+      clearInterval(alertRepeatTimer);
+      alertRepeatTimer = null;
+    }
+    activeAlert = null;
+  }
+
+  function renderAlertBanner(alert, toId) {
+    const statusEl = document.getElementById("live-status");
+    if (!statusEl) return;
+
+    const verb =
+      alert.type === "switch" ? "get ready to switch lines" : alert.type === "arrival" ? "get ready to get off" : "coming up";
+
+    statusEl.className = "live-status status-approaching alert-active";
+    statusEl.innerHTML = `
+      <span class="alert-text">\u{1F514} Approaching <strong>${STATION_NAMES[alert.station]}</strong> (~${alert.distance}m) — ${verb}</span>
+      <button type="button" class="acknowledge-btn" id="acknowledge-btn">Acknowledge</button>
+    `;
+
+    document.getElementById("acknowledge-btn").addEventListener("click", () => {
+      stopAlertRepeat();
+      if (lastTrackState) {
+        renderNormalStatus(lastTrackState, statusEl);
+      } else {
+        statusEl.className = "live-status status-ok";
+        statusEl.textContent = "\u{1F7E2} Tracking live";
+      }
+    });
   }
 });

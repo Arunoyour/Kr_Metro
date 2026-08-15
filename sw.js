@@ -3,7 +3,7 @@
 // static (station data, routing logic) — nothing needs a live network call
 // to function, so a straightforward cache-first strategy is enough.
 
-const CACHE_NAME = "kr-metro-v4";
+const CACHE_NAME = "kr-metro-v5";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
