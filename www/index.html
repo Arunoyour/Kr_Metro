@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Namma Metro Route Finder</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2d3fd8" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Kr Metro" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <h1>Namma Metro Route Finder</h1>
+      <p>Pick a start and end station to get step-by-step directions, including where to switch lines.</p>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-swatch" style="background:#8e2e8e"></span>Purple Line</span>
+        <span class="legend-item"><span class="legend-swatch" style="background:#2e9e3f"></span>Green Line</span>
+        <span class="legend-item"><span class="legend-swatch" style="background:#c99a00"></span>Yellow Line</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="card form-card">
+        <form class="route-form" id="route-form">
+          <div class="picker-row">
+            <div class="field-group">
+              <label for="from-input">From</label>
+              <div class="station-picker" id="from-picker">
+                <input
+                  type="text"
+                  id="from-input"
+                  class="picker-input"
+                  autocomplete="off"
+                  placeholder="Search station"
+                  role="combobox"
+                  aria-expanded="false"
+                />
+                <ul class="picker-list" role="listbox"></ul>
+              </div>
+            </div>
+
+            <button type="button" class="swap-btn" id="swap-btn" title="Swap From and To" aria-label="Swap From and To">
+              &#8645;
+            </button>
+
+            <div class="field-group">
+              <label for="to-input">To</label>
+              <div class="station-picker" id="to-picker">
+                <input
+                  type="text"
+                  id="to-input"
+                  class="picker-input"
+                  autocomplete="off"
+                  placeholder="Search station"
+                  role="combobox"
+                  aria-expanded="false"
+                />
+                <ul class="picker-list" role="listbox"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-error" id="form-error"></div>
+
+          <button type="submit" class="submit-btn">Find Route</button>
+        </form>
+      </section>
+
+      <section class="card results-card" id="results-card">
+        <div id="results">
+          <p class="empty-state">Choose a From and To station to see your route.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      Covers the Purple, Green and Yellow operational lines of Namma Metro, Bengaluru.
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="router.js"></script>
+  <script src="geo.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
