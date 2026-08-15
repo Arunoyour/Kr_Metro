@@ -12,6 +12,45 @@ const ALL_STATION_IDS = Object.keys(STATION_NAMES).sort((a, b) =>
   STATION_NAMES[a].localeCompare(STATION_NAMES[b])
 );
 
+// Proximity alert: a short two-tone chime + a vibration pulse when the next
+// stop is within range. Generated with the Web Audio API rather than an
+// audio file, so there's nothing extra for the service worker to cache.
+let audioCtx = null;
+
+// Browsers block audio until it's started from a real user gesture, so this
+// must be called from inside the "Track my journey live" click handler.
+function unlockAudio() {
+  if (!audioCtx) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (Ctx) audioCtx = new Ctx();
+  }
+  if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+}
+
+function playChime() {
+  if (!audioCtx) return;
+  const now = audioCtx.currentTime;
+  [
+    { start: 0, freq: 784 },
+    { start: 0.16, freq: 988 }
+  ].forEach(({ start, freq }) => {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, now + start);
+    gain.gain.exponentialRampToValueAtTime(0.3, now + start + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + start + 0.18);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(now + start);
+    osc.stop(now + start + 0.2);
+  });
+}
+
+function vibrateAlert() {
+  if ("vibrate" in navigator) navigator.vibrate([120, 60, 120]);
+}
+
 function lineDotsHtml(stationId) {
   const lines = [...(STATION_LINES[stationId] || [])];
   return lines
@@ -244,6 +283,8 @@ document.addEventListener("DOMContentLoaded", () => {
       trackBtn.classList.add("active");
       statusEl.hidden = false;
 
+      unlockAudio(); // must happen inside this click handler, not later
+
       tracker = new JourneyTracker(segments, (state) => onTrackUpdate(state, toId));
       tracker.start();
     });
@@ -270,6 +311,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    if (state.approachingAlert) {
+      playChime();
+      vibrateAlert();
+    }
+
     if (state.errorMessage) {
       statusEl.className = "live-status status-error";
       statusEl.textContent = state.errorMessage;
@@ -278,6 +324,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.arrived) {
       statusEl.className = "live-status status-arrived";
       statusEl.textContent = `\u{1F3C1} You've arrived at ${STATION_NAMES[toId]}!`;
+      return;
+    }
+    if (state.approachingAlert) {
+      const a = state.approachingAlert;
+      const verb =
+        a.type === "switch" ? "get ready to switch lines" : a.type === "arrival" ? "get ready to get off" : "coming up";
+      statusEl.className = "live-status status-approaching";
+      statusEl.textContent = `\u{1F514} Approaching ${STATION_NAMES[a.station]} (~${a.distance}m) — ${verb}`;
       return;
     }
     if (state.signalStatus === "lost") {

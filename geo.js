@@ -3,6 +3,7 @@
 // and reports "signal lost" rather than guessing when GPS drops (e.g. underground).
 
 const ARRIVAL_RADIUS_METERS = 150; // within this distance of a stop, consider it reached
+const PROXIMITY_ALERT_METERS = 200; // within this distance of the next stop, fire the alert
 const ACCURACY_THRESHOLD_METERS = 100; // ignore fixes worse than this
 const SIGNAL_LOST_TIMEOUT_MS = 25000; // no usable fix for this long -> signal lost
 const LOOKAHEAD_STOPS = 3; // only ever match against the next few stops, never the whole trip
@@ -40,6 +41,17 @@ class JourneyTracker {
     this.watchId = null;
     this.signalStatus = "searching"; // "searching" | "ok" | "lost" | "error"
     this.lostTimer = null;
+    this.alertedStations = new Set(); // stops we've already fired a proximity alert for
+
+    // A stop needs the rider's attention (switch or get off) if the line
+    // changes right after it, or it's the very last stop of the trip.
+    // Everything else is just a pass-through stop on the way there.
+    this.actionStopIndices = new Set();
+    this.stops.forEach((stop, i) => {
+      const isLast = i === this.stops.length - 1;
+      const switchesNext = !isLast && this.stops[i + 1].segIndex !== stop.segIndex;
+      if (isLast || switchesNext) this.actionStopIndices.add(i);
+    });
   }
 
   start() {
@@ -85,6 +97,33 @@ class JourneyTracker {
     this.signalStatus = "ok";
     this.armLostTimer();
 
+    // Check the proximity alert against the CURRENT next stop before any
+    // advancement below. A single sparse GPS fix can land close enough to
+    // satisfy the (smaller) arrival radius in the same tick it first comes
+    // into alert range — if we checked after advancing, the "next" pointer
+    // would have already moved past the very stop we meant to warn about.
+    let approachingAlert = null;
+    const nextIndex = this.currentIndex + 1;
+    const nextStop = this.stops[nextIndex];
+    if (nextStop && !this.alertedStations.has(nextStop.station)) {
+      const coords = STATION_COORDS[nextStop.station];
+      if (coords) {
+        const d = haversineMeters(latitude, longitude, coords.lat, coords.lon);
+        if (d <= PROXIMITY_ALERT_METERS) {
+          this.alertedStations.add(nextStop.station);
+          approachingAlert = {
+            station: nextStop.station,
+            distance: Math.round(d),
+            type: this.actionStopIndices.has(nextIndex)
+              ? nextIndex === this.stops.length - 1
+                ? "arrival"
+                : "switch"
+              : "stop"
+          };
+        }
+      }
+    }
+
     const window = this.stops.slice(this.currentIndex, this.currentIndex + LOOKAHEAD_STOPS);
     let bestOffset = -1;
     let bestDist = Infinity;
@@ -102,14 +141,14 @@ class JourneyTracker {
       this.currentIndex += bestOffset;
     }
 
-    this.emit();
+    this.emit(undefined, approachingAlert);
 
     if (this.currentIndex >= this.stops.length - 1) {
       this.stop();
     }
   }
 
-  emit(errorMessage) {
+  emit(errorMessage, approachingAlert) {
     const next = this.stops[this.currentIndex + 1] || null;
     this.onUpdate({
       signalStatus: this.signalStatus,
@@ -117,7 +156,8 @@ class JourneyTracker {
       currentStation: this.stops[this.currentIndex].station,
       nextStation: next ? next.station : null,
       arrived: !next,
-      errorMessage
+      errorMessage,
+      approachingAlert: approachingAlert || null
     });
   }
 }
