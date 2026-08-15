@@ -1,0 +1,133 @@
+// Namma Metro network data, transcribed from the official system map.
+// Each line lists station IDs in physical order. Shared IDs (majestic, rv_road)
+// are how interchanges are represented — no separate "duplicate" station needed.
+
+const METRO_LINES = {
+  purple: {
+    name: "Purple Line",
+    color: "#8e2e8e",
+    stations: [
+      "challaghatta", "kengeri", "kengeri_bus_terminal", "pattanagere", "jnanabharathi",
+      "rajarajeshwari_nagar", "mysuru_road", "pantharapalya_nayandahalli", "deepanjali_nagar",
+      "attiguppe", "vijayanagar", "balagangadharanatha_swamiji_hosahalli", "magadi_road",
+      "krantivira_sangolli_rayanna_railway_station", "majestic",
+      "sir_m_visvesvaraya_station_central_college", "dr_br_ambedkar_station_vidhana_soudha",
+      "cubbon_park", "mahatma_gandhi_road", "trinity", "halasuru", "indiranagar",
+      "swami_vivekananda_road", "baiyappanahalli", "benniganahalli", "kr_pura",
+      "singayyanapalya", "garudacharpalya", "hoodi", "seetharampalya", "kundalahalli",
+      "nallurhalli", "sri_sathya_sai_hospital", "pattandur_agrahara", "kadugodi_tree_park",
+      "hopefarm_channasandra", "whitefield_kadugodi"
+    ]
+  },
+  green: {
+    name: "Green Line",
+    color: "#2e9e3f",
+    stations: [
+      "madavara", "chikkabidarakallu", "manjunatha_nagar", "nagasandra", "dasarahalli",
+      "jalahalli", "peenya_industry", "peenya", "goraguntepalya", "yeshwanthpur",
+      "sandal_soap_factory", "mahalakshmi", "rajajinagar", "mahakavi_kuvempu_road",
+      "srirampura", "mantri_square_sampige_road", "majestic", "chickpete",
+      "krishna_rajendra_market", "national_college", "lalbagh", "south_end_circle",
+      "jayanagar", "rv_road", "banashankari", "jaya_prakash_nagar", "yelachenahalli",
+      "konanakunte_cross", "doddakallasandra", "vajarahalli", "thalaghattapura", "silk_institute"
+    ]
+  },
+  yellow: {
+    name: "Yellow Line",
+    color: "#c99a00",
+    stations: [
+      "rv_road", "ragigudda", "jayadeva_hospital", "btm_layout", "central_silk_board",
+      "bommanahalli", "hongasandra", "kudlu_gate", "singasandra", "hosa_road",
+      "beratena_agrahara", "electronic_city", "infosys_foundation_konappana_agrahara",
+      "huskur_road", "biocon_hebbagodi", "delta_electronics_bommasandra"
+    ]
+  }
+};
+
+const STATION_NAMES = {
+  challaghatta: "Challaghatta",
+  kengeri: "Kengeri",
+  kengeri_bus_terminal: "Kengeri Bus Terminal",
+  pattanagere: "Pattanagere",
+  jnanabharathi: "Jnanabharathi",
+  rajarajeshwari_nagar: "Rajarajeshwari Nagar",
+  mysuru_road: "Mysuru Road",
+  pantharapalya_nayandahalli: "Pantharapalya - Nayandahalli",
+  deepanjali_nagar: "Deepanjali Nagar",
+  attiguppe: "Attiguppe",
+  vijayanagar: "Vijayanagar",
+  balagangadharanatha_swamiji_hosahalli: "Balagangadharanatha Swamiji Station, Hosahalli",
+  magadi_road: "Magadi Road",
+  krantivira_sangolli_rayanna_railway_station: "Krantivira Sangolli Rayanna Railway Station",
+  majestic: "Nadaprabhu Kempegowda Station, Majestic",
+  sir_m_visvesvaraya_station_central_college: "Sir M. Visvesvaraya Station, Central College",
+  dr_br_ambedkar_station_vidhana_soudha: "Dr. B. R. Ambedkar Station, Vidhana Soudha",
+  cubbon_park: "Cubbon Park",
+  mahatma_gandhi_road: "Mahatma Gandhi Road",
+  trinity: "Trinity",
+  halasuru: "Halasuru",
+  indiranagar: "Indiranagar",
+  swami_vivekananda_road: "Swami Vivekananda Road",
+  baiyappanahalli: "Baiyappanahalli",
+  benniganahalli: "Benniganahalli",
+  kr_pura: "Krishna Raja Puram (K.R. Pura)",
+  singayyanapalya: "Singayyanapalya",
+  garudacharpalya: "Garudacharpalya",
+  hoodi: "Hoodi",
+  seetharampalya: "Seetharampalya",
+  kundalahalli: "Kundalahalli",
+  nallurhalli: "Nallurhalli",
+  sri_sathya_sai_hospital: "Sri Sathya Sai Hospital",
+  pattandur_agrahara: "Pattandur Agrahara",
+  kadugodi_tree_park: "Kadugodi Tree Park",
+  hopefarm_channasandra: "Hopefarm Channasandra",
+  whitefield_kadugodi: "Whitefield (Kadugodi)",
+
+  madavara: "Madavara",
+  chikkabidarakallu: "Chikkabidarakallu",
+  manjunatha_nagar: "Manjunatha Nagar",
+  nagasandra: "Nagasandra",
+  dasarahalli: "Dasarahalli",
+  jalahalli: "Jalahalli",
+  peenya_industry: "Peenya Industry",
+  peenya: "Peenya",
+  goraguntepalya: "Goraguntepalya",
+  yeshwanthpur: "Yeshwanthpur",
+  sandal_soap_factory: "Sandal Soap Factory",
+  mahalakshmi: "Mahalakshmi",
+  rajajinagar: "Rajajinagar",
+  mahakavi_kuvempu_road: "Mahakavi Kuvempu Road",
+  srirampura: "Srirampura",
+  mantri_square_sampige_road: "Mantri Square Sampige Road",
+  chickpete: "Chickpete",
+  krishna_rajendra_market: "Krishna Rajendra Market",
+  national_college: "National College",
+  lalbagh: "Lalbagh",
+  south_end_circle: "South End Circle",
+  jayanagar: "Jayanagar",
+  rv_road: "Rashtreeya Vidyalaya Road",
+  banashankari: "Banashankari",
+  jaya_prakash_nagar: "Jaya Prakash Nagar",
+  yelachenahalli: "Yelachenahalli",
+  konanakunte_cross: "Konanakunte Cross",
+  doddakallasandra: "Doddakallasandra",
+  vajarahalli: "Vajarahalli",
+  thalaghattapura: "Thalaghattapura",
+  silk_institute: "Silk Institute",
+
+  ragigudda: "Ragigudda",
+  jayadeva_hospital: "Jayadeva Hospital",
+  btm_layout: "BTM Layout",
+  central_silk_board: "Central Silk Board",
+  bommanahalli: "Bommanahalli",
+  hongasandra: "Hongasandra",
+  kudlu_gate: "Kudlu Gate",
+  singasandra: "Singasandra",
+  hosa_road: "Hosa Road",
+  beratena_agrahara: "Beratena Agrahara",
+  electronic_city: "Electronic City",
+  infosys_foundation_konappana_agrahara: "Infosys Foundation Konappana Agrahara",
+  huskur_road: "Huskur Road",
+  biocon_hebbagodi: "Biocon Hebbagodi",
+  delta_electronics_bommasandra: "Delta Electronics Bommasandra"
+};
