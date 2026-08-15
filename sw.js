@@ -3,7 +3,7 @@
 // static (station data, routing logic) — nothing needs a live network call
 // to function, so a straightforward cache-first strategy is enough.
 
-const CACHE_NAME = "kr-metro-v2";
+const CACHE_NAME = "kr-metro-v3";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -11,7 +11,11 @@ const PRECACHE_URLS = [
   "./data.js",
   "./router.js",
   "./geo.js",
-  "./app.js"
+  "./app.js",
+  "./manifest.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-180.png"
 ];
 
 self.addEventListener("install", (event) => {
