@@ -1,5 +1,13 @@
 // UI wiring: searchable station pickers, swap button, and itinerary rendering.
 
+// Registers the offline cache. Requires a secure context (https, or
+// localhost for local testing) — silently no-ops on plain http/file://.
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+
 const ALL_STATION_IDS = Object.keys(STATION_NAMES).sort((a, b) =>
   STATION_NAMES[a].localeCompare(STATION_NAMES[b])
 );
