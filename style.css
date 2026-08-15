@@ -244,6 +244,60 @@ main {
   color: var(--text-muted);
 }
 
+.track-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 11px 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--accent);
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.track-btn:hover {
+  background: #eef0ff;
+}
+
+.track-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.live-status {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.status-searching {
+  background: #f1f2f5;
+  color: var(--text-muted);
+}
+
+.status-ok {
+  background: #e7f7ec;
+  color: #1c7a3c;
+}
+
+.status-lost,
+.status-error {
+  background: #fdecec;
+  color: #a3312a;
+}
+
+.status-arrived {
+  background: #e7f7ec;
+  color: #1c7a3c;
+}
+
 .itinerary {
   list-style: none;
   margin: 0;
@@ -366,11 +420,59 @@ main {
   opacity: 1;
 }
 
+/* Live-tracking states: a station is either behind you, coming up next, or
+   neither yet. Kept as add-on classes so they layer over the static styles
+   above without needing separate markup. */
+
+.stop-detail li.passed {
+  color: #b9bcc3;
+  text-decoration: line-through;
+}
+
+.stop-detail li.passed::before {
+  background: #1c7a3c;
+  opacity: 1;
+}
+
+.stop-detail li.next-station {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.stop-detail li.next-station::before {
+  opacity: 1;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--line-color, var(--accent)) 25%, transparent);
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+.step-marker.passed {
+  background: #1c7a3c;
+  box-shadow: 0 0 0 2px #1c7a3c;
+}
+
+.step-marker.next-station {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+.step-action.passed strong {
+  color: #1c7a3c;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--line-color, var(--accent)) 25%, transparent); }
+  50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--line-color, var(--accent)) 10%, transparent); }
+}
+
 .arrive {
   margin-top: 4px;
   font-size: 0.95rem;
   padding-top: 10px;
   border-top: 1px dashed var(--border);
+}
+
+.arrive.passed {
+  color: #1c7a3c;
+  font-weight: 600;
 }
 
 footer.site-footer {

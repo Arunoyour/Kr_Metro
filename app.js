@@ -123,9 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
     toPicker.setStation(a);
   });
 
+  let tracker = null;
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     errorEl.textContent = "";
+    if (tracker) {
+      tracker.stop();
+      tracker = null;
+    }
 
     if (!fromPicker.stationId || !toPicker.stationId) {
       errorEl.textContent = "Pick a valid station for both From and To.";
@@ -157,6 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <span>${switchCount === 0 ? "No line change" : switchCount + " line change" + (switchCount === 1 ? "" : "s")}</span>
     </div>`;
 
+    html += `<div class="live-status" id="live-status" hidden></div>`;
+    html += `<button type="button" class="track-btn" id="track-btn">&#128205; Track my journey live</button>`;
+
     html += `<ol class="itinerary">`;
     segments.forEach((seg, i) => {
       const line = METRO_LINES[seg.line];
@@ -166,12 +175,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const stopDetailId = `stop-detail-${i}`;
       // Every station after the boarding one, in travel order — what the rider
       // will actually see go by, ending at the switch/alight point.
-      const passedStations = seg.stations.slice(1);
+      const rideStops = seg.stations.slice(1);
 
       html += `<li class="itinerary-step" style="--line-color:${line.color}">
-        <div class="step-marker"></div>
+        <div class="step-marker" data-station="${first}"></div>
         <div class="step-body">
-          <div class="step-action">
+          <div class="step-action" data-station="${first}">
             ${i === 0 ? "Board" : "Switch to"} <strong>${line.name}</strong>
             towards <strong>${STATION_NAMES[seg.towards]}</strong> at ${STATION_NAMES[first]}
           </div>
@@ -180,9 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
             Ride ${stops} stop${stops === 1 ? "" : "s"} to ${STATION_NAMES[last]}
           </button>
           <ol class="stop-detail" id="${stopDetailId}">
-            ${passedStations
+            ${rideStops
               .map(
-                (st, idx) => `<li${idx === passedStations.length - 1 ? ' class="stop-final"' : ""}>${STATION_NAMES[st]}</li>`
+                (st, idx) =>
+                  `<li data-station="${st}"${idx === rideStops.length - 1 ? ' class="stop-final"' : ""}>${STATION_NAMES[st]}</li>`
               )
               .join("")}
           </ol>
@@ -190,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </li>`;
     });
     html += `</ol>`;
-    html += `<div class="arrive">You arrive at <strong>${STATION_NAMES[toId]}</strong></div>`;
+    html += `<div class="arrive" data-station="${toId}">You arrive at <strong>${STATION_NAMES[toId]}</strong></div>`;
 
     resultsEl.innerHTML = html;
 
@@ -201,5 +211,80 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById(btn.getAttribute("aria-controls")).classList.toggle("open", !expanded);
       });
     });
+
+    wireTracking(segments, toId);
+  }
+
+  function wireTracking(segments, toId) {
+    const trackBtn = document.getElementById("track-btn");
+    const statusEl = document.getElementById("live-status");
+
+    trackBtn.addEventListener("click", () => {
+      if (tracker) {
+        tracker.stop();
+        tracker = null;
+        trackBtn.textContent = "\u{1F4CD} Track my journey live";
+        trackBtn.classList.remove("active");
+        statusEl.hidden = true;
+        resultsEl.querySelectorAll("[data-station]").forEach((el) => {
+          el.classList.remove("passed", "next-station");
+        });
+        return;
+      }
+
+      trackBtn.textContent = "⏹ Stop tracking";
+      trackBtn.classList.add("active");
+      statusEl.hidden = false;
+
+      tracker = new JourneyTracker(segments, (state) => onTrackUpdate(state, toId));
+      tracker.start();
+    });
+  }
+
+  function onTrackUpdate(state, toId) {
+    const statusEl = document.getElementById("live-status");
+    if (!statusEl) return;
+
+    resultsEl.querySelectorAll("[data-station]").forEach((el) => {
+      el.classList.toggle("passed", state.passedStations && state.passedStations.includes(el.dataset.station));
+      el.classList.toggle("next-station", state.nextStation === el.dataset.station);
+    });
+
+    // Auto-expand whichever ride segment contains the upcoming stop, so the
+    // rider doesn't have to manually tap to see it.
+    if (state.nextStation) {
+      const nextEl = resultsEl.querySelector(`.stop-detail li[data-station="${state.nextStation}"]`);
+      if (nextEl) {
+        const list = nextEl.closest(".stop-detail");
+        list.classList.add("open");
+        const toggle = resultsEl.querySelector(`.step-ride-toggle[aria-controls="${list.id}"]`);
+        if (toggle) toggle.setAttribute("aria-expanded", "true");
+      }
+    }
+
+    if (state.errorMessage) {
+      statusEl.className = "live-status status-error";
+      statusEl.textContent = state.errorMessage;
+      return;
+    }
+    if (state.arrived) {
+      statusEl.className = "live-status status-arrived";
+      statusEl.textContent = `\u{1F3C1} You've arrived at ${STATION_NAMES[toId]}!`;
+      return;
+    }
+    if (state.signalStatus === "lost") {
+      statusEl.className = "live-status status-lost";
+      statusEl.textContent = `⚠️ GPS signal lost — last confirmed at ${STATION_NAMES[state.currentStation]}`;
+      return;
+    }
+    if (state.signalStatus === "searching") {
+      statusEl.className = "live-status status-searching";
+      statusEl.textContent = "Getting your location…";
+      return;
+    }
+    statusEl.className = "live-status status-ok";
+    statusEl.textContent = state.nextStation
+      ? `\u{1F7E2} Tracking live — next stop: ${STATION_NAMES[state.nextStation]}`
+      : `\u{1F7E2} Tracking live`;
   }
 });
