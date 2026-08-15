@@ -8,6 +8,64 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+// Install prompt: Chrome/Edge/Android fire beforeinstallprompt when the PWA
+// criteria are met (manifest + service worker + installability heuristics).
+// The browser's own prompt only fires once and is easy to miss, so this
+// captures it and shows a persistent bottom bar the user can trigger anytime
+// until they install or dismiss it. iOS Safari never fires this event, so
+// the bar simply never appears there — that's expected, not a bug.
+let deferredInstallPrompt = null;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (localStorage.getItem("installPromptDismissed") !== "1") {
+    showInstallBanner();
+  }
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  hideInstallBanner();
+});
+
+function showInstallBanner() {
+  if (document.getElementById("install-banner")) return;
+
+  const banner = document.createElement("div");
+  banner.id = "install-banner";
+  banner.className = "install-banner";
+  banner.innerHTML = `
+    <span class="install-banner-text">Install this app for quick, offline access.</span>
+    <div class="install-banner-actions">
+      <button type="button" class="install-btn" id="install-btn">Install</button>
+      <button type="button" class="install-dismiss" id="install-dismiss" aria-label="Dismiss">&times;</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+  setTimeout(() => banner.classList.add("visible"), 10);
+
+  document.getElementById("install-btn").addEventListener("click", async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    hideInstallBanner();
+  });
+
+  document.getElementById("install-dismiss").addEventListener("click", () => {
+    localStorage.setItem("installPromptDismissed", "1");
+    hideInstallBanner();
+  });
+}
+
+function hideInstallBanner() {
+  const banner = document.getElementById("install-banner");
+  if (!banner) return;
+  banner.classList.remove("visible");
+  setTimeout(() => banner.remove(), 300);
+}
+
 const ALL_STATION_IDS = Object.keys(STATION_NAMES).sort((a, b) =>
   STATION_NAMES[a].localeCompare(STATION_NAMES[b])
 );
