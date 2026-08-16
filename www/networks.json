@@ -118,5 +118,15 @@
         "data": "data/lucknow-metro.json"
       }
     }
+  },
+  "kanpur": {
+    "name": "Kanpur",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/kanpur-metro.json"
+      }
+    }
   }
 }

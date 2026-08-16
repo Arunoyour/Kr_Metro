@@ -3,7 +3,7 @@
 // static (station data, routing logic) — nothing needs a live network call
 // to function, so a straightforward cache-first strategy is enough.
 
-const CACHE_NAME = "kr-metro-v19";
+const CACHE_NAME = "kr-metro-v20";
 const PRECACHE_URLS = [
   // The portal shell (landing page + picker) and the shared network-app
   // shell (code only) are always worth having offline immediately. Each

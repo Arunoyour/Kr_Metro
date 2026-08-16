@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "name": "Kanpur Metro",
+    "tagline": "Kanpur's metro network — the Orange Line linking IIT Kanpur to Kanpur Central.",
+    "themeColor": "#f7941d"
+  },
+  "lines": {
+    "orange": {
+      "name": "Orange Line",
+      "color": "#f7941d",
+      "stations": [
+        "iit-kanpur",
+        "kalyanpur",
+        "spm-hospital",
+        "vishwavidyalaya",
+        "gurudev-chauraha",
+        "geeta-nagar",
+        "rawatpur",
+        "llr-hospital",
+        "moti-jheel",
+        "chunniganj",
+        "naveen-market",
+        "bada-chauraha",
+        "nayaganj",
+        "kanpur-central"
+      ]
+    }
+  },
+  "stationNames": {
+    "iit-kanpur": "IIT Kanpur",
+    "kalyanpur": "Kalyanpur",
+    "spm-hospital": "SPM Hospital",
+    "vishwavidyalaya": "Vishwavidyalaya",
+    "gurudev-chauraha": "Gurudev Chauraha",
+    "geeta-nagar": "Geeta Nagar",
+    "rawatpur": "Rawatpur",
+    "llr-hospital": "LLR Hospital",
+    "moti-jheel": "Moti Jheel",
+    "chunniganj": "Chunniganj",
+    "naveen-market": "Naveen Market",
+    "bada-chauraha": "Bada Chauraha",
+    "nayaganj": "Nayaganj",
+    "kanpur-central": "Kanpur Central"
+  },
+  "stationCoords": {
+    "iit-kanpur": {
+      "lat": 26.509199,
+      "lon": 80.248292
+    },
+    "kalyanpur": {
+      "lat": 26.503716,
+      "lon": 80.252547
+    },
+    "spm-hospital": {
+      "lat": 26.498884,
+      "lon": 80.258893
+    },
+    "vishwavidyalaya": {
+      "lat": 26.496429,
+      "lon": 80.267426
+    },
+    "gurudev-chauraha": {
+      "lat": 26.491562,
+      "lon": 80.284366
+    },
+    "geeta-nagar": {
+      "lat": 26.48698,
+      "lon": 80.292134
+    },
+    "rawatpur": {
+      "lat": 26.482845,
+      "lon": 80.300074
+    },
+    "llr-hospital": {
+      "lat": 26.479252,
+      "lon": 80.311565
+    },
+    "moti-jheel": {
+      "lat": 26.479111,
+      "lon": 80.317893
+    },
+    "chunniganj": {
+      "lat": 26.477004,
+      "lon": 80.337049
+    },
+    "naveen-market": {
+      "lat": 26.473997,
+      "lon": 80.345438
+    },
+    "bada-chauraha": {
+      "lat": 26.472671,
+      "lon": 80.352395
+    },
+    "nayaganj": {
+      "lat": 26.46417,
+      "lon": 80.359464
+    },
+    "kanpur-central": {
+      "lat": 26.453911,
+      "lon": 80.351781
+    }
+  },
+  "timings": {
+    "orange": {
+      "monday": {
+        "iit-kanpur": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        },
+        "kanpur-central": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "iit-kanpur": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        },
+        "kanpur-central": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        }
+      },
+      "saturday": {
+        "iit-kanpur": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        },
+        "kanpur-central": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        }
+      },
+      "sunday": {
+        "iit-kanpur": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        },
+        "kanpur-central": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~6 min"
+        }
+      }
+    }
+  }
+}
