@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "name": "Lucknow Metro",
+    "tagline": "Lucknow's metro network — the Red Line linking CCS Airport to Munshipulia.",
+    "themeColor": "#e4002b"
+  },
+  "lines": {
+    "red": {
+      "name": "Red Line",
+      "color": "#e4002b",
+      "stations": [
+        "chaudhary-charan-singh-international-airport",
+        "amausi",
+        "transport-nagar",
+        "krishna-nagar",
+        "singar-nagar",
+        "alambagh",
+        "alambagh-bus-station",
+        "mawaiya",
+        "durgapuri",
+        "charbagh-railway-station",
+        "hussainganj",
+        "sachivalaya",
+        "hazratganj",
+        "kd-singh-babu-stadium",
+        "vishwavidyalaya",
+        "it-college",
+        "badshah-nagar",
+        "lekhraj-market",
+        "bhootnath-market",
+        "indira-nagar",
+        "munshipulia"
+      ]
+    }
+  },
+  "stationNames": {
+    "chaudhary-charan-singh-international-airport": "Chaudhary Charan Singh International Airport",
+    "amausi": "Amausi",
+    "transport-nagar": "Transport Nagar",
+    "krishna-nagar": "Krishna Nagar",
+    "singar-nagar": "Singar Nagar",
+    "alambagh": "Alambagh",
+    "alambagh-bus-station": "Alambagh Bus Station",
+    "mawaiya": "Mawaiya",
+    "durgapuri": "Durgapuri",
+    "charbagh-railway-station": "Charbagh Railway Station",
+    "hussainganj": "Hussainganj",
+    "sachivalaya": "Sachivalaya",
+    "hazratganj": "Hazratganj",
+    "kd-singh-babu-stadium": "KD Singh Babu Stadium",
+    "vishwavidyalaya": "Vishwavidyalaya",
+    "it-college": "IT College",
+    "badshah-nagar": "Badshah Nagar",
+    "lekhraj-market": "Lekhraj Market",
+    "bhootnath-market": "Bhootnath Market",
+    "indira-nagar": "Indira Nagar",
+    "munshipulia": "Munshipulia"
+  },
+  "stationCoords": {
+    "chaudhary-charan-singh-international-airport": {
+      "lat": 26.76628,
+      "lon": 80.884176
+    },
+    "amausi": {
+      "lat": 26.771548,
+      "lon": 80.878784
+    },
+    "transport-nagar": {
+      "lat": 26.777638,
+      "lon": 80.882463
+    },
+    "krishna-nagar": {
+      "lat": 26.794401,
+      "lon": 80.891744
+    },
+    "singar-nagar": {
+      "lat": 26.803099,
+      "lon": 80.896411
+    },
+    "alambagh": {
+      "lat": 26.814023,
+      "lon": 80.9025
+    },
+    "alambagh-bus-station": {
+      "lat": 26.818485,
+      "lon": 80.907278
+    },
+    "mawaiya": {
+      "lat": 26.825311,
+      "lon": 80.909837
+    },
+    "durgapuri": {
+      "lat": 26.832019,
+      "lon": 80.915408
+    },
+    "charbagh-railway-station": {
+      "lat": 26.83242,
+      "lon": 80.923112
+    },
+    "hussainganj": {
+      "lat": 26.838434,
+      "lon": 80.934311
+    },
+    "sachivalaya": {
+      "lat": 26.841613,
+      "lon": 80.939897
+    },
+    "hazratganj": {
+      "lat": 26.850007,
+      "lon": 80.941582
+    },
+    "kd-singh-babu-stadium": {
+      "lat": 26.853913,
+      "lon": 80.936803
+    },
+    "vishwavidyalaya": {
+      "lat": 26.865508,
+      "lon": 80.939511
+    },
+    "it-college": {
+      "lat": 26.871054,
+      "lon": 80.94561
+    },
+    "badshah-nagar": {
+      "lat": 26.870728,
+      "lon": 80.961062
+    },
+    "lekhraj-market": {
+      "lat": 26.870947,
+      "lon": 80.973895
+    },
+    "bhootnath-market": {
+      "lat": 26.872267,
+      "lon": 80.982304
+    },
+    "indira-nagar": {
+      "lat": 26.872768,
+      "lon": 80.990873
+    },
+    "munshipulia": {
+      "lat": 26.887896,
+      "lon": 80.995843
+    }
+  },
+  "timings": {
+    "red": {
+      "monday": {
+        "chaudhary-charan-singh-international-airport": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        },
+        "munshipulia": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "chaudhary-charan-singh-international-airport": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        },
+        "munshipulia": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        }
+      },
+      "saturday": {
+        "chaudhary-charan-singh-international-airport": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        },
+        "munshipulia": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        }
+      },
+      "sunday": {
+        "chaudhary-charan-singh-international-airport": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        },
+        "munshipulia": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30",
+          "frequency": "5-7 min"
+        }
+      }
+    }
+  }
+}

@@ -108,5 +108,15 @@
         "data": "data/noida-metro.json"
       }
     }
+  },
+  "lucknow": {
+    "name": "Lucknow",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/lucknow-metro.json"
+      }
+    }
   }
 }
