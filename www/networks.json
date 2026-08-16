@@ -48,5 +48,15 @@
         "data": "data/mumbai-metro.json"
       }
     }
+  },
+  "kolkata": {
+    "name": "Kolkata",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/kolkata-metro.json"
+      }
+    }
   }
 }

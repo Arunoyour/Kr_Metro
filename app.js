@@ -229,6 +229,10 @@ document.addEventListener("visibilitychange", () => {
 // timing data in timings.js. Returns "" if nothing's on file for that
 // line/direction, so a segment quietly gets no note rather than a broken one.
 function timingNoteHtml(lineKey, towardsId) {
+  if (isLineClosedToday(lineKey)) {
+    return `<div class="timing-note timing-closed">🕐 No service on this line today</div>`;
+  }
+
   const timing = getLineTiming(lineKey, towardsId);
   if (!timing) return "";
 
