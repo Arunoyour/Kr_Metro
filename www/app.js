@@ -87,6 +87,10 @@ function unlockAudio() {
 
 function playChime() {
   if (!audioCtx) return;
+  // iOS in particular can auto-suspend the context again after the tab is
+  // backgrounded, even though it was unlocked once at the start — resume
+  // defensively before every chime rather than relying on the one-time unlock.
+  if (audioCtx.state === "suspended") audioCtx.resume();
   const now = audioCtx.currentTime;
   [
     { start: 0, freq: 784 },
@@ -108,6 +112,41 @@ function playChime() {
 function vibrateAlert() {
   if ("vibrate" in navigator) navigator.vibrate([120, 60, 120]);
 }
+
+// Keeping the screen on while tracking matters most on iOS, where there's no
+// Vibration API at all and background tabs get suspended quickly — a locked
+// or backgrounded screen means sound and GPS updates can silently stop. This
+// trades battery for reliability, and only helps if the phone is actually
+// out and visible, not in a pocket.
+let wakeLock = null;
+
+async function requestWakeLock() {
+  if (!("wakeLock" in navigator)) return;
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => {
+      wakeLock = null;
+    });
+  } catch (err) {
+    wakeLock = null; // denied, page hidden, unsupported, etc. — fail silently
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock) {
+    wakeLock.release().catch(() => {});
+    wakeLock = null;
+  }
+}
+
+// A wake lock is automatically released when the page is hidden and does
+// not come back on its own — re-request it if tracking is still running
+// when the rider looks at their phone again.
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible" && window.__krMetroTrackingActive && !wakeLock) {
+    requestWakeLock();
+  }
+});
 
 function lineDotsHtml(stationId) {
   const lines = [...(STATION_LINES[stationId] || [])];
@@ -221,25 +260,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const swapBtn = document.getElementById("swap-btn");
   const errorEl = document.getElementById("form-error");
 
-  swapBtn.addEventListener("click", () => {
-    const a = fromPicker.stationId;
-    const b = toPicker.stationId;
-    fromPicker.setStation(b);
-    toPicker.setStation(a);
-  });
-
   let tracker = null;
   let alertRepeatTimer = null;
   let activeAlert = null; // { station, type } while an alert is unacknowledged
   let lastTrackState = null; // most recent onTrackUpdate state, replayed after Acknowledge
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  function stopTrackingIfActive() {
+    if (!tracker) return;
+    tracker.stop();
+    tracker = null;
+    stopAlertRepeat();
+    releaseWakeLock();
+    window.__krMetroTrackingActive = false;
+    lastTrackState = null;
+  }
+
+  function runRouteSearch() {
     errorEl.textContent = "";
-    if (tracker) {
-      tracker.stop();
-      tracker = null;
-    }
+    stopTrackingIfActive();
 
     if (!fromPicker.stationId || !toPicker.stationId) {
       errorEl.textContent = "Pick a valid station for both From and To.";
@@ -247,9 +285,39 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    localStorage.setItem("lastFromStation", fromPicker.stationId);
+    localStorage.setItem("lastToStation", toPicker.stationId);
+
     const result = findRoute(fromPicker.stationId, toPicker.stationId);
     renderResult(result, fromPicker.stationId, toPicker.stationId);
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    runRouteSearch();
   });
+
+  swapBtn.addEventListener("click", () => {
+    const a = fromPicker.stationId;
+    const b = toPicker.stationId;
+    fromPicker.setStation(b);
+    toPicker.setStation(a);
+    // Only auto-refresh if there's an actual route to recompute — otherwise
+    // just swap whatever's in the fields without triggering the error state.
+    if (fromPicker.stationId && toPicker.stationId) {
+      runRouteSearch();
+    }
+  });
+
+  // Restore the last route on reopen (PWA relaunch, page reload, etc.) so a
+  // daily commute doesn't need re-entering every time.
+  const savedFrom = localStorage.getItem("lastFromStation");
+  const savedTo = localStorage.getItem("lastToStation");
+  if (savedFrom && STATION_NAMES[savedFrom] && savedTo && STATION_NAMES[savedTo]) {
+    fromPicker.setStation(savedFrom);
+    toPicker.setStation(savedTo);
+    runRouteSearch();
+  }
 
   function renderResult(result, fromId, toId) {
     if (result.error === "same-station") {
@@ -273,6 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     html += `<div class="live-status" id="live-status" hidden></div>`;
     html += `<button type="button" class="track-btn" id="track-btn">&#128205; Track my journey live</button>`;
+    html += `<p class="track-hint">Keeps your screen on while tracking, for reliable sound and location — uses more battery.</p>`;
 
     html += `<ol class="itinerary">`;
     segments.forEach((seg, i) => {
@@ -328,10 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     trackBtn.addEventListener("click", () => {
       if (tracker) {
-        tracker.stop();
-        tracker = null;
-        stopAlertRepeat();
-        lastTrackState = null;
+        stopTrackingIfActive();
         trackBtn.textContent = "\u{1F4CD} Track my journey live";
         trackBtn.classList.remove("active");
         statusEl.hidden = true;
@@ -346,6 +412,8 @@ document.addEventListener("DOMContentLoaded", () => {
       statusEl.hidden = false;
 
       unlockAudio(); // must happen inside this click handler, not later
+      requestWakeLock(); // also needs the click's user-gesture context
+      window.__krMetroTrackingActive = true;
 
       tracker = new JourneyTracker(segments, (state) => onTrackUpdate(state, toId));
       tracker.start();
@@ -384,12 +452,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // would be stuck looking at "still approaching" forever.
     if (state.errorMessage) {
       stopAlertRepeat();
+      releaseWakeLock();
+      window.__krMetroTrackingActive = false;
       statusEl.className = "live-status status-error";
       statusEl.textContent = state.errorMessage;
       return;
     }
     if (state.arrived) {
       stopAlertRepeat();
+      releaseWakeLock();
+      window.__krMetroTrackingActive = false;
       statusEl.className = "live-status status-arrived arrive-pop";
       statusEl.textContent = `\u{1F3C1} You've arrived at ${STATION_NAMES[toId]}!`;
       return;
@@ -414,6 +486,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.signalStatus === "lost") {
       statusEl.className = "live-status status-lost";
       statusEl.textContent = `⚠️ GPS signal lost — last confirmed at ${STATION_NAMES[state.currentStation]}`;
+      return;
+    }
+    if (state.signalStatus === "no-fix") {
+      statusEl.className = "live-status status-searching";
+      statusEl.textContent = "Still trying to get a GPS fix — this can take longer indoors or underground.";
       return;
     }
     if (state.signalStatus === "searching") {

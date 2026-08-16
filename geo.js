@@ -39,7 +39,8 @@ class JourneyTracker {
     this.onUpdate = onUpdate;
     this.currentIndex = 0; // last confirmed stop reached; 0 = still at origin
     this.watchId = null;
-    this.signalStatus = "searching"; // "searching" | "ok" | "lost" | "error"
+    this.signalStatus = "searching"; // "searching" | "ok" | "no-fix" | "lost" | "error"
+    this.hasEverFixed = false; // distinguishes "never got a first fix" from "had one, lost it"
     this.lostTimer = null;
     this.alertedStations = new Set(); // stops we've already fired a proximity alert for
 
@@ -63,7 +64,7 @@ class JourneyTracker {
     this.watchId = navigator.geolocation.watchPosition(
       (pos) => this.handlePosition(pos),
       () => this.handleError(),
-      { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 }
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 10000 }
     );
     this.armLostTimer();
     this.emit();
@@ -80,13 +81,15 @@ class JourneyTracker {
   armLostTimer() {
     if (this.lostTimer) clearTimeout(this.lostTimer);
     this.lostTimer = setTimeout(() => {
-      this.signalStatus = "lost";
+      this.signalStatus = this.hasEverFixed ? "lost" : "no-fix";
       this.emit();
     }, SIGNAL_LOST_TIMEOUT_MS);
   }
 
   handleError() {
-    this.signalStatus = "lost";
+    // The browser retries watchPosition on its own and keeps calling this on
+    // each failure, so no need to re-arm anything here.
+    this.signalStatus = this.hasEverFixed ? "lost" : "no-fix";
     this.emit();
   }
 
@@ -94,6 +97,7 @@ class JourneyTracker {
     const { latitude, longitude, accuracy } = pos.coords;
     if (accuracy > ACCURACY_THRESHOLD_METERS) return; // too imprecise to trust
 
+    this.hasEverFixed = true;
     this.signalStatus = "ok";
     this.armLostTimer();
 
@@ -102,10 +106,15 @@ class JourneyTracker {
     // satisfy the (smaller) arrival radius in the same tick it first comes
     // into alert range — if we checked after advancing, the "next" pointer
     // would have already moved past the very stop we meant to warn about.
+    //
+    // Only fires for stops that actually need the rider to do something
+    // (switch lines or get off) — plain pass-through stops don't get a
+    // sound/vibration alert, just the visual next-stop highlight elsewhere.
     let approachingAlert = null;
     const nextIndex = this.currentIndex + 1;
     const nextStop = this.stops[nextIndex];
-    if (nextStop && !this.alertedStations.has(nextStop.station)) {
+    const nextIsActionStop = nextStop && this.actionStopIndices.has(nextIndex);
+    if (nextIsActionStop && !this.alertedStations.has(nextStop.station)) {
       const coords = STATION_COORDS[nextStop.station];
       if (coords) {
         const d = haversineMeters(latitude, longitude, coords.lat, coords.lon);
@@ -114,11 +123,7 @@ class JourneyTracker {
           approachingAlert = {
             station: nextStop.station,
             distance: Math.round(d),
-            type: this.actionStopIndices.has(nextIndex)
-              ? nextIndex === this.stops.length - 1
-                ? "arrival"
-                : "switch"
-              : "stop"
+            type: nextIndex === this.stops.length - 1 ? "arrival" : "switch"
           };
         }
       }
