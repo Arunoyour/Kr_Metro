@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "name": "Navi Mumbai Metro",
+    "tagline": "Navi Mumbai's metro network — Line 1 linking CBD Belapur to Pendhar.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "line1": {
+      "name": "Line 1",
+      "color": "#0072bc",
+      "stations": [
+        "cbd-belapur",
+        "rbi-colony",
+        "belpada",
+        "utsav-chowk",
+        "kendriya-vihar",
+        "kharghar-village",
+        "central-park",
+        "pethpada",
+        "sector-34",
+        "panchanand",
+        "pendhar"
+      ]
+    }
+  },
+  "stationNames": {
+    "cbd-belapur": "CBD Belapur",
+    "rbi-colony": "RBI Colony",
+    "belpada": "Belpada",
+    "utsav-chowk": "Utsav Chowk",
+    "kendriya-vihar": "Kendriya Vihar",
+    "kharghar-village": "Kharghar Village",
+    "central-park": "Central Park",
+    "pethpada": "Pethpada",
+    "sector-34": "Sector 34",
+    "panchanand": "Panchanand",
+    "pendhar": "Pendhar"
+  },
+  "stationCoords": {
+    "cbd-belapur": {
+      "lat": 19.020664,
+      "lon": 73.040237
+    },
+    "rbi-colony": {
+      "lat": 19.023003,
+      "lon": 73.047947
+    },
+    "belpada": {
+      "lat": 19.025297,
+      "lon": 73.054924
+    },
+    "utsav-chowk": {
+      "lat": 19.032611,
+      "lon": 73.05894
+    },
+    "kendriya-vihar": {
+      "lat": 19.037688,
+      "lon": 73.064094
+    },
+    "kharghar-village": {
+      "lat": 19.043227,
+      "lon": 73.074339
+    },
+    "central-park": {
+      "lat": 19.05368,
+      "lon": 73.075984
+    },
+    "pethpada": {
+      "lat": 19.063875,
+      "lon": 73.077348
+    },
+    "sector-34": {
+      "lat": 19.073688,
+      "lon": 73.08187
+    },
+    "panchanand": {
+      "lat": 19.074636,
+      "lon": 73.090672
+    },
+    "pendhar": {
+      "lat": 19.072228,
+      "lon": 73.097859
+    }
+  },
+  "timings": {
+    "line1": {
+      "monday": {
+        "pendhar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        },
+        "cbd-belapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:45",
+          "frequency": "10-15 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "pendhar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        },
+        "cbd-belapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:45",
+          "frequency": "10-15 min"
+        }
+      },
+      "saturday": {
+        "pendhar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        },
+        "cbd-belapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:45",
+          "frequency": "10-15 min"
+        }
+      },
+      "sunday": {
+        "pendhar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        },
+        "cbd-belapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:45",
+          "frequency": "10-15 min"
+        }
+      }
+    }
+  }
+}

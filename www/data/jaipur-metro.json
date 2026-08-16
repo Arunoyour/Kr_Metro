@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "name": "Jaipur Metro",
+    "tagline": "Jaipur's metro network — the Pink Line linking Mansarovar to Badi Chaupar.",
+    "themeColor": "#f06ba8"
+  },
+  "lines": {
+    "pink": {
+      "name": "Pink Line",
+      "color": "#f06ba8",
+      "stations": [
+        "manasarovar",
+        "new-aatish-market",
+        "vivek-vihar",
+        "shyam-nagar",
+        "ram-nagar",
+        "civil-lines",
+        "railway-station",
+        "sindhi-camp",
+        "chandpole",
+        "choti-chaupar",
+        "badi-chaupar"
+      ]
+    }
+  },
+  "stationNames": {
+    "manasarovar": "Manasarovar",
+    "new-aatish-market": "New Aatish Market",
+    "vivek-vihar": "Vivek Vihar",
+    "shyam-nagar": "Shyam Nagar",
+    "ram-nagar": "Ram Nagar",
+    "civil-lines": "Civil Lines",
+    "railway-station": "Railway Station",
+    "sindhi-camp": "Sindhi Camp",
+    "chandpole": "Chandpole",
+    "choti-chaupar": "Choti Chaupar",
+    "badi-chaupar": "Badi Chaupar"
+  },
+  "stationCoords": {
+    "manasarovar": {
+      "lat": 26.87946,
+      "lon": 75.750213
+    },
+    "new-aatish-market": {
+      "lat": 26.880179,
+      "lon": 75.764461
+    },
+    "vivek-vihar": {
+      "lat": 26.888462,
+      "lon": 75.768382
+    },
+    "shyam-nagar": {
+      "lat": 26.896486,
+      "lon": 75.770603
+    },
+    "ram-nagar": {
+      "lat": 26.90177,
+      "lon": 75.774622
+    },
+    "civil-lines": {
+      "lat": 26.909453,
+      "lon": 75.781136
+    },
+    "railway-station": {
+      "lat": 26.918083,
+      "lon": 75.79008
+    },
+    "sindhi-camp": {
+      "lat": 26.922595,
+      "lon": 75.799901
+    },
+    "chandpole": {
+      "lat": 26.926558,
+      "lon": 75.807914
+    },
+    "choti-chaupar": {
+      "lat": 26.924666,
+      "lon": 75.818491
+    },
+    "badi-chaupar": {
+      "lat": 26.922969,
+      "lon": 75.826775
+    }
+  },
+  "timings": {
+    "pink": {
+      "monday": {
+        "badi-chaupar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "5-12 min"
+        },
+        "manasarovar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "5-12 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "badi-chaupar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "5-12 min"
+        },
+        "manasarovar": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "5-12 min"
+        }
+      },
+      "saturday": {
+        "badi-chaupar": {
+          "firstTrain": "07:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        },
+        "manasarovar": {
+          "firstTrain": "07:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        }
+      },
+      "sunday": {
+        "badi-chaupar": {
+          "firstTrain": "07:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        },
+        "manasarovar": {
+          "firstTrain": "07:00",
+          "lastTrain": "22:00",
+          "frequency": "10-15 min"
+        }
+      }
+    }
+  }
+}

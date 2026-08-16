@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "name": "Indore Metro",
+    "tagline": "Indore's metro network — the Yellow Line priority corridor linking Devi Ahilya Bai Holkar Terminal to Veerangana Jhalkari Bai.",
+    "themeColor": "#f7d117"
+  },
+  "lines": {
+    "yellow": {
+      "name": "Yellow Line",
+      "color": "#f7d117",
+      "stations": [
+        "devi-ahilya-bai-holkar-terminal",
+        "maharani-lakshmi-bai",
+        "rani-avanti-bai-lodhi",
+        "rani-durgavati",
+        "veerangana-jhalkari-bai"
+      ]
+    }
+  },
+  "stationNames": {
+    "devi-ahilya-bai-holkar-terminal": "Devi Ahilya Bai Holkar Terminal",
+    "maharani-lakshmi-bai": "Maharani Lakshmi Bai",
+    "rani-avanti-bai-lodhi": "Rani Avanti Bai Lodhi",
+    "rani-durgavati": "Rani Durgavati",
+    "veerangana-jhalkari-bai": "Veerangana Jhalkari Bai"
+  },
+  "stationCoords": {
+    "devi-ahilya-bai-holkar-terminal": {
+      "lat": 22.7195,
+      "lon": 75.8705
+    },
+    "maharani-lakshmi-bai": {
+      "lat": 22.732575,
+      "lon": 75.85761
+    },
+    "rani-avanti-bai-lodhi": {
+      "lat": 22.74565,
+      "lon": 75.84472
+    },
+    "rani-durgavati": {
+      "lat": 22.758726,
+      "lon": 75.83183
+    },
+    "veerangana-jhalkari-bai": {
+      "lat": 22.771801,
+      "lon": 75.81894
+    }
+  },
+  "timings": {
+    "yellow": {
+      "monday": {
+        "devi-ahilya-bai-holkar-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        },
+        "veerangana-jhalkari-bai": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "devi-ahilya-bai-holkar-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        },
+        "veerangana-jhalkari-bai": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        }
+      },
+      "saturday": {
+        "devi-ahilya-bai-holkar-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        },
+        "veerangana-jhalkari-bai": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        }
+      },
+      "sunday": {
+        "devi-ahilya-bai-holkar-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        },
+        "veerangana-jhalkari-bai": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "~10 min"
+        }
+      }
+    }
+  }
+}

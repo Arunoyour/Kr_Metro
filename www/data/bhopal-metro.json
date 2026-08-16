@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "name": "Bhoj Metro",
+    "tagline": "Bhopal's metro network — the Orange Line priority corridor linking AIIMS to Subhash Nagar.",
+    "themeColor": "#f7941d"
+  },
+  "lines": {
+    "orange": {
+      "name": "Orange Line",
+      "color": "#f7941d",
+      "stations": [
+        "aiims",
+        "alkapuri",
+        "drm-office",
+        "rani-kamalapati-railway-station",
+        "mp-nagar",
+        "board-office-chauraha",
+        "kendriya-vidyalaya",
+        "subhash-nagar"
+      ]
+    }
+  },
+  "stationNames": {
+    "aiims": "AIIMS",
+    "alkapuri": "Alkapuri",
+    "drm-office": "DRM Office",
+    "rani-kamalapati-railway-station": "Rani Kamalapati Railway Station",
+    "mp-nagar": "MP Nagar",
+    "board-office-chauraha": "Board Office Chauraha",
+    "kendriya-vidyalaya": "Kendriya Vidyalaya",
+    "subhash-nagar": "Subhash Nagar"
+  },
+  "stationCoords": {
+    "aiims": {
+      "lat": 23.209851,
+      "lon": 77.456069
+    },
+    "alkapuri": {
+      "lat": 23.216499,
+      "lon": 77.451038
+    },
+    "drm-office": {
+      "lat": 23.216182,
+      "lon": 77.44327
+    },
+    "rani-kamalapati-railway-station": {
+      "lat": 23.22128,
+      "lon": 77.438371
+    },
+    "mp-nagar": {
+      "lat": 23.227658,
+      "lon": 77.435223
+    },
+    "board-office-chauraha": {
+      "lat": 23.232477,
+      "lon": 77.431682
+    },
+    "kendriya-vidyalaya": {
+      "lat": 23.240239,
+      "lon": 77.431606
+    },
+    "subhash-nagar": {
+      "lat": 23.247812,
+      "lon": 77.430012
+    }
+  },
+  "timings": {
+    "orange": {
+      "monday": {
+        "subhash-nagar": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        },
+        "aiims": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "subhash-nagar": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        },
+        "aiims": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        }
+      },
+      "saturday": {
+        "subhash-nagar": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        },
+        "aiims": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        }
+      },
+      "sunday": {
+        "subhash-nagar": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        },
+        "aiims": {
+          "firstTrain": "11:00",
+          "lastTrain": "16:30",
+          "frequency": "75 min"
+        }
+      }
+    }
+  }
+}

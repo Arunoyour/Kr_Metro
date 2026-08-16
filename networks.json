@@ -138,5 +138,65 @@
         "data": "data/agra-metro.json"
       }
     }
+  },
+  "jaipur": {
+    "name": "Jaipur",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/jaipur-metro.json"
+      }
+    }
+  },
+  "gurugram": {
+    "name": "Gurugram",
+    "services": {
+      "metro": {
+        "label": "Rapid Metro",
+        "icon": "🚇",
+        "data": "data/gurugram-metro.json"
+      }
+    }
+  },
+  "navi-mumbai": {
+    "name": "Navi Mumbai",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/navimumbai-metro.json"
+      }
+    }
+  },
+  "bhopal": {
+    "name": "Bhopal",
+    "services": {
+      "metro": {
+        "label": "Bhoj Metro",
+        "icon": "🚇",
+        "data": "data/bhopal-metro.json"
+      }
+    }
+  },
+  "indore": {
+    "name": "Indore",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/indore-metro.json"
+      }
+    }
+  },
+  "patna": {
+    "name": "Patna",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/patna-metro.json"
+      }
+    }
   }
 }

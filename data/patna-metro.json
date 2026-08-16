@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "name": "Patna Metro",
+    "tagline": "Patna's metro network — the Blue Line priority corridor linking Malahi Pakri to Patliputra Bus Terminal.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "blue": {
+      "name": "Blue Line",
+      "color": "#0072bc",
+      "stations": [
+        "malahi-pakri",
+        "khemnichak",
+        "bhootnath",
+        "zero-mile",
+        "patliputra-bus-terminal"
+      ]
+    }
+  },
+  "stationNames": {
+    "malahi-pakri": "Malahi Pakri",
+    "khemnichak": "Khemnichak",
+    "bhootnath": "Bhootnath",
+    "zero-mile": "Zero Mile",
+    "patliputra-bus-terminal": "Patliputra Bus Terminal"
+  },
+  "stationCoords": {
+    "malahi-pakri": {
+      "lat": 25.593502,
+      "lon": 85.157141
+    },
+    "khemnichak": {
+      "lat": 25.584683,
+      "lon": 85.163601
+    },
+    "bhootnath": {
+      "lat": 25.585493,
+      "lon": 85.173574
+    },
+    "zero-mile": {
+      "lat": 25.585684,
+      "lon": 85.18675
+    },
+    "patliputra-bus-terminal": {
+      "lat": 25.576316,
+      "lon": 85.189775
+    }
+  },
+  "timings": {
+    "blue": {
+      "monday": {
+        "malahi-pakri": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        },
+        "patliputra-bus-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "malahi-pakri": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        },
+        "patliputra-bus-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        }
+      },
+      "saturday": {
+        "malahi-pakri": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        },
+        "patliputra-bus-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        }
+      },
+      "sunday": {
+        "malahi-pakri": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        },
+        "patliputra-bus-terminal": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "3-5 min"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "name": "Rapid Metro Gurugram",
+    "tagline": "Gurugram's Rapid Metro — Sector 55-56 to the DLF Cyber City loop, interchanging with Delhi Metro at Sikanderpur.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "main": {
+      "name": "Rapid Metro",
+      "color": "#0072bc",
+      "stations": [
+        "sector-55-56",
+        "sector-54-chowk",
+        "sector-53-54",
+        "sector-42-43",
+        "dlf-phase-1",
+        "sikanderpur",
+        "dlf-phase-2",
+        "belvedere-towers",
+        "cyber-city",
+        "moulsari-avenue-station",
+        "phase-3-station"
+      ]
+    },
+    "ring": {
+      "name": "Rapid Metro (Cyber City Loop)",
+      "color": "#0072bc",
+      "stations": [
+        "phase-3-station",
+        "dlf-phase-2",
+        "sikanderpur"
+      ]
+    }
+  },
+  "stationNames": {
+    "sector-55-56": "Sector 55–56",
+    "sector-54-chowk": "Sector 54 Chowk",
+    "sector-53-54": "Sector 53-54",
+    "sector-42-43": "Sector 42-43",
+    "dlf-phase-1": "DLF Phase 1",
+    "sikanderpur": "Sikanderpur",
+    "dlf-phase-2": "DLF Phase 2",
+    "belvedere-towers": "Belvedere Towers",
+    "cyber-city": "Cyber City",
+    "moulsari-avenue-station": "Moulsari Avenue Station",
+    "phase-3-station": "Phase 3 Station"
+  },
+  "stationCoords": {
+    "sector-55-56": {
+      "lat": 28.423299,
+      "lon": 77.105089
+    },
+    "sector-54-chowk": {
+      "lat": 28.432964,
+      "lon": 77.10481
+    },
+    "sector-53-54": {
+      "lat": 28.446379,
+      "lon": 77.100441
+    },
+    "sector-42-43": {
+      "lat": 28.457423,
+      "lon": 77.096929
+    },
+    "dlf-phase-1": {
+      "lat": 28.471426,
+      "lon": 77.093937
+    },
+    "sikanderpur": {
+      "lat": 28.480999,
+      "lon": 77.09442
+    },
+    "dlf-phase-2": {
+      "lat": 28.487541,
+      "lon": 77.092972
+    },
+    "belvedere-towers": {
+      "lat": 28.491702,
+      "lon": 77.088132
+    },
+    "cyber-city": {
+      "lat": 28.498061,
+      "lon": 77.08916
+    },
+    "moulsari-avenue-station": {
+      "lat": 28.500778,
+      "lon": 77.094631
+    },
+    "phase-3-station": {
+      "lat": 28.493568,
+      "lon": 77.093661
+    }
+  },
+  "timings": {
+    "main": {
+      "monday": {
+        "sector-55-56": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      },
+      "tuesdayToFriday": {
+        "sector-55-56": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      },
+      "saturday": {
+        "sector-55-56": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      },
+      "sunday": {
+        "sector-55-56": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      }
+    },
+    "ring": {
+      "monday": {
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "sikanderpur": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      },
+      "tuesdayToFriday": {
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "sikanderpur": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      },
+      "saturday": {
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "sikanderpur": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      },
+      "sunday": {
+        "phase-3-station": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        },
+        "sikanderpur": {
+          "firstTrain": "06:05",
+          "lastTrain": "22:00"
+        }
+      }
+    }
+  }
+}
