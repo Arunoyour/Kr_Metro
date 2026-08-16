@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "name": "Kochi Metro",
+    "tagline": "Kochi's metro line — Aluva to Thrippunithura.",
+    "themeColor": "#0f7a7a"
+  },
+  "lines": {
+    "green": {
+      "name": "Kochi Metro Line",
+      "color": "#2e9e3f",
+      "stations": [
+        "aluva",
+        "pulinchodu",
+        "companypady",
+        "ambattukavu",
+        "muttom",
+        "kalamassery",
+        "cusat",
+        "pathadipalam",
+        "edappally",
+        "changampuzha_park",
+        "palarivattom",
+        "jln_stadium",
+        "kaloor",
+        "town_hall",
+        "mg_road",
+        "maharajas_college",
+        "ernakulam_south",
+        "kadavanthra",
+        "elamkulam",
+        "vyttila",
+        "thykoodam",
+        "petta",
+        "vadakkekotta",
+        "sn_junction",
+        "thrippunithura"
+      ]
+    }
+  },
+  "stationNames": {
+    "aluva": "Aluva",
+    "pulinchodu": "Pulinchodu",
+    "companypady": "Companypady",
+    "ambattukavu": "Ambattukavu",
+    "muttom": "Muttom",
+    "kalamassery": "Kalamassery",
+    "cusat": "Cochin University (CUSAT)",
+    "pathadipalam": "Pathadipalam",
+    "edappally": "Edappally",
+    "changampuzha_park": "Changampuzha Park",
+    "palarivattom": "Palarivattom",
+    "jln_stadium": "JLN Stadium",
+    "kaloor": "Kaloor",
+    "town_hall": "Town Hall",
+    "mg_road": "M. G. Road",
+    "maharajas_college": "Maharaja's College",
+    "ernakulam_south": "Ernakulam South",
+    "kadavanthra": "Kadavanthra",
+    "elamkulam": "Elamkulam",
+    "vyttila": "Vyttila Mobility Hub",
+    "thykoodam": "Thykoodam",
+    "petta": "Petta",
+    "vadakkekotta": "Vadakkekotta",
+    "sn_junction": "SN Junction",
+    "thrippunithura": "Thrippunithura Terminal"
+  },
+  "stationCoords": {
+    "aluva": {
+      "lat": 10.1102298,
+      "lon": 76.3493897
+    },
+    "pulinchodu": {
+      "lat": 10.0950337,
+      "lon": 76.346579
+    },
+    "companypady": {
+      "lat": 10.0872796,
+      "lon": 76.3427855
+    },
+    "ambattukavu": {
+      "lat": 10.079233,
+      "lon": 76.3388572
+    },
+    "muttom": {
+      "lat": 10.0727379,
+      "lon": 76.3336862
+    },
+    "kalamassery": {
+      "lat": 10.0585856,
+      "lon": 76.321962
+    },
+    "cusat": {
+      "lat": 10.0467002,
+      "lon": 76.318272
+    },
+    "pathadipalam": {
+      "lat": 10.0362121,
+      "lon": 76.3144374
+    },
+    "edappally": {
+      "lat": 10.0253065,
+      "lon": 76.308502
+    },
+    "changampuzha_park": {
+      "lat": 10.01519,
+      "lon": 76.3023736
+    },
+    "palarivattom": {
+      "lat": 10.0064248,
+      "lon": 76.3048233
+    },
+    "jln_stadium": {
+      "lat": 10.0004573,
+      "lon": 76.2992551
+    },
+    "kaloor": {
+      "lat": 9.9943621,
+      "lon": 76.2915099
+    },
+    "town_hall": {
+      "lat": 9.9913775,
+      "lon": 76.2883601
+    },
+    "mg_road": {
+      "lat": 9.9834512,
+      "lon": 76.282368
+    },
+    "maharajas_college": {
+      "lat": 9.973278,
+      "lon": 76.2851062
+    },
+    "ernakulam_south": {
+      "lat": 9.9686409,
+      "lon": 76.2895585
+    },
+    "kadavanthra": {
+      "lat": 9.9665809,
+      "lon": 76.2981877
+    },
+    "elamkulam": {
+      "lat": 9.967179,
+      "lon": 76.3084376
+    },
+    "vyttila": {
+      "lat": 9.9676101,
+      "lon": 76.3204985
+    },
+    "thykoodam": {
+      "lat": 9.9600311,
+      "lon": 76.3236762
+    },
+    "petta": {
+      "lat": 9.9526701,
+      "lon": 76.3301067
+    },
+    "vadakkekotta": {
+      "lat": 9.9528395,
+      "lon": 76.3395323
+    },
+    "sn_junction": {
+      "lat": 9.9546595,
+      "lon": 76.3458853
+    },
+    "thrippunithura": {
+      "lat": 9.9506317,
+      "lon": 76.352011
+    }
+  },
+  "timings": {
+    "green": {
+      "monday": {
+        "thrippunithura": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00",
+          "frequency": "7-9 min"
+        },
+        "aluva": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00",
+          "frequency": "7-9 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "thrippunithura": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00",
+          "frequency": "7-9 min"
+        },
+        "aluva": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00",
+          "frequency": "7-9 min"
+        }
+      },
+      "saturday": {
+        "thrippunithura": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00",
+          "frequency": "7-9 min"
+        },
+        "aluva": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00",
+          "frequency": "7-9 min"
+        }
+      },
+      "sunday": {
+        "thrippunithura": {
+          "firstTrain": "07:30",
+          "lastTrain": "23:00",
+          "frequency": "~9 min"
+        },
+        "aluva": {
+          "firstTrain": "07:30",
+          "lastTrain": "23:00",
+          "frequency": "~9 min"
+        }
+      }
+    }
+  }
+}
