@@ -128,5 +128,15 @@
         "data": "data/kanpur-metro.json"
       }
     }
+  },
+  "agra": {
+    "name": "Agra",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/agra-metro.json"
+      }
+    }
   }
 }
