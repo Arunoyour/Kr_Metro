@@ -1,0 +1,375 @@
+{
+  "meta": {
+    "name": "Chennai Metro",
+    "tagline": "Chennai's metro network — Blue and Green lines linking the Airport, Central, and St. Thomas Mount.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "blue": {
+      "name": "Blue Line",
+      "color": "#0072bc",
+      "stations": [
+        "wimco-nagar-depot",
+        "wimco-nagar",
+        "thiruvottriyur",
+        "thiruvottiyur-theradi",
+        "kaladipet",
+        "tollgate",
+        "new-washermanpet",
+        "tondiarpet",
+        "sir-theagaraya-college",
+        "washermanpet",
+        "mannadi",
+        "high-court",
+        "central-metro",
+        "government-estate",
+        "lic",
+        "thousand-lights",
+        "ag-dms",
+        "teynampet",
+        "nandanam",
+        "saidapet",
+        "little-mount",
+        "guindy",
+        "alandur",
+        "nanganallur-road",
+        "meenambakkam",
+        "chennai-international-airport"
+      ]
+    },
+    "green": {
+      "name": "Green Line",
+      "color": "#00a651",
+      "stations": [
+        "central-metro",
+        "egmore-metro",
+        "nehru-park",
+        "kilpauk",
+        "pachaiyappa-s-college",
+        "shenoy-nagar",
+        "anna-nagar-east",
+        "anna-nagar-tower",
+        "thirumangalam",
+        "koyambedu",
+        "cmbt",
+        "arumbakkam",
+        "vadapalani",
+        "ashok-nagar",
+        "ekkattuthangal",
+        "alandur",
+        "st-thomas-mount"
+      ]
+    }
+  },
+  "stationNames": {
+    "wimco-nagar-depot": "Wimco Nagar Depot",
+    "wimco-nagar": "Wimco Nagar",
+    "thiruvottriyur": "Thiruvottriyur",
+    "thiruvottiyur-theradi": "Thiruvottiyur Theradi",
+    "kaladipet": "Kaladipet",
+    "tollgate": "Tollgate",
+    "new-washermanpet": "New Washermanpet",
+    "tondiarpet": "Tondiarpet",
+    "sir-theagaraya-college": "Sir Theagaraya College",
+    "washermanpet": "Washermanpet",
+    "mannadi": "Mannadi",
+    "high-court": "High Court",
+    "central-metro": "Central Metro",
+    "government-estate": "Government Estate",
+    "lic": "LIC",
+    "thousand-lights": "Thousand Lights",
+    "ag-dms": "AG-DMS",
+    "teynampet": "Teynampet",
+    "nandanam": "Nandanam",
+    "saidapet": "Saidapet",
+    "little-mount": "Little Mount",
+    "guindy": "Guindy",
+    "alandur": "Alandur",
+    "nanganallur-road": "Nanganallur Road",
+    "meenambakkam": "Meenambakkam",
+    "chennai-international-airport": "Chennai International Airport",
+    "egmore-metro": "Egmore Metro",
+    "nehru-park": "Nehru Park",
+    "kilpauk": "Kilpauk",
+    "pachaiyappa-s-college": "Pachaiyappa's College",
+    "shenoy-nagar": "Shenoy Nagar",
+    "anna-nagar-east": "Anna Nagar East",
+    "anna-nagar-tower": "Anna Nagar Tower",
+    "thirumangalam": "Thirumangalam",
+    "koyambedu": "Koyambedu",
+    "cmbt": "CMBT",
+    "arumbakkam": "Arumbakkam",
+    "vadapalani": "Vadapalani",
+    "ashok-nagar": "Ashok Nagar",
+    "ekkattuthangal": "Ekkattuthangal",
+    "st-thomas-mount": "St. Thomas Mount"
+  },
+  "stationCoords": {
+    "wimco-nagar-depot": {
+      "lat": 13.183953,
+      "lon": 80.30904
+    },
+    "wimco-nagar": {
+      "lat": 13.179286,
+      "lon": 80.307368
+    },
+    "thiruvottriyur": {
+      "lat": 13.171799,
+      "lon": 80.305287
+    },
+    "thiruvottiyur-theradi": {
+      "lat": 13.160072,
+      "lon": 80.302432
+    },
+    "kaladipet": {
+      "lat": 13.150661,
+      "lon": 80.29941
+    },
+    "tollgate": {
+      "lat": 13.14313,
+      "lon": 80.296344
+    },
+    "new-washermanpet": {
+      "lat": 13.134512,
+      "lon": 80.29302
+    },
+    "tondiarpet": {
+      "lat": 13.124517,
+      "lon": 80.288878
+    },
+    "sir-theagaraya-college": {
+      "lat": 13.115756,
+      "lon": 80.284756
+    },
+    "washermanpet": {
+      "lat": 13.107959,
+      "lon": 80.281025
+    },
+    "mannadi": {
+      "lat": 13.095359,
+      "lon": 80.286159
+    },
+    "high-court": {
+      "lat": 13.087208,
+      "lon": 80.284993
+    },
+    "central-metro": {
+      "lat": 13.081688,
+      "lon": 80.273922
+    },
+    "government-estate": {
+      "lat": 13.069615,
+      "lon": 80.273111
+    },
+    "lic": {
+      "lat": 13.064348,
+      "lon": 80.265862
+    },
+    "thousand-lights": {
+      "lat": 13.05858,
+      "lon": 80.258773
+    },
+    "ag-dms": {
+      "lat": 13.045862,
+      "lon": 80.248303
+    },
+    "teynampet": {
+      "lat": 13.036808,
+      "lon": 80.246455
+    },
+    "nandanam": {
+      "lat": 13.031681,
+      "lon": 80.241193
+    },
+    "saidapet": {
+      "lat": 13.023939,
+      "lon": 80.228092
+    },
+    "little-mount": {
+      "lat": 13.014623,
+      "lon": 80.224168
+    },
+    "guindy": {
+      "lat": 13.009231,
+      "lon": 80.213095
+    },
+    "alandur": {
+      "lat": 13.004212,
+      "lon": 80.20156
+    },
+    "nanganallur-road": {
+      "lat": 12.999848,
+      "lon": 80.194003
+    },
+    "meenambakkam": {
+      "lat": 12.987639,
+      "lon": 80.17647
+    },
+    "chennai-international-airport": {
+      "lat": 12.980773,
+      "lon": 80.164183
+    },
+    "egmore-metro": {
+      "lat": 13.08027,
+      "lon": 80.263058
+    },
+    "nehru-park": {
+      "lat": 13.078774,
+      "lon": 80.250474
+    },
+    "kilpauk": {
+      "lat": 13.077627,
+      "lon": 80.242624
+    },
+    "pachaiyappa-s-college": {
+      "lat": 13.07554,
+      "lon": 80.23287
+    },
+    "shenoy-nagar": {
+      "lat": 13.079925,
+      "lon": 80.225122
+    },
+    "anna-nagar-east": {
+      "lat": 13.084585,
+      "lon": 80.218608
+    },
+    "anna-nagar-tower": {
+      "lat": 13.084968,
+      "lon": 80.208893
+    },
+    "thirumangalam": {
+      "lat": 13.085236,
+      "lon": 80.201589
+    },
+    "koyambedu": {
+      "lat": 13.073445,
+      "lon": 80.194886
+    },
+    "cmbt": {
+      "lat": 13.068558,
+      "lon": 80.203941
+    },
+    "arumbakkam": {
+      "lat": 13.061664,
+      "lon": 80.211677
+    },
+    "vadapalani": {
+      "lat": 13.050927,
+      "lon": 80.212087
+    },
+    "ashok-nagar": {
+      "lat": 13.035512,
+      "lon": 80.211206
+    },
+    "ekkattuthangal": {
+      "lat": 13.016947,
+      "lon": 80.205454
+    },
+    "st-thomas-mount": {
+      "lat": 12.995017,
+      "lon": 80.198381
+    }
+  },
+  "timings": {
+    "blue": {
+      "monday": {
+        "chennai-international-airport": {
+          "firstTrain": "04:51",
+          "lastTrain": "23:00",
+          "frequency": "6-15 min"
+        },
+        "wimco-nagar-depot": {
+          "firstTrain": "04:56",
+          "lastTrain": "23:00",
+          "frequency": "6-15 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "chennai-international-airport": {
+          "firstTrain": "04:51",
+          "lastTrain": "23:00",
+          "frequency": "6-15 min"
+        },
+        "wimco-nagar-depot": {
+          "firstTrain": "04:56",
+          "lastTrain": "23:00",
+          "frequency": "6-15 min"
+        }
+      },
+      "saturday": {
+        "chennai-international-airport": {
+          "firstTrain": "04:51",
+          "lastTrain": "23:00",
+          "frequency": "6-15 min"
+        },
+        "wimco-nagar-depot": {
+          "firstTrain": "04:56",
+          "lastTrain": "23:00",
+          "frequency": "6-15 min"
+        }
+      },
+      "sunday": {
+        "chennai-international-airport": {
+          "firstTrain": "05:02",
+          "lastTrain": "23:00",
+          "frequency": "7-15 min"
+        },
+        "wimco-nagar-depot": {
+          "firstTrain": "05:03",
+          "lastTrain": "23:00",
+          "frequency": "7-15 min"
+        }
+      }
+    },
+    "green": {
+      "monday": {
+        "st-thomas-mount": {
+          "firstTrain": "05:02",
+          "lastTrain": "23:00",
+          "frequency": "12-30 min"
+        },
+        "central-metro": {
+          "firstTrain": "05:01",
+          "lastTrain": "23:00",
+          "frequency": "12-30 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "st-thomas-mount": {
+          "firstTrain": "05:02",
+          "lastTrain": "23:00",
+          "frequency": "12-30 min"
+        },
+        "central-metro": {
+          "firstTrain": "05:01",
+          "lastTrain": "23:00",
+          "frequency": "12-30 min"
+        }
+      },
+      "saturday": {
+        "st-thomas-mount": {
+          "firstTrain": "05:02",
+          "lastTrain": "23:00",
+          "frequency": "12-30 min"
+        },
+        "central-metro": {
+          "firstTrain": "05:01",
+          "lastTrain": "23:00",
+          "frequency": "12-30 min"
+        }
+      },
+      "sunday": {
+        "st-thomas-mount": {
+          "firstTrain": "04:51",
+          "lastTrain": "23:17",
+          "frequency": "14-30 min"
+        },
+        "central-metro": {
+          "firstTrain": "04:51",
+          "lastTrain": "23:07",
+          "frequency": "14-30 min"
+        }
+      }
+    }
+  }
+}

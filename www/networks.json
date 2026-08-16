@@ -58,5 +58,15 @@
         "data": "data/kolkata-metro.json"
       }
     }
+  },
+  "chennai": {
+    "name": "Chennai",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/chennai-metro.json"
+      }
+    }
   }
 }
