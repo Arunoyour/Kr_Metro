@@ -88,5 +88,15 @@
         "data": "data/pune-metro.json"
       }
     }
+  },
+  "nagpur": {
+    "name": "Nagpur",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/nagpur-metro.json"
+      }
+    }
   }
 }

@@ -1,0 +1,334 @@
+{
+  "meta": {
+    "name": "Nagpur Metro",
+    "tagline": "Nagpur's metro network — Orange and Aqua lines linking Automotive Square, Khapri, Lokmanya Nagar and Prajapati Nagar.",
+    "themeColor": "#f7941d"
+  },
+  "lines": {
+    "orange": {
+      "name": "Orange Line",
+      "color": "#f7941d",
+      "stations": [
+        "automotive-square",
+        "nari-road",
+        "indora-square",
+        "kadvi-square",
+        "gaddi-godam-square",
+        "kasturchand-park",
+        "zero-mile",
+        "sitabuldi",
+        "congress-nagar",
+        "rahate-colony",
+        "ajni-square",
+        "chhatrapati-square",
+        "jaiprakash-nagar",
+        "ujjwal-nagar",
+        "airport",
+        "airport-south",
+        "new-airport",
+        "khapri"
+      ]
+    },
+    "aqua": {
+      "name": "Aqua Line",
+      "color": "#00b3c6",
+      "stations": [
+        "lokmanya-nagar",
+        "bansi-nagar",
+        "vasudev-nagar",
+        "rachna-ring-road",
+        "subhash-nagar",
+        "ambazari-lake",
+        "lad-college",
+        "shankar-nagar-square",
+        "institute-of-engineers",
+        "jhasi-rani-square",
+        "sitabuldi",
+        "cotton-market",
+        "nagpur-railway-station",
+        "dosar-vaisya-square",
+        "agrasen-square",
+        "chitaroli-square",
+        "telephone-exchange",
+        "ambedkar-square",
+        "vaishnodevi-square",
+        "prajapati-nagar"
+      ]
+    }
+  },
+  "stationNames": {
+    "automotive-square": "Automotive Square",
+    "nari-road": "Nari Road",
+    "indora-square": "Indora Square",
+    "kadvi-square": "Kadvi Square",
+    "gaddi-godam-square": "Gaddi Godam Square",
+    "kasturchand-park": "Kasturchand Park",
+    "zero-mile": "Zero Mile",
+    "sitabuldi": "Sitabuldi",
+    "congress-nagar": "Congress Nagar",
+    "rahate-colony": "Rahate Colony",
+    "ajni-square": "Ajni Square",
+    "chhatrapati-square": "Chhatrapati Square",
+    "jaiprakash-nagar": "Jaiprakash Nagar",
+    "ujjwal-nagar": "Ujjwal Nagar",
+    "airport": "Airport",
+    "airport-south": "Airport South",
+    "new-airport": "New Airport",
+    "khapri": "Khapri",
+    "lokmanya-nagar": "Lokmanya Nagar",
+    "bansi-nagar": "Bansi Nagar",
+    "vasudev-nagar": "Vasudev Nagar",
+    "rachna-ring-road": "Rachna Ring Road",
+    "subhash-nagar": "Subhash Nagar",
+    "ambazari-lake": "Ambazari Lake",
+    "lad-college": "LAD College",
+    "shankar-nagar-square": "Shankar Nagar Square",
+    "institute-of-engineers": "Institute of Engineers",
+    "jhasi-rani-square": "Jhasi Rani Square",
+    "cotton-market": "Cotton Market",
+    "nagpur-railway-station": "Nagpur Railway Station",
+    "dosar-vaisya-square": "Dosar Vaisya Square",
+    "agrasen-square": "Agrasen Square",
+    "chitaroli-square": "Chitaroli Square",
+    "telephone-exchange": "Telephone Exchange",
+    "ambedkar-square": "Ambedkar Square",
+    "vaishnodevi-square": "Vaishnodevi Square",
+    "prajapati-nagar": "Prajapati Nagar"
+  },
+  "stationCoords": {
+    "automotive-square": {
+      "lat": 21.185806,
+      "lon": 79.119771
+    },
+    "nari-road": {
+      "lat": 21.179418,
+      "lon": 79.109831
+    },
+    "indora-square": {
+      "lat": 21.173652,
+      "lon": 79.100728
+    },
+    "kadvi-square": {
+      "lat": 21.168625,
+      "lon": 79.092404
+    },
+    "gaddi-godam-square": {
+      "lat": 21.161621,
+      "lon": 79.083742
+    },
+    "kasturchand-park": {
+      "lat": 21.15436,
+      "lon": 79.081495
+    },
+    "zero-mile": {
+      "lat": 21.146696,
+      "lon": 79.080654
+    },
+    "sitabuldi": {
+      "lat": 21.141791,
+      "lon": 79.082344
+    },
+    "congress-nagar": {
+      "lat": 21.128197,
+      "lon": 79.082573
+    },
+    "rahate-colony": {
+      "lat": 21.127661,
+      "lon": 79.075704
+    },
+    "ajni-square": {
+      "lat": 21.118206,
+      "lon": 79.072126
+    },
+    "chhatrapati-square": {
+      "lat": 21.109116,
+      "lon": 79.069685
+    },
+    "jaiprakash-nagar": {
+      "lat": 21.103607,
+      "lon": 79.068207
+    },
+    "ujjwal-nagar": {
+      "lat": 21.096347,
+      "lon": 79.066338
+    },
+    "airport": {
+      "lat": 21.086212,
+      "lon": 79.063806
+    },
+    "airport-south": {
+      "lat": 21.079046,
+      "lon": 79.060544
+    },
+    "new-airport": {
+      "lat": 21.06603,
+      "lon": 79.055848
+    },
+    "khapri": {
+      "lat": 21.049339,
+      "lon": 79.047854
+    },
+    "lokmanya-nagar": {
+      "lat": 21.110819,
+      "lon": 79.001743
+    },
+    "bansi-nagar": {
+      "lat": 21.116212,
+      "lon": 79.012592
+    },
+    "vasudev-nagar": {
+      "lat": 21.1188,
+      "lon": 79.019459
+    },
+    "rachna-ring-road": {
+      "lat": 21.121539,
+      "lon": 79.029409
+    },
+    "subhash-nagar": {
+      "lat": 21.123334,
+      "lon": 79.042054
+    },
+    "ambazari-lake": {
+      "lat": 21.128696,
+      "lon": 79.045726
+    },
+    "lad-college": {
+      "lat": 21.132931,
+      "lon": 79.054788
+    },
+    "shankar-nagar-square": {
+      "lat": 21.13623,
+      "lon": 79.06164
+    },
+    "institute-of-engineers": {
+      "lat": 21.13833,
+      "lon": 79.070086
+    },
+    "jhasi-rani-square": {
+      "lat": 21.140733,
+      "lon": 79.077822
+    },
+    "cotton-market": {
+      "lat": 21.14599,
+      "lon": 79.089773
+    },
+    "nagpur-railway-station": {
+      "lat": 21.151378,
+      "lon": 79.090417
+    },
+    "dosar-vaisya-square": {
+      "lat": 21.152957,
+      "lon": 79.094906
+    },
+    "agrasen-square": {
+      "lat": 21.151081,
+      "lon": 79.102928
+    },
+    "chitaroli-square": {
+      "lat": 21.149672,
+      "lon": 79.110394
+    },
+    "telephone-exchange": {
+      "lat": 21.148839,
+      "lon": 79.118233
+    },
+    "ambedkar-square": {
+      "lat": 21.148332,
+      "lon": 79.129495
+    },
+    "vaishnodevi-square": {
+      "lat": 21.148035,
+      "lon": 79.136402
+    },
+    "prajapati-nagar": {
+      "lat": 21.150218,
+      "lon": 79.148788
+    }
+  },
+  "timings": {
+    "orange": {
+      "monday": {
+        "khapri": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:10"
+        },
+        "automotive-square": {
+          "firstTrain": "05:35",
+          "lastTrain": "20:50"
+        }
+      },
+      "tuesdayToFriday": {
+        "khapri": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:10"
+        },
+        "automotive-square": {
+          "firstTrain": "05:35",
+          "lastTrain": "20:50"
+        }
+      },
+      "saturday": {
+        "khapri": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:10"
+        },
+        "automotive-square": {
+          "firstTrain": "05:35",
+          "lastTrain": "20:50"
+        }
+      },
+      "sunday": {
+        "khapri": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:10"
+        },
+        "automotive-square": {
+          "firstTrain": "05:35",
+          "lastTrain": "20:50"
+        }
+      }
+    },
+    "aqua": {
+      "monday": {
+        "prajapati-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "20:50"
+        },
+        "lokmanya-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:20"
+        }
+      },
+      "tuesdayToFriday": {
+        "prajapati-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "20:50"
+        },
+        "lokmanya-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:20"
+        }
+      },
+      "saturday": {
+        "prajapati-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "20:50"
+        },
+        "lokmanya-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:20"
+        }
+      },
+      "sunday": {
+        "prajapati-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "20:50"
+        },
+        "lokmanya-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "21:20"
+        }
+      }
+    }
+  }
+}
