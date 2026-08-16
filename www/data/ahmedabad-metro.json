@@ -1,0 +1,560 @@
+{
+  "meta": {
+    "name": "Ahmedabad Metro",
+    "tagline": "Ahmedabad's metro network — Blue, Red, Violet and Yellow lines linking the city and Gandhinagar.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "blue": {
+      "name": "Blue Line",
+      "color": "#0072bc",
+      "stations": [
+        "thaltej-gam",
+        "thaltej",
+        "doordarshan-kendra",
+        "gurukul-road",
+        "gujarat-university-station",
+        "commerce-six-roads",
+        "stadium",
+        "old-high-court",
+        "shahpur-station",
+        "gheekanta",
+        "kalupur-railway-station",
+        "kankaria-east",
+        "apparel-park",
+        "amraiwadi",
+        "rabari-colony",
+        "vastral",
+        "nirant-cross-roads",
+        "vastral-gam"
+      ]
+    },
+    "red": {
+      "name": "Red Line",
+      "color": "#e4002b",
+      "stations": [
+        "apmc",
+        "jivraj-park",
+        "rajiv-nagar",
+        "shreyas",
+        "paldi",
+        "gandhigram",
+        "old-high-court",
+        "usmanpura",
+        "vijay-nagar",
+        "vadaj",
+        "ranip",
+        "aec",
+        "sabarmati",
+        "motera-stadium"
+      ]
+    },
+    "violet": {
+      "name": "Violet Line",
+      "color": "#92278f",
+      "stations": [
+        "gift-city",
+        "pdpu",
+        "gnlu"
+      ]
+    },
+    "yellow": {
+      "name": "Yellow Line",
+      "color": "#f7d117",
+      "stations": [
+        "mahatma-mandir",
+        "sector-24",
+        "sector-16",
+        "juna-sachivalaya",
+        "akshardham",
+        "sachivalaya",
+        "sector-10a",
+        "sector-1",
+        "infocity",
+        "dholakuva-circle",
+        "randesan",
+        "raysan",
+        "gnlu",
+        "koba-gam",
+        "juna-koba",
+        "koba-circle",
+        "narmada-canal",
+        "tapovan-circle",
+        "vishwakarma-college",
+        "koteshwar-road",
+        "motera-stadium"
+      ]
+    }
+  },
+  "stationNames": {
+    "thaltej-gam": "Thaltej Gam",
+    "thaltej": "Thaltej",
+    "doordarshan-kendra": "Doordarshan Kendra",
+    "gurukul-road": "Gurukul Road",
+    "gujarat-university-station": "Gujarat University Station",
+    "commerce-six-roads": "Commerce Six Roads",
+    "stadium": "Stadium",
+    "old-high-court": "Old High Court",
+    "shahpur-station": "Shahpur Station",
+    "gheekanta": "Gheekanta",
+    "kalupur-railway-station": "Kalupur Railway Station",
+    "kankaria-east": "Kankaria East",
+    "apparel-park": "Apparel Park",
+    "amraiwadi": "Amraiwadi",
+    "rabari-colony": "Rabari Colony",
+    "vastral": "Vastral",
+    "nirant-cross-roads": "Nirant Cross Roads",
+    "vastral-gam": "Vastral Gam",
+    "apmc": "APMC",
+    "jivraj-park": "Jivraj Park",
+    "rajiv-nagar": "Rajiv Nagar",
+    "shreyas": "Shreyas",
+    "paldi": "Paldi",
+    "gandhigram": "Gandhigram",
+    "usmanpura": "Usmanpura",
+    "vijay-nagar": "Vijay Nagar",
+    "vadaj": "Vadaj",
+    "ranip": "Ranip",
+    "aec": "AEC",
+    "sabarmati": "Sabarmati",
+    "motera-stadium": "Motera Stadium",
+    "gift-city": "GIFT City",
+    "pdpu": "PDPU",
+    "gnlu": "GNLU",
+    "mahatma-mandir": "Mahatma Mandir",
+    "sector-24": "Sector-24",
+    "sector-16": "Sector-16",
+    "juna-sachivalaya": "Juna Sachivalaya",
+    "akshardham": "Akshardham",
+    "sachivalaya": "Sachivalaya",
+    "sector-10a": "Sector-10A",
+    "sector-1": "Sector-1",
+    "infocity": "Infocity",
+    "dholakuva-circle": "Dholakuva Circle",
+    "randesan": "Randesan",
+    "raysan": "Raysan",
+    "koba-gam": "Koba Gam",
+    "juna-koba": "Juna Koba",
+    "koba-circle": "Koba Circle",
+    "narmada-canal": "Narmada Canal",
+    "tapovan-circle": "Tapovan Circle",
+    "vishwakarma-college": "Vishwakarma College",
+    "koteshwar-road": "Koteshwar Road"
+  },
+  "stationCoords": {
+    "thaltej-gam": {
+      "lat": 23.050182,
+      "lon": 72.507021
+    },
+    "thaltej": {
+      "lat": 23.04975,
+      "lon": 72.515994
+    },
+    "doordarshan-kendra": {
+      "lat": 23.04814,
+      "lon": 72.524504
+    },
+    "gurukul-road": {
+      "lat": 23.045869,
+      "lon": 72.534875
+    },
+    "gujarat-university-station": {
+      "lat": 23.044837,
+      "lon": 72.543513
+    },
+    "commerce-six-roads": {
+      "lat": 23.040679,
+      "lon": 72.553061
+    },
+    "stadium": {
+      "lat": 23.039835,
+      "lon": 72.561639
+    },
+    "old-high-court": {
+      "lat": 23.037543,
+      "lon": 72.567061
+    },
+    "shahpur-station": {
+      "lat": 23.039158,
+      "lon": 72.581029
+    },
+    "gheekanta": {
+      "lat": 23.028779,
+      "lon": 72.586749
+    },
+    "kalupur-railway-station": {
+      "lat": 23.024694,
+      "lon": 72.603093
+    },
+    "kankaria-east": {
+      "lat": 23.015454,
+      "lon": 72.606935
+    },
+    "apparel-park": {
+      "lat": 23.010656,
+      "lon": 72.618237
+    },
+    "amraiwadi": {
+      "lat": 23.007846,
+      "lon": 72.628373
+    },
+    "rabari-colony": {
+      "lat": 23.005413,
+      "lon": 72.635592
+    },
+    "vastral": {
+      "lat": 23.003492,
+      "lon": 72.647694
+    },
+    "nirant-cross-roads": {
+      "lat": 22.999899,
+      "lon": 72.658509
+    },
+    "vastral-gam": {
+      "lat": 22.997131,
+      "lon": 72.667451
+    },
+    "apmc": {
+      "lat": 22.9978,
+      "lon": 72.537095
+    },
+    "jivraj-park": {
+      "lat": 23.005534,
+      "lon": 72.533474
+    },
+    "rajiv-nagar": {
+      "lat": 23.009771,
+      "lon": 72.536757
+    },
+    "shreyas": {
+      "lat": 23.013648,
+      "lon": 72.549245
+    },
+    "paldi": {
+      "lat": 23.018547,
+      "lon": 72.562328
+    },
+    "gandhigram": {
+      "lat": 23.027175,
+      "lon": 72.56882
+    },
+    "usmanpura": {
+      "lat": 23.045909,
+      "lon": 72.564927
+    },
+    "vijay-nagar": {
+      "lat": 23.056434,
+      "lon": 72.562254
+    },
+    "vadaj": {
+      "lat": 23.067695,
+      "lon": 72.56589
+    },
+    "ranip": {
+      "lat": 23.067722,
+      "lon": 72.574151
+    },
+    "aec": {
+      "lat": 23.075123,
+      "lon": 72.593271
+    },
+    "sabarmati": {
+      "lat": 23.085623,
+      "lon": 72.592182
+    },
+    "motera-stadium": {
+      "lat": 23.096788,
+      "lon": 72.596669
+    },
+    "gift-city": {
+      "lat": 23.153345,
+      "lon": 72.685584
+    },
+    "pdpu": {
+      "lat": 23.15492,
+      "lon": 72.661233
+    },
+    "gnlu": {
+      "lat": 23.154468,
+      "lon": 72.647481
+    },
+    "mahatma-mandir": {
+      "lat": 23.233945,
+      "lon": 72.633861
+    },
+    "sector-24": {
+      "lat": 23.238516,
+      "lon": 72.641484
+    },
+    "sector-16": {
+      "lat": 23.233897,
+      "lon": 72.650174
+    },
+    "juna-sachivalaya": {
+      "lat": 23.228937,
+      "lon": 72.659423
+    },
+    "akshardham": {
+      "lat": 23.22367,
+      "lon": 72.664194
+    },
+    "sachivalaya": {
+      "lat": 23.215065,
+      "lon": 72.65877
+    },
+    "sector-10a": {
+      "lat": 23.211471,
+      "lon": 72.650186
+    },
+    "sector-1": {
+      "lat": 23.204899,
+      "lon": 72.643169
+    },
+    "infocity": {
+      "lat": 23.192258,
+      "lon": 72.639732
+    },
+    "dholakuva-circle": {
+      "lat": 23.185976,
+      "lon": 72.643307
+    },
+    "randesan": {
+      "lat": 23.179087,
+      "lon": 72.647323
+    },
+    "raysan": {
+      "lat": 23.166395,
+      "lon": 72.64834
+    },
+    "koba-gam": {
+      "lat": 23.147591,
+      "lon": 72.643925
+    },
+    "juna-koba": {
+      "lat": 23.141959,
+      "lon": 72.638633
+    },
+    "koba-circle": {
+      "lat": 23.132241,
+      "lon": 72.631054
+    },
+    "narmada-canal": {
+      "lat": 23.125134,
+      "lon": 72.622108
+    },
+    "tapovan-circle": {
+      "lat": 23.12011,
+      "lon": 72.615814
+    },
+    "vishwakarma-college": {
+      "lat": 23.114189,
+      "lon": 72.608392
+    },
+    "koteshwar-road": {
+      "lat": 23.103105,
+      "lon": 72.602153
+    }
+  },
+  "timings": {
+    "blue": {
+      "monday": {
+        "vastral-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "7-10 min"
+        },
+        "thaltej-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "7-10 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "vastral-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "7-10 min"
+        },
+        "thaltej-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "7-10 min"
+        }
+      },
+      "saturday": {
+        "vastral-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "7-10 min"
+        },
+        "thaltej-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "7-10 min"
+        }
+      },
+      "sunday": {
+        "vastral-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "12 min"
+        },
+        "thaltej-gam": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:00",
+          "frequency": "12 min"
+        }
+      }
+    },
+    "red": {
+      "monday": {
+        "motera-stadium": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:10",
+          "frequency": "12 min"
+        },
+        "apmc": {
+          "firstTrain": "06:16",
+          "lastTrain": "23:00",
+          "frequency": "12 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "motera-stadium": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:10",
+          "frequency": "12 min"
+        },
+        "apmc": {
+          "firstTrain": "06:16",
+          "lastTrain": "23:00",
+          "frequency": "12 min"
+        }
+      },
+      "saturday": {
+        "motera-stadium": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:10",
+          "frequency": "12 min"
+        },
+        "apmc": {
+          "firstTrain": "06:16",
+          "lastTrain": "23:00",
+          "frequency": "12 min"
+        }
+      },
+      "sunday": {
+        "motera-stadium": {
+          "firstTrain": "06:20",
+          "lastTrain": "23:10",
+          "frequency": "12 min"
+        },
+        "apmc": {
+          "firstTrain": "06:16",
+          "lastTrain": "23:00",
+          "frequency": "12 min"
+        }
+      }
+    },
+    "yellow": {
+      "monday": {
+        "mahatma-mandir": {
+          "firstTrain": "07:33",
+          "lastTrain": "21:20",
+          "frequency": "~24 min"
+        },
+        "motera-stadium": {
+          "firstTrain": "08:00",
+          "lastTrain": "21:00",
+          "frequency": "~24 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "mahatma-mandir": {
+          "firstTrain": "07:33",
+          "lastTrain": "21:20",
+          "frequency": "~24 min"
+        },
+        "motera-stadium": {
+          "firstTrain": "08:00",
+          "lastTrain": "21:00",
+          "frequency": "~24 min"
+        }
+      },
+      "saturday": {
+        "mahatma-mandir": {
+          "firstTrain": "07:33",
+          "lastTrain": "21:20",
+          "frequency": "~24 min"
+        },
+        "motera-stadium": {
+          "firstTrain": "08:00",
+          "lastTrain": "21:00",
+          "frequency": "~24 min"
+        }
+      },
+      "sunday": {
+        "mahatma-mandir": {
+          "firstTrain": "07:33",
+          "lastTrain": "21:20",
+          "frequency": "~24 min"
+        },
+        "motera-stadium": {
+          "firstTrain": "08:00",
+          "lastTrain": "21:00",
+          "frequency": "~24 min"
+        }
+      }
+    },
+    "violet": {
+      "monday": {
+        "gift-city": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        },
+        "gnlu": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "gift-city": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        },
+        "gnlu": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        }
+      },
+      "saturday": {
+        "gift-city": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        },
+        "gnlu": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        }
+      },
+      "sunday": {
+        "gift-city": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        },
+        "gnlu": {
+          "firstTrain": "07:36",
+          "lastTrain": "19:13",
+          "frequency": "49-57 min"
+        }
+      }
+    }
+  }
+}

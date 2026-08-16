@@ -68,5 +68,15 @@
         "data": "data/chennai-metro.json"
       }
     }
+  },
+  "ahmedabad": {
+    "name": "Ahmedabad",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/ahmedabad-metro.json"
+      }
+    }
   }
 }
