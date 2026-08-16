@@ -78,5 +78,15 @@
         "data": "data/ahmedabad-metro.json"
       }
     }
+  },
+  "pune": {
+    "name": "Pune",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/pune-metro.json"
+      }
+    }
   }
 }
