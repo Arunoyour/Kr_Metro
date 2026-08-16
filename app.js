@@ -239,7 +239,8 @@ function timingNoteHtml(lineKey, towardsId) {
   if (status === "after-close") {
     return `<div class="timing-note timing-closed">🕐 Done for the day — last train was ${timing.lastTrain}, first train tomorrow ${timing.firstTrain}</div>`;
   }
-  return `<div class="timing-note">🕐 Trains every ${timing.frequency} · last train ${timing.lastTrain}</div>`;
+  const frequencyPart = timing.frequency ? `Trains every ${timing.frequency} · ` : "";
+  return `<div class="timing-note">🕐 ${frequencyPart}last train ${timing.lastTrain}</div>`;
 }
 
 function lineDotsHtml(stationId) {

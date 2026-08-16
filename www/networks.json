@@ -18,5 +18,15 @@
         "data": "data/kochi-metro.json"
       }
     }
+  },
+  "delhi": {
+    "name": "Delhi",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/delhi-metro.json"
+      }
+    }
   }
 }
