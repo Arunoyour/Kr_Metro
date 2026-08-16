@@ -20,7 +20,8 @@
   "homepage": "https://github.com/Arunoyour/Kr_Metro#readme",
   "dependencies": {
     "@capacitor/android": "^8.5.0",
-    "@capacitor/core": "^8.5.0"
+    "@capacitor/core": "^8.5.0",
+    "leaflet": "^1.9.4"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",

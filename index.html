@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Namma Metro Route Finder</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#2d3fd8" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
@@ -24,6 +25,20 @@
         <span class="legend-item"><span class="legend-swatch" style="background:#c99a00"></span>Yellow Line</span>
       </div>
     </header>
+
+    <section class="card locate-card">
+      <div class="locate-header">
+        <div>
+          <h2>Find your nearest station</h2>
+          <p class="locate-subtitle">Uses your location and needs internet to show the map (finding the station itself works offline).</p>
+        </div>
+        <button type="button" class="locate-btn" id="locate-btn">&#128205; Find Nearest Station</button>
+      </div>
+      <div class="locate-panel" id="locate-panel" hidden>
+        <div class="locate-result" id="locate-result"></div>
+        <div class="locate-map" id="locate-map" hidden></div>
+      </div>
+    </section>
 
     <main>
       <section class="card form-card">
@@ -85,8 +100,11 @@
   </div>
 
   <script src="data.js"></script>
+  <script src="timings.js"></script>
   <script src="router.js"></script>
   <script src="geo.js"></script>
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="map.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

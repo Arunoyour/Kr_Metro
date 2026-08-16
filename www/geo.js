@@ -7,6 +7,8 @@ const PROXIMITY_ALERT_METERS = 200; // within this distance of the next stop, fi
 const ACCURACY_THRESHOLD_METERS = 100; // ignore fixes worse than this
 const SIGNAL_LOST_TIMEOUT_MS = 25000; // no usable fix for this long -> signal lost
 const LOOKAHEAD_STOPS = 3; // only ever match against the next few stops, never the whole trip
+const WRONG_DIRECTION_STREAK = 3; // consecutive fixes needed to confirm "moving away", not just GPS jitter
+const WRONG_DIRECTION_MARGIN_METERS = 25; // each fix must be at least this much farther than the last
 
 function haversineMeters(lat1, lon1, lat2, lon2) {
   const R = 6371000;
@@ -43,6 +45,8 @@ class JourneyTracker {
     this.hasEverFixed = false; // distinguishes "never got a first fix" from "had one, lost it"
     this.lostTimer = null;
     this.alertedStations = new Set(); // stops we've already fired a proximity alert for
+    this.recentNextDistances = []; // rolling window of distance-to-next-stop, for wrong-direction detection
+    this.wrongDirectionWarned = false; // true while an unacknowledged wrong-direction warning is active
 
     // A stop needs the rider's attention (switch or get off) if the line
     // changes right after it, or it's the very last stop of the trip.
@@ -101,30 +105,65 @@ class JourneyTracker {
     this.signalStatus = "ok";
     this.armLostTimer();
 
-    // Check the proximity alert against the CURRENT next stop before any
-    // advancement below. A single sparse GPS fix can land close enough to
-    // satisfy the (smaller) arrival radius in the same tick it first comes
-    // into alert range — if we checked after advancing, the "next" pointer
-    // would have already moved past the very stop we meant to warn about.
-    //
-    // Only fires for stops that actually need the rider to do something
-    // (switch lines or get off) — plain pass-through stops don't get a
-    // sound/vibration alert, just the visual next-stop highlight elsewhere.
-    let approachingAlert = null;
+    // Distance to the CURRENT next stop, before any advancement below. A
+    // single sparse GPS fix can land close enough to satisfy the (smaller)
+    // arrival radius in the same tick it first comes into alert range — if
+    // this were computed after advancing, the "next" pointer would have
+    // already moved past the very stop being checked against.
     const nextIndex = this.currentIndex + 1;
     const nextStop = this.stops[nextIndex];
-    const nextIsActionStop = nextStop && this.actionStopIndices.has(nextIndex);
-    if (nextIsActionStop && !this.alertedStations.has(nextStop.station)) {
+    let distanceToNext = null;
+    if (nextStop) {
       const coords = STATION_COORDS[nextStop.station];
-      if (coords) {
-        const d = haversineMeters(latitude, longitude, coords.lat, coords.lon);
-        if (d <= PROXIMITY_ALERT_METERS) {
-          this.alertedStations.add(nextStop.station);
-          approachingAlert = {
-            station: nextStop.station,
-            distance: Math.round(d),
-            type: nextIndex === this.stops.length - 1 ? "arrival" : "switch"
-          };
+      if (coords) distanceToNext = haversineMeters(latitude, longitude, coords.lat, coords.lon);
+    }
+
+    // Proximity alert — only for stops that actually need the rider to do
+    // something (switch lines or get off). Plain pass-through stops don't
+    // get a sound/vibration alert, just the visual next-stop highlight.
+    let approachingAlert = null;
+    const nextIsActionStop = nextStop && this.actionStopIndices.has(nextIndex);
+    if (nextIsActionStop && distanceToNext !== null && !this.alertedStations.has(nextStop.station)) {
+      if (distanceToNext <= PROXIMITY_ALERT_METERS) {
+        this.alertedStations.add(nextStop.station);
+        approachingAlert = {
+          station: nextStop.station,
+          distance: Math.round(distanceToNext),
+          type: nextIndex === this.stops.length - 1 ? "arrival" : "switch"
+        };
+      }
+    }
+
+    // Wrong-direction detection — if distance to the next stop has been
+    // strictly increasing (beyond GPS noise) for several fixes in a row,
+    // the rider is very likely moving away from it: e.g. boarded a train
+    // heading the opposite way. Edge-triggered (only set the tick it's
+    // newly confirmed) so the UI shows a one-time warning, not a repeat.
+    let wrongDirectionAlert = null;
+    let wrongDirectionCleared = false;
+    if (distanceToNext !== null) {
+      this.recentNextDistances.push(distanceToNext);
+      if (this.recentNextDistances.length > WRONG_DIRECTION_STREAK) {
+        this.recentNextDistances.shift();
+      }
+      if (this.recentNextDistances.length === WRONG_DIRECTION_STREAK) {
+        let movingAway = true;
+        for (let i = 1; i < this.recentNextDistances.length; i++) {
+          if (this.recentNextDistances[i] <= this.recentNextDistances[i - 1] + WRONG_DIRECTION_MARGIN_METERS) {
+            movingAway = false;
+            break;
+          }
+        }
+        if (movingAway && !this.wrongDirectionWarned) {
+          this.wrongDirectionWarned = true;
+          wrongDirectionAlert = { nextStation: nextStop.station };
+        } else if (!movingAway && this.wrongDirectionWarned) {
+          // Trend reversed — rider corrected course. Reset so a future
+          // wrong turn can trigger a fresh warning, and tell the UI so it
+          // can auto-clear the banner without waiting for a manual dismiss.
+          this.wrongDirectionWarned = false;
+          this.recentNextDistances = [];
+          wrongDirectionCleared = true;
         }
       }
     }
@@ -144,16 +183,20 @@ class JourneyTracker {
 
     if (bestOffset > 0 && bestDist <= ARRIVAL_RADIUS_METERS) {
       this.currentIndex += bestOffset;
+      // The "next" target just changed, so old distance readings no longer
+      // mean anything relative to it.
+      this.recentNextDistances = [];
+      this.wrongDirectionWarned = false;
     }
 
-    this.emit(undefined, approachingAlert);
+    this.emit(undefined, approachingAlert, wrongDirectionAlert, wrongDirectionCleared);
 
     if (this.currentIndex >= this.stops.length - 1) {
       this.stop();
     }
   }
 
-  emit(errorMessage, approachingAlert) {
+  emit(errorMessage, approachingAlert, wrongDirectionAlert, wrongDirectionCleared) {
     const next = this.stops[this.currentIndex + 1] || null;
     this.onUpdate({
       signalStatus: this.signalStatus,
@@ -162,7 +205,9 @@ class JourneyTracker {
       nextStation: next ? next.station : null,
       arrived: !next,
       errorMessage,
-      approachingAlert: approachingAlert || null
+      wrongDirectionCleared: !!wrongDirectionCleared,
+      approachingAlert: approachingAlert || null,
+      wrongDirectionAlert: wrongDirectionAlert || null
     });
   }
 }

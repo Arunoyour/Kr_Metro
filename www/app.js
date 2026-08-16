@@ -148,6 +148,23 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
+// A short operating-hours note for one ride segment, based on the BMRC
+// timing data in timings.js. Returns "" if nothing's on file for that
+// line/direction, so a segment quietly gets no note rather than a broken one.
+function timingNoteHtml(lineKey, towardsId) {
+  const timing = getLineTiming(lineKey, towardsId);
+  if (!timing) return "";
+
+  const status = getServiceStatus(timing);
+  if (status === "before-open") {
+    return `<div class="timing-note timing-closed">🕐 Not running yet today — first train ${timing.firstTrain}</div>`;
+  }
+  if (status === "after-close") {
+    return `<div class="timing-note timing-closed">🕐 Done for the day — last train was ${timing.lastTrain}, first train tomorrow ${timing.firstTrain}</div>`;
+  }
+  return `<div class="timing-note">🕐 Trains every ${timing.frequency} · last train ${timing.lastTrain}</div>`;
+}
+
 function lineDotsHtml(stationId) {
   const lines = [...(STATION_LINES[stationId] || [])];
   return lines
@@ -263,6 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let tracker = null;
   let alertRepeatTimer = null;
   let activeAlert = null; // { station, type } while an alert is unacknowledged
+  let wrongDirectionActive = null; // { nextStation } while a wrong-direction warning is showing
   let lastTrackState = null; // most recent onTrackUpdate state, replayed after Acknowledge
 
   function stopTrackingIfActive() {
@@ -270,6 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tracker.stop();
     tracker = null;
     stopAlertRepeat();
+    wrongDirectionActive = null;
     releaseWakeLock();
     window.__krMetroTrackingActive = false;
     lastTrackState = null;
@@ -361,6 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${i === 0 ? "Board" : "Switch to"} <strong>${line.name}</strong>
             towards <strong>${STATION_NAMES[seg.towards]}</strong> at ${STATION_NAMES[first]}
           </div>
+          ${timingNoteHtml(seg.line, seg.towards)}
           <button type="button" class="step-ride-toggle" aria-expanded="false" aria-controls="${stopDetailId}">
             <span class="toggle-caret">&#9656;</span>
             Ride ${stops} stop${stops === 1 ? "" : "s"} to ${STATION_NAMES[last]}
@@ -467,6 +487,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Wrong-direction takes priority over a normal approach alert — being on
+    // the wrong train entirely matters more than an upcoming-stop reminder,
+    // and in practice they won't usually coincide anyway (moving away from
+    // the planned route means the forward-looking approach alert wouldn't
+    // be triggering at the same time).
+    if (state.wrongDirectionAlert) {
+      stopAlertRepeat(); // don't let the two alerts overlap
+      wrongDirectionActive = state.wrongDirectionAlert;
+      playChime();
+      vibrateAlert();
+      renderWrongDirectionBanner(wrongDirectionActive, statusEl);
+      return;
+    }
+    if (state.wrongDirectionCleared) {
+      wrongDirectionActive = null;
+      // fall through to normal status rendering below
+    }
+    if (wrongDirectionActive) {
+      // Stays up until the rider dismisses it or the trend reverses above —
+      // deliberately not a repeating alarm like the approach alert.
+      return;
+    }
+
     // A fresh alert takes over the status area immediately.
     if (state.approachingAlert) {
       startAlertRepeat(state.approachingAlert, toId);
@@ -480,6 +523,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderNormalStatus(state, statusEl);
+  }
+
+  function renderWrongDirectionBanner(alert, statusEl) {
+    statusEl.className = "live-status status-wrong-direction";
+    statusEl.innerHTML = `
+      <span class="alert-text">\u{26A0}\u{FE0F} You seem to be moving away from <strong>${STATION_NAMES[alert.nextStation]}</strong> — you may be on the wrong train. Consider getting off at the next stop and crossing to the opposite platform.</span>
+      <button type="button" class="acknowledge-btn" id="wrong-direction-dismiss">Dismiss</button>
+    `;
+    document.getElementById("wrong-direction-dismiss").addEventListener("click", () => {
+      wrongDirectionActive = null;
+      if (lastTrackState) {
+        renderNormalStatus(lastTrackState, statusEl);
+      } else {
+        statusEl.className = "live-status status-ok";
+        statusEl.textContent = "\u{1F7E2} Tracking live";
+      }
+    });
   }
 
   function renderNormalStatus(state, statusEl) {
