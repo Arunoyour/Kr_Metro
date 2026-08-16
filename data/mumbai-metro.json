@@ -1,0 +1,778 @@
+{
+  "meta": {
+    "name": "Mumbai Metro",
+    "tagline": "Mumbai's metro network — Lines 1, 2A, 2B, 3, 7 and 9 across the city.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "line1": {
+      "name": "Line 1 (Blue Line)",
+      "color": "#0072bc",
+      "stations": [
+        "versova",
+        "d-n-nagar",
+        "azad-nagar",
+        "andheri",
+        "western-express-highway-eastbound",
+        "chakala-j-b-nagar",
+        "airport-road",
+        "marol-naka",
+        "saki-naka",
+        "asalpha",
+        "jagruti-nagar",
+        "ghatkopar"
+      ]
+    },
+    "line2a": {
+      "name": "Line 2A (Yellow Line)",
+      "color": "#f7d117",
+      "stations": [
+        "andheri-west",
+        "lower-oshiwara",
+        "oshiwara",
+        "goregaon-west",
+        "bangur-nagar",
+        "lower-malad",
+        "malad-west",
+        "valnai-meeth-chowky",
+        "dahanukarwadi",
+        "kandivali-west",
+        "shimpoli",
+        "borivali-west",
+        "eksar",
+        "mandapeshwar-i-c-colony",
+        "rushi-sankul",
+        "anand-nagar",
+        "dahisar-east"
+      ]
+    },
+    "line2b": {
+      "name": "Line 2B (Yellow Line)",
+      "color": "#f7d117",
+      "stations": [
+        "diamond-garden",
+        "shivaji-chowk-chembur",
+        "deonar",
+        "mankhurd",
+        "mandale"
+      ]
+    },
+    "line3": {
+      "name": "Line 3 (Aqua Line)",
+      "color": "#00b3c6",
+      "stations": [
+        "aarey-jvlr",
+        "seepz",
+        "midc-andheri",
+        "marol-naka",
+        "csmia-international-t2",
+        "sahar-road",
+        "csmia-domestic",
+        "santacruz",
+        "bandra-colony",
+        "bandra-kurla-complex-bkc",
+        "dharavi",
+        "shitala-devi-mandir",
+        "dadar",
+        "siddhivinayak-temple",
+        "worli",
+        "acharya-atre-chowk",
+        "science-museum",
+        "mahalaxmi",
+        "jagannath-shankar-sheth-metro",
+        "grant-road",
+        "girgaon",
+        "kalbadevi",
+        "chhatrapati-shivaji-maharaj-terminus",
+        "hutatma-chowk",
+        "churchgate",
+        "vidhan-bhavan",
+        "cuffe-parade"
+      ]
+    },
+    "line7": {
+      "name": "Line 7 (Red Line)",
+      "color": "#e4002b",
+      "stations": [
+        "dahisar-east",
+        "ovaripada",
+        "rashtriya-udyan",
+        "devipada",
+        "magathane",
+        "mahindra-mahindra",
+        "akurli",
+        "kurar",
+        "dindoshi",
+        "aarey",
+        "goregaon-east",
+        "jogeshwari-east",
+        "mogra",
+        "gundavali"
+      ]
+    },
+    "line9": {
+      "name": "Line 9 (Red Line)",
+      "color": "#e4002b",
+      "stations": [
+        "dahisar-east",
+        "pandurang-wadi",
+        "miragaon",
+        "kashigaon"
+      ]
+    }
+  },
+  "stationNames": {
+    "versova": "Versova",
+    "d-n-nagar": "D. N. Nagar",
+    "azad-nagar": "Azad Nagar",
+    "andheri": "Andheri",
+    "western-express-highway-eastbound": "Western Express Highway (eastbound)",
+    "chakala-j-b-nagar": "Chakala - J.B. Nagar",
+    "airport-road": "Airport Road",
+    "marol-naka": "Marol Naka",
+    "saki-naka": "Saki Naka",
+    "asalpha": "Asalpha",
+    "jagruti-nagar": "Jagruti Nagar",
+    "ghatkopar": "Ghatkopar",
+    "andheri-west": "Andheri (West)",
+    "lower-oshiwara": "Lower Oshiwara",
+    "oshiwara": "Oshiwara",
+    "goregaon-west": "Goregaon (West)",
+    "bangur-nagar": "Bangur Nagar",
+    "lower-malad": "Lower Malad",
+    "malad-west": "Malad West",
+    "valnai-meeth-chowky": "Valnai-Meeth Chowky",
+    "dahanukarwadi": "Dahanukarwadi",
+    "kandivali-west": "Kandivali (West)",
+    "shimpoli": "Shimpoli",
+    "borivali-west": "Borivali (West)",
+    "eksar": "Eksar",
+    "mandapeshwar-i-c-colony": "Mandapeshwar - I.C. Colony",
+    "rushi-sankul": "Rushi Sankul",
+    "anand-nagar": "Anand Nagar",
+    "dahisar-east": "Dahisar (East)",
+    "diamond-garden": "Diamond Garden",
+    "shivaji-chowk-chembur": "Shivaji Chowk (Chembur)",
+    "deonar": "Deonar",
+    "mankhurd": "Mankhurd",
+    "mandale": "Mandale",
+    "aarey-jvlr": "Aarey JVLR",
+    "seepz": "SEEPZ",
+    "midc-andheri": "MIDC - Andheri",
+    "csmia-international-t2": "CSMIA International T2",
+    "sahar-road": "Sahar Road",
+    "csmia-domestic": "CSMIA Domestic",
+    "santacruz": "Santacruz",
+    "bandra-colony": "Bandra Colony",
+    "bandra-kurla-complex-bkc": "Bandra Kurla Complex (BKC)",
+    "dharavi": "Dharavi",
+    "shitala-devi-mandir": "Shitala Devi Mandir",
+    "dadar": "Dadar",
+    "siddhivinayak-temple": "Siddhivinayak Temple",
+    "worli": "Worli",
+    "acharya-atre-chowk": "Acharya Atre Chowk",
+    "science-museum": "Science Museum",
+    "mahalaxmi": "Mahalaxmi",
+    "jagannath-shankar-sheth-metro": "Jagannath Shankar Sheth Metro",
+    "grant-road": "Grant Road",
+    "girgaon": "Girgaon",
+    "kalbadevi": "Kalbadevi",
+    "chhatrapati-shivaji-maharaj-terminus": "Chhatrapati Shivaji Maharaj Terminus",
+    "hutatma-chowk": "Hutatma Chowk",
+    "churchgate": "Churchgate",
+    "vidhan-bhavan": "Vidhan Bhavan",
+    "cuffe-parade": "Cuffe Parade",
+    "ovaripada": "Ovaripada",
+    "rashtriya-udyan": "Rashtriya Udyan",
+    "devipada": "Devipada",
+    "magathane": "Magathane",
+    "mahindra-mahindra": "Mahindra & Mahindra",
+    "akurli": "Akurli",
+    "kurar": "Kurar",
+    "dindoshi": "Dindoshi",
+    "aarey": "Aarey",
+    "goregaon-east": "Goregaon (East)",
+    "jogeshwari-east": "Jogeshwari (East)",
+    "mogra": "Mogra",
+    "gundavali": "Gundavali",
+    "pandurang-wadi": "Pandurang Wadi",
+    "miragaon": "Miragaon",
+    "kashigaon": "Kashigaon"
+  },
+  "stationCoords": {
+    "versova": {
+      "lat": 19.130278,
+      "lon": 72.821387
+    },
+    "d-n-nagar": {
+      "lat": 19.128178,
+      "lon": 72.830812
+    },
+    "azad-nagar": {
+      "lat": 19.126805,
+      "lon": 72.838267
+    },
+    "andheri": {
+      "lat": 19.120041,
+      "lon": 72.849482
+    },
+    "western-express-highway-eastbound": {
+      "lat": 19.115564,
+      "lon": 72.856983
+    },
+    "chakala-j-b-nagar": {
+      "lat": 19.111907,
+      "lon": 72.868242
+    },
+    "airport-road": {
+      "lat": 19.109915,
+      "lon": 72.874797
+    },
+    "marol-naka": {
+      "lat": 19.107946,
+      "lon": 72.880109
+    },
+    "saki-naka": {
+      "lat": 19.103217,
+      "lon": 72.888509
+    },
+    "asalpha": {
+      "lat": 19.096097,
+      "lon": 72.895413
+    },
+    "jagruti-nagar": {
+      "lat": 19.092171,
+      "lon": 72.9026
+    },
+    "ghatkopar": {
+      "lat": 19.086286,
+      "lon": 72.908123
+    },
+    "andheri-west": {
+      "lat": 19.12918,
+      "lon": 72.831425
+    },
+    "lower-oshiwara": {
+      "lat": 19.140721,
+      "lon": 72.831687
+    },
+    "oshiwara": {
+      "lat": 19.146055,
+      "lon": 72.833951
+    },
+    "goregaon-west": {
+      "lat": 19.153023,
+      "lon": 72.835694
+    },
+    "bangur-nagar": {
+      "lat": 19.162872,
+      "lon": 72.834836
+    },
+    "lower-malad": {
+      "lat": 19.173107,
+      "lon": 72.836453
+    },
+    "malad-west": {
+      "lat": 19.185286,
+      "lon": 72.835833
+    },
+    "valnai-meeth-chowky": {
+      "lat": 19.196825,
+      "lon": 72.83379
+    },
+    "dahanukarwadi": {
+      "lat": 19.206211,
+      "lon": 72.834777
+    },
+    "kandivali-west": {
+      "lat": 19.214014,
+      "lon": 72.837292
+    },
+    "shimpoli": {
+      "lat": 19.222832,
+      "lon": 72.840919
+    },
+    "borivali-west": {
+      "lat": 19.23139,
+      "lon": 72.84084
+    },
+    "eksar": {
+      "lat": 19.24044,
+      "lon": 72.843482
+    },
+    "mandapeshwar-i-c-colony": {
+      "lat": 19.249583,
+      "lon": 72.845714
+    },
+    "rushi-sankul": {
+      "lat": 19.256638,
+      "lon": 72.850624
+    },
+    "anand-nagar": {
+      "lat": 19.257289,
+      "lon": 72.866002
+    },
+    "dahisar-east": {
+      "lat": 19.251561,
+      "lon": 72.867364
+    },
+    "diamond-garden": {
+      "lat": 19.051774,
+      "lon": 72.901822
+    },
+    "shivaji-chowk-chembur": {
+      "lat": 19.04749,
+      "lon": 72.907493
+    },
+    "deonar": {
+      "lat": 19.04485,
+      "lon": 72.917532
+    },
+    "mankhurd": {
+      "lat": 19.049212,
+      "lon": 72.931145
+    },
+    "mandale": {
+      "lat": 19.049596,
+      "lon": 72.938694
+    },
+    "aarey-jvlr": {
+      "lat": 19.131046,
+      "lon": 72.884197
+    },
+    "seepz": {
+      "lat": 19.12529,
+      "lon": 72.87327
+    },
+    "midc-andheri": {
+      "lat": 19.117287,
+      "lon": 72.874205
+    },
+    "csmia-international-t2": {
+      "lat": 19.102157,
+      "lon": 72.873666
+    },
+    "sahar-road": {
+      "lat": 19.102056,
+      "lon": 72.864711
+    },
+    "csmia-domestic": {
+      "lat": 19.09362,
+      "lon": 72.853081
+    },
+    "santacruz": {
+      "lat": 19.078737,
+      "lon": 72.847139
+    },
+    "bandra-colony": {
+      "lat": 19.069313,
+      "lon": 72.84984
+    },
+    "bandra-kurla-complex-bkc": {
+      "lat": 19.060234,
+      "lon": 72.854963
+    },
+    "dharavi": {
+      "lat": 19.046152,
+      "lon": 72.849423
+    },
+    "shitala-devi-mandir": {
+      "lat": 19.03832,
+      "lon": 72.842042
+    },
+    "dadar": {
+      "lat": 19.023353,
+      "lon": 72.839047
+    },
+    "siddhivinayak-temple": {
+      "lat": 19.015959,
+      "lon": 72.830562
+    },
+    "worli": {
+      "lat": 19.008596,
+      "lon": 72.819294
+    },
+    "acharya-atre-chowk": {
+      "lat": 18.997826,
+      "lon": 72.81774
+    },
+    "science-museum": {
+      "lat": 18.990901,
+      "lon": 72.821376
+    },
+    "mahalaxmi": {
+      "lat": 18.979447,
+      "lon": 72.825422
+    },
+    "jagannath-shankar-sheth-metro": {
+      "lat": 18.96998,
+      "lon": 72.821203
+    },
+    "grant-road": {
+      "lat": 18.96321,
+      "lon": 72.818068
+    },
+    "girgaon": {
+      "lat": 18.952126,
+      "lon": 72.822235
+    },
+    "kalbadevi": {
+      "lat": 18.946345,
+      "lon": 72.827204
+    },
+    "chhatrapati-shivaji-maharaj-terminus": {
+      "lat": 18.940873,
+      "lon": 72.8319
+    },
+    "hutatma-chowk": {
+      "lat": 18.93417,
+      "lon": 72.83252
+    },
+    "churchgate": {
+      "lat": 18.931482,
+      "lon": 72.826962
+    },
+    "vidhan-bhavan": {
+      "lat": 18.924809,
+      "lon": 72.82555
+    },
+    "cuffe-parade": {
+      "lat": 18.913543,
+      "lon": 72.820749
+    },
+    "ovaripada": {
+      "lat": 19.242947,
+      "lon": 72.864149
+    },
+    "rashtriya-udyan": {
+      "lat": 19.234616,
+      "lon": 72.863112
+    },
+    "devipada": {
+      "lat": 19.224334,
+      "lon": 72.864192
+    },
+    "magathane": {
+      "lat": 19.217112,
+      "lon": 72.866752
+    },
+    "mahindra-mahindra": {
+      "lat": 19.203789,
+      "lon": 72.863304
+    },
+    "akurli": {
+      "lat": 19.198323,
+      "lon": 72.860601
+    },
+    "kurar": {
+      "lat": 19.1871,
+      "lon": 72.858492
+    },
+    "dindoshi": {
+      "lat": 19.179756,
+      "lon": 72.858274
+    },
+    "aarey": {
+      "lat": 19.169539,
+      "lon": 72.85879
+    },
+    "goregaon-east": {
+      "lat": 19.152419,
+      "lon": 72.856559
+    },
+    "jogeshwari-east": {
+      "lat": 19.142947,
+      "lon": 72.855156
+    },
+    "mogra": {
+      "lat": 19.12845,
+      "lon": 72.855421
+    },
+    "gundavali": {
+      "lat": 19.114518,
+      "lon": 72.855133
+    },
+    "pandurang-wadi": {
+      "lat": 19.260096,
+      "lon": 72.872618
+    },
+    "miragaon": {
+      "lat": 19.271016,
+      "lon": 72.880668
+    },
+    "kashigaon": {
+      "lat": 19.277635,
+      "lon": 72.880243
+    }
+  },
+  "timings": {
+    "line1": {
+      "monday": {
+        "ghatkopar": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:25",
+          "frequency": "3.5-7 min"
+        },
+        "versova": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:50",
+          "frequency": "3.5-7 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "ghatkopar": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:25",
+          "frequency": "3.5-7 min"
+        },
+        "versova": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:50",
+          "frequency": "3.5-7 min"
+        }
+      },
+      "saturday": {
+        "ghatkopar": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:25",
+          "frequency": "3.5-7 min"
+        },
+        "versova": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:50",
+          "frequency": "3.5-7 min"
+        }
+      },
+      "sunday": {
+        "ghatkopar": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:25",
+          "frequency": "3.5-7 min"
+        },
+        "versova": {
+          "firstTrain": "05:30",
+          "lastTrain": "23:50",
+          "frequency": "3.5-7 min"
+        }
+      }
+    },
+    "line2a": {
+      "monday": {
+        "dahisar-east": {
+          "firstTrain": "05:55",
+          "lastTrain": "23:00"
+        },
+        "andheri-west": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:35"
+        }
+      },
+      "tuesdayToFriday": {
+        "dahisar-east": {
+          "firstTrain": "05:55",
+          "lastTrain": "23:00"
+        },
+        "andheri-west": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:35"
+        }
+      },
+      "saturday": {
+        "dahisar-east": {
+          "firstTrain": "05:55",
+          "lastTrain": "23:00"
+        },
+        "andheri-west": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:35"
+        }
+      },
+      "sunday": {
+        "dahisar-east": {
+          "firstTrain": "05:55",
+          "lastTrain": "23:00"
+        },
+        "andheri-west": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:35"
+        }
+      }
+    },
+    "line2b": {
+      "monday": {
+        "mandale": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30"
+        },
+        "diamond-garden": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:15"
+        }
+      },
+      "tuesdayToFriday": {
+        "mandale": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30"
+        },
+        "diamond-garden": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:15"
+        }
+      },
+      "saturday": {
+        "mandale": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30"
+        },
+        "diamond-garden": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:15"
+        }
+      },
+      "sunday": {
+        "mandale": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:30"
+        },
+        "diamond-garden": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:15"
+        }
+      }
+    },
+    "line7": {
+      "monday": {
+        "gundavali": {
+          "firstTrain": "05:58",
+          "lastTrain": "22:38"
+        },
+        "dahisar-east": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "tuesdayToFriday": {
+        "gundavali": {
+          "firstTrain": "05:58",
+          "lastTrain": "22:38"
+        },
+        "dahisar-east": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "saturday": {
+        "gundavali": {
+          "firstTrain": "05:58",
+          "lastTrain": "22:38"
+        },
+        "dahisar-east": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "sunday": {
+        "gundavali": {
+          "firstTrain": "05:58",
+          "lastTrain": "22:38"
+        },
+        "dahisar-east": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      }
+    },
+    "line9": {
+      "monday": {
+        "kashigaon": {
+          "firstTrain": "06:33",
+          "lastTrain": "23:33"
+        },
+        "dahisar-east": {
+          "firstTrain": "05:50",
+          "lastTrain": "22:30"
+        }
+      },
+      "tuesdayToFriday": {
+        "kashigaon": {
+          "firstTrain": "06:33",
+          "lastTrain": "23:33"
+        },
+        "dahisar-east": {
+          "firstTrain": "05:50",
+          "lastTrain": "22:30"
+        }
+      },
+      "saturday": {
+        "kashigaon": {
+          "firstTrain": "06:33",
+          "lastTrain": "23:33"
+        },
+        "dahisar-east": {
+          "firstTrain": "05:50",
+          "lastTrain": "22:30"
+        }
+      },
+      "sunday": {
+        "kashigaon": {
+          "firstTrain": "06:33",
+          "lastTrain": "23:33"
+        },
+        "dahisar-east": {
+          "firstTrain": "05:50",
+          "lastTrain": "22:30"
+        }
+      }
+    },
+    "line3": {
+      "monday": {
+        "cuffe-parade": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        },
+        "aarey-jvlr": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "cuffe-parade": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        },
+        "aarey-jvlr": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        }
+      },
+      "saturday": {
+        "cuffe-parade": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        },
+        "aarey-jvlr": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        }
+      },
+      "sunday": {
+        "cuffe-parade": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        },
+        "aarey-jvlr": {
+          "firstTrain": "05:55",
+          "lastTrain": "22:30",
+          "frequency": "~5 min"
+        }
+      }
+    }
+  }
+}

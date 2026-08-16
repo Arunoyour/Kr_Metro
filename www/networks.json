@@ -38,5 +38,15 @@
         "data": "data/hyderabad-metro.json"
       }
     }
+  },
+  "mumbai": {
+    "name": "Mumbai",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/mumbai-metro.json"
+      }
+    }
   }
 }
