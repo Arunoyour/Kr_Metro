@@ -18,5 +18,45 @@
         "data": "data/kochi-metro.json"
       }
     }
+  },
+  "delhi": {
+    "name": "Delhi",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/delhi-metro.json"
+      }
+    }
+  },
+  "hyderabad": {
+    "name": "Hyderabad",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/hyderabad-metro.json"
+      }
+    }
+  },
+  "mumbai": {
+    "name": "Mumbai",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/mumbai-metro.json"
+      }
+    }
+  },
+  "kolkata": {
+    "name": "Kolkata",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/kolkata-metro.json"
+      }
+    }
   }
 }

@@ -229,6 +229,10 @@ document.addEventListener("visibilitychange", () => {
 // timing data in timings.js. Returns "" if nothing's on file for that
 // line/direction, so a segment quietly gets no note rather than a broken one.
 function timingNoteHtml(lineKey, towardsId) {
+  if (isLineClosedToday(lineKey)) {
+    return `<div class="timing-note timing-closed">🕐 No service on this line today</div>`;
+  }
+
   const timing = getLineTiming(lineKey, towardsId);
   if (!timing) return "";
 
@@ -239,7 +243,8 @@ function timingNoteHtml(lineKey, towardsId) {
   if (status === "after-close") {
     return `<div class="timing-note timing-closed">🕐 Done for the day — last train was ${timing.lastTrain}, first train tomorrow ${timing.firstTrain}</div>`;
   }
-  return `<div class="timing-note">🕐 Trains every ${timing.frequency} · last train ${timing.lastTrain}</div>`;
+  const frequencyPart = timing.frequency ? `Trains every ${timing.frequency} · ` : "";
+  return `<div class="timing-note">🕐 ${frequencyPart}last train ${timing.lastTrain}</div>`;
 }
 
 function lineDotsHtml(stationId) {

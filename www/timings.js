@@ -19,6 +19,15 @@ function getLineTiming(lineKey, towardsStationId, date) {
   return (dayData && dayData[towardsStationId]) || null;
 }
 
+// A day-type entry can be `{ closed: true }` instead of per-station timings,
+// for lines that don't run some days at all (e.g. Kolkata's Orange Line is
+// Mon-Fri only) — distinct from "no data on file", which stays silent.
+function isLineClosedToday(lineKey, date) {
+  const d = date || new Date();
+  const dayData = METRO_TIMINGS[lineKey] && METRO_TIMINGS[lineKey][metroDayTypeKey(d)];
+  return !!(dayData && dayData.closed);
+}
+
 // Compares the current time of day against first/last train to say whether
 // service should be running right now.
 function getServiceStatus(timing, date) {

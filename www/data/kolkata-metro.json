@@ -1,0 +1,602 @@
+{
+  "meta": {
+    "name": "Kolkata Metro",
+    "tagline": "Kolkata's metro network — Blue, Green, Purple, Orange and Yellow lines.",
+    "themeColor": "#0072bc"
+  },
+  "lines": {
+    "blue": {
+      "name": "Blue Line",
+      "color": "#0072bc",
+      "stations": [
+        "dakshineshwar",
+        "baranagar",
+        "noapara",
+        "dum-dum",
+        "belgachia",
+        "shyambazar",
+        "shobhabazar-sutanuti",
+        "girish-park",
+        "mahatma-gandhi-road",
+        "central",
+        "chandni-chowk",
+        "esplanade",
+        "park-street",
+        "maidan",
+        "rabindra-sadan",
+        "netaji-bhavan",
+        "jatin-das-park",
+        "kalighat",
+        "rabindra-sarobar",
+        "mahanayak-uttam-kumar",
+        "netaji",
+        "masterda-surya-sen",
+        "gitanjali",
+        "kavi-nazrul",
+        "shahid-khudiram",
+        "kavi-subhash"
+      ]
+    },
+    "green": {
+      "name": "Green Line",
+      "color": "#00a651",
+      "stations": [
+        "howrah-maidan",
+        "howrah",
+        "mahakaran",
+        "esplanade",
+        "sealdah",
+        "phoolbagan",
+        "salt-lake-stadium",
+        "bengal-chemical",
+        "city-centre",
+        "central-park",
+        "karunamoyee",
+        "salt-lake-sector-v"
+      ]
+    },
+    "purple": {
+      "name": "Purple Line",
+      "color": "#92278f",
+      "stations": [
+        "joka",
+        "thakurpukur",
+        "sakherbazar",
+        "behala-chowrasta",
+        "behala-bazar",
+        "taratala",
+        "majerhat"
+      ]
+    },
+    "orange": {
+      "name": "Orange Line",
+      "color": "#f7941d",
+      "stations": [
+        "beleghata",
+        "barun-sengupta",
+        "ritwik-ghatak",
+        "vip-bazar",
+        "hemanta-mukhopadhyay",
+        "kavi-sukanta",
+        "jyotirindra-nandi",
+        "satyajit-roy",
+        "kavi-subhash"
+      ]
+    },
+    "yellow": {
+      "name": "Yellow Line",
+      "color": "#f7d117",
+      "stations": [
+        "noapara",
+        "dum-dum-cantonment",
+        "jessore-road",
+        "jai-hind"
+      ]
+    }
+  },
+  "stationNames": {
+    "dakshineshwar": "Dakshineshwar",
+    "baranagar": "Baranagar",
+    "noapara": "Noapara",
+    "dum-dum": "Dum Dum",
+    "belgachia": "Belgachia",
+    "shyambazar": "Shyambazar",
+    "shobhabazar-sutanuti": "Shobhabazar Sutanuti",
+    "girish-park": "Girish Park",
+    "mahatma-gandhi-road": "Mahatma Gandhi Road",
+    "central": "Central",
+    "chandni-chowk": "Chandni Chowk",
+    "esplanade": "Esplanade",
+    "park-street": "Park Street",
+    "maidan": "Maidan",
+    "rabindra-sadan": "Rabindra Sadan",
+    "netaji-bhavan": "Netaji Bhavan",
+    "jatin-das-park": "Jatin Das Park",
+    "kalighat": "Kalighat",
+    "rabindra-sarobar": "Rabindra Sarobar",
+    "mahanayak-uttam-kumar": "Mahanayak Uttam Kumar",
+    "netaji": "Netaji",
+    "masterda-surya-sen": "Masterda Surya Sen",
+    "gitanjali": "Gitanjali",
+    "kavi-nazrul": "Kavi Nazrul",
+    "shahid-khudiram": "Shahid Khudiram",
+    "kavi-subhash": "Kavi Subhash",
+    "howrah-maidan": "Howrah Maidan",
+    "howrah": "Howrah",
+    "mahakaran": "Mahakaran",
+    "sealdah": "Sealdah",
+    "phoolbagan": "Phoolbagan",
+    "salt-lake-stadium": "Salt Lake Stadium",
+    "bengal-chemical": "Bengal Chemical",
+    "city-centre": "City Centre",
+    "central-park": "Central Park",
+    "karunamoyee": "Karunamoyee",
+    "salt-lake-sector-v": "Salt Lake Sector V",
+    "joka": "Joka",
+    "thakurpukur": "Thakurpukur",
+    "sakherbazar": "Sakherbazar",
+    "behala-chowrasta": "Behala Chowrasta",
+    "behala-bazar": "Behala Bazar",
+    "taratala": "Taratala",
+    "majerhat": "Majerhat",
+    "beleghata": "Beleghata",
+    "barun-sengupta": "Barun Sengupta",
+    "ritwik-ghatak": "Ritwik Ghatak",
+    "vip-bazar": "VIP Bazar",
+    "hemanta-mukhopadhyay": "Hemanta Mukhopadhyay",
+    "kavi-sukanta": "Kavi Sukanta",
+    "jyotirindra-nandi": "Jyotirindra Nandi",
+    "satyajit-roy": "Satyajit Roy",
+    "dum-dum-cantonment": "Dum Dum Cantonment",
+    "jessore-road": "Jessore Road",
+    "jai-hind": "Jai Hind"
+  },
+  "stationCoords": {
+    "dakshineshwar": {
+      "lat": 22.654051,
+      "lon": 88.36375
+    },
+    "baranagar": {
+      "lat": 22.653124,
+      "lon": 88.38069
+    },
+    "noapara": {
+      "lat": 22.639966,
+      "lon": 88.394115
+    },
+    "dum-dum": {
+      "lat": 22.620499,
+      "lon": 88.392904
+    },
+    "belgachia": {
+      "lat": 22.605928,
+      "lon": 88.386159
+    },
+    "shyambazar": {
+      "lat": 22.601344,
+      "lon": 88.372343
+    },
+    "shobhabazar-sutanuti": {
+      "lat": 22.595589,
+      "lon": 88.365043
+    },
+    "girish-park": {
+      "lat": 22.58677,
+      "lon": 88.362875
+    },
+    "mahatma-gandhi-road": {
+      "lat": 22.58077,
+      "lon": 88.361315
+    },
+    "central": {
+      "lat": 22.572289,
+      "lon": 88.358706
+    },
+    "chandni-chowk": {
+      "lat": 22.566916,
+      "lon": 88.354058
+    },
+    "esplanade": {
+      "lat": 22.563639,
+      "lon": 88.351171
+    },
+    "park-street": {
+      "lat": 22.554976,
+      "lon": 88.350047
+    },
+    "maidan": {
+      "lat": 22.549375,
+      "lon": 88.348725
+    },
+    "rabindra-sadan": {
+      "lat": 22.541427,
+      "lon": 88.347236
+    },
+    "netaji-bhavan": {
+      "lat": 22.533032,
+      "lon": 88.345948
+    },
+    "jatin-das-park": {
+      "lat": 22.523971,
+      "lon": 88.34651
+    },
+    "kalighat": {
+      "lat": 22.516725,
+      "lon": 88.34581
+    },
+    "rabindra-sarobar": {
+      "lat": 22.507203,
+      "lon": 88.345478
+    },
+    "mahanayak-uttam-kumar": {
+      "lat": 22.494265,
+      "lon": 88.344947
+    },
+    "netaji": {
+      "lat": 22.480731,
+      "lon": 88.346411
+    },
+    "masterda-surya-sen": {
+      "lat": 22.473468,
+      "lon": 88.360864
+    },
+    "gitanjali": {
+      "lat": 22.469423,
+      "lon": 88.370022
+    },
+    "kavi-nazrul": {
+      "lat": 22.46431,
+      "lon": 88.38112
+    },
+    "shahid-khudiram": {
+      "lat": 22.466058,
+      "lon": 88.392121
+    },
+    "kavi-subhash": {
+      "lat": 22.472089,
+      "lon": 88.397983
+    },
+    "howrah-maidan": {
+      "lat": 22.583779,
+      "lon": 88.333997
+    },
+    "howrah": {
+      "lat": 22.583372,
+      "lon": 88.340164
+    },
+    "mahakaran": {
+      "lat": 22.572049,
+      "lon": 88.35055
+    },
+    "sealdah": {
+      "lat": 22.566474,
+      "lon": 88.37005
+    },
+    "phoolbagan": {
+      "lat": 22.57209,
+      "lon": 88.39026
+    },
+    "salt-lake-stadium": {
+      "lat": 22.572966,
+      "lon": 88.403083
+    },
+    "bengal-chemical": {
+      "lat": 22.57997,
+      "lon": 88.401335
+    },
+    "city-centre": {
+      "lat": 22.586988,
+      "lon": 88.407917
+    },
+    "central-park": {
+      "lat": 22.590398,
+      "lon": 88.415643
+    },
+    "karunamoyee": {
+      "lat": 22.586292,
+      "lon": 88.421568
+    },
+    "salt-lake-sector-v": {
+      "lat": 22.580941,
+      "lon": 88.42902
+    },
+    "joka": {
+      "lat": 22.452401,
+      "lon": 88.301802
+    },
+    "thakurpukur": {
+      "lat": 22.46442,
+      "lon": 88.307485
+    },
+    "sakherbazar": {
+      "lat": 22.474897,
+      "lon": 88.309889
+    },
+    "behala-chowrasta": {
+      "lat": 22.48742,
+      "lon": 88.313293
+    },
+    "behala-bazar": {
+      "lat": 22.498805,
+      "lon": 88.317312
+    },
+    "taratala": {
+      "lat": 22.507711,
+      "lon": 88.320307
+    },
+    "majerhat": {
+      "lat": 22.519079,
+      "lon": 88.323618
+    },
+    "beleghata": {
+      "lat": 22.550681,
+      "lon": 88.404013
+    },
+    "barun-sengupta": {
+      "lat": 22.543801,
+      "lon": 88.399304
+    },
+    "ritwik-ghatak": {
+      "lat": 22.532991,
+      "lon": 88.396456
+    },
+    "vip-bazar": {
+      "lat": 22.524696,
+      "lon": 88.39627
+    },
+    "hemanta-mukhopadhyay": {
+      "lat": 22.514858,
+      "lon": 88.401463
+    },
+    "kavi-sukanta": {
+      "lat": 22.505295,
+      "lon": 88.401028
+    },
+    "jyotirindra-nandi": {
+      "lat": 22.495613,
+      "lon": 88.398479
+    },
+    "satyajit-roy": {
+      "lat": 22.484664,
+      "lon": 88.392676
+    },
+    "dum-dum-cantonment": {
+      "lat": 22.637604,
+      "lon": 88.412141
+    },
+    "jessore-road": {
+      "lat": 22.639284,
+      "lon": 88.429756
+    },
+    "jai-hind": {
+      "lat": 22.647307,
+      "lon": 88.437275
+    }
+  },
+  "timings": {
+    "blue": {
+      "monday": {
+        "kavi-subhash": {
+          "firstTrain": "06:50",
+          "lastTrain": "21:40",
+          "frequency": "6-12 min"
+        },
+        "dakshineshwar": {
+          "firstTrain": "07:40",
+          "lastTrain": "23:20",
+          "frequency": "6-12 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "kavi-subhash": {
+          "firstTrain": "06:50",
+          "lastTrain": "21:40",
+          "frequency": "6-12 min"
+        },
+        "dakshineshwar": {
+          "firstTrain": "07:40",
+          "lastTrain": "23:20",
+          "frequency": "6-12 min"
+        }
+      },
+      "saturday": {
+        "kavi-subhash": {
+          "firstTrain": "06:50",
+          "lastTrain": "21:40",
+          "frequency": "6-12 min"
+        },
+        "dakshineshwar": {
+          "firstTrain": "07:40",
+          "lastTrain": "23:20",
+          "frequency": "6-12 min"
+        }
+      },
+      "sunday": {
+        "kavi-subhash": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        },
+        "dakshineshwar": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        }
+      }
+    },
+    "green": {
+      "monday": {
+        "salt-lake-sector-v": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:38",
+          "frequency": "8-15 min"
+        },
+        "howrah-maidan": {
+          "firstTrain": "07:22",
+          "lastTrain": "22:22",
+          "frequency": "8-15 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "salt-lake-sector-v": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:38",
+          "frequency": "8-15 min"
+        },
+        "howrah-maidan": {
+          "firstTrain": "07:22",
+          "lastTrain": "22:22",
+          "frequency": "8-15 min"
+        }
+      },
+      "saturday": {
+        "salt-lake-sector-v": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:38",
+          "frequency": "8-15 min"
+        },
+        "howrah-maidan": {
+          "firstTrain": "07:22",
+          "lastTrain": "22:22",
+          "frequency": "8-15 min"
+        }
+      },
+      "sunday": {
+        "salt-lake-sector-v": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        },
+        "howrah-maidan": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        }
+      }
+    },
+    "purple": {
+      "monday": {
+        "majerhat": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:48",
+          "frequency": "21-25 min"
+        },
+        "joka": {
+          "firstTrain": "07:12",
+          "lastTrain": "22:12",
+          "frequency": "21-25 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "majerhat": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:48",
+          "frequency": "21-25 min"
+        },
+        "joka": {
+          "firstTrain": "07:12",
+          "lastTrain": "22:12",
+          "frequency": "21-25 min"
+        }
+      },
+      "saturday": {
+        "majerhat": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:48",
+          "frequency": "21-25 min"
+        },
+        "joka": {
+          "firstTrain": "07:12",
+          "lastTrain": "22:12",
+          "frequency": "21-25 min"
+        }
+      },
+      "sunday": {
+        "majerhat": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        },
+        "joka": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        }
+      }
+    },
+    "yellow": {
+      "monday": {
+        "jai-hind": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:34",
+          "frequency": "20-30 min"
+        },
+        "noapara": {
+          "firstTrain": "07:06",
+          "lastTrain": "21:46",
+          "frequency": "20-30 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "jai-hind": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:34",
+          "frequency": "20-30 min"
+        },
+        "noapara": {
+          "firstTrain": "07:06",
+          "lastTrain": "21:46",
+          "frequency": "20-30 min"
+        }
+      },
+      "saturday": {
+        "jai-hind": {
+          "firstTrain": "07:00",
+          "lastTrain": "21:34",
+          "frequency": "20-30 min"
+        },
+        "noapara": {
+          "firstTrain": "07:06",
+          "lastTrain": "21:46",
+          "frequency": "20-30 min"
+        }
+      },
+      "sunday": {
+        "jai-hind": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        },
+        "noapara": {
+          "firstTrain": "09:50",
+          "lastTrain": "21:30"
+        }
+      }
+    },
+    "orange": {
+      "monday": {
+        "beleghata": {
+          "firstTrain": "08:00",
+          "lastTrain": "21:44",
+          "frequency": "20-25 min"
+        },
+        "kavi-subhash": {
+          "firstTrain": "08:16",
+          "lastTrain": "22:16",
+          "frequency": "20-25 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "beleghata": {
+          "firstTrain": "08:00",
+          "lastTrain": "21:44",
+          "frequency": "20-25 min"
+        },
+        "kavi-subhash": {
+          "firstTrain": "08:16",
+          "lastTrain": "22:16",
+          "frequency": "20-25 min"
+        }
+      },
+      "saturday": {
+        "closed": true
+      },
+      "sunday": {
+        "closed": true
+      }
+    }
+  }
+}
