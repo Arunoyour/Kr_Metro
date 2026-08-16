@@ -11,6 +11,16 @@ let nearestLine = null;
 let locateWatchId = null;
 let hasZoomedOnce = false;
 
+// Formats a distance in meters for display: plain meters when close by,
+// km with just enough precision to be useful once it's far enough that
+// individual meters stop mattering.
+function formatDistance(meters) {
+  if (meters < 1000) return `${Math.round(meters)}m`;
+  const km = meters / 1000;
+  const decimals = km < 10 ? 1 : 0;
+  return `${km.toFixed(decimals)}km`;
+}
+
 // Reuses the same haversine formula as geo.js (loaded earlier) rather than
 // duplicating it.
 function findNearestStation(lat, lon) {
@@ -127,7 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const { latitude, longitude } = pos.coords;
         const { stationId, distance } = findNearestStation(latitude, longitude);
         resultEl.className = "locate-result status-ok";
-        resultEl.innerHTML = `Nearest station: <strong>${STATION_NAMES[stationId]}</strong> — about ${Math.round(distance)}m away`;
+        if (distance > 50000) {
+          // This far out, "nearest station" isn't a useful answer — the
+          // rider almost certainly isn't near this network at all.
+          resultEl.innerHTML = `You're quite far from ${document.title} — nearest station is <strong>${STATION_NAMES[stationId]}</strong>, about ${formatDistance(distance)} away`;
+        } else {
+          resultEl.innerHTML = `Nearest station: <strong>${STATION_NAMES[stationId]}</strong> — about ${formatDistance(distance)} away`;
+        }
         updatePosition(latitude, longitude, stationId);
       },
       () => {
