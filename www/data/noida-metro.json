@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "name": "Noida Metro",
+    "tagline": "Noida's metro network — the Aqua Line linking Noida Sector 51 to Greater Noida's Depot Station.",
+    "themeColor": "#00b3c6"
+  },
+  "lines": {
+    "aqua": {
+      "name": "Aqua Line",
+      "color": "#00b3c6",
+      "stations": [
+        "depot-station",
+        "gnida-office",
+        "delta-1",
+        "alpha-1",
+        "pari-chowk",
+        "knowledge-park-ii",
+        "noida-sector-148",
+        "noida-sector-147",
+        "noida-sector-146",
+        "noida-sector-145",
+        "noida-sector-144",
+        "noida-sector-143",
+        "noida-sector-142",
+        "noida-sector-137",
+        "noida-sector-83",
+        "nsez",
+        "noida-sector-81",
+        "noida-sector-101",
+        "noida-sector-76",
+        "rainbow-metro-station",
+        "noida-sector-51"
+      ]
+    }
+  },
+  "stationNames": {
+    "depot-station": "Depot Station",
+    "gnida-office": "GNIDA Office",
+    "delta-1": "Delta 1",
+    "alpha-1": "Alpha 1",
+    "pari-chowk": "Pari Chowk",
+    "knowledge-park-ii": "Knowledge Park II",
+    "noida-sector-148": "Noida Sector 148",
+    "noida-sector-147": "Noida Sector 147",
+    "noida-sector-146": "Noida Sector 146",
+    "noida-sector-145": "Noida Sector 145",
+    "noida-sector-144": "Noida Sector 144",
+    "noida-sector-143": "Noida Sector 143",
+    "noida-sector-142": "Noida Sector 142",
+    "noida-sector-137": "Noida Sector 137",
+    "noida-sector-83": "Noida Sector 83",
+    "nsez": "NSEZ",
+    "noida-sector-81": "Noida Sector 81",
+    "noida-sector-101": "Noida Sector 101",
+    "noida-sector-76": "Noida Sector 76",
+    "rainbow-metro-station": "Rainbow Metro Station",
+    "noida-sector-51": "Noida Sector 51"
+  },
+  "stationCoords": {
+    "depot-station": {
+      "lat": 28.488985,
+      "lon": 77.544014
+    },
+    "gnida-office": {
+      "lat": 28.484656,
+      "lon": 77.536513
+    },
+    "delta-1": {
+      "lat": 28.478446,
+      "lon": 77.525727
+    },
+    "alpha-1": {
+      "lat": 28.471005,
+      "lon": 77.512741
+    },
+    "pari-chowk": {
+      "lat": 28.463378,
+      "lon": 77.50837
+    },
+    "knowledge-park-ii": {
+      "lat": 28.457031,
+      "lon": 77.500335
+    },
+    "noida-sector-148": {
+      "lat": 28.44805,
+      "lon": 77.476571
+    },
+    "noida-sector-147": {
+      "lat": 28.459294,
+      "lon": 77.466155
+    },
+    "noida-sector-146": {
+      "lat": 28.468821,
+      "lon": 77.455152
+    },
+    "noida-sector-145": {
+      "lat": 28.478984,
+      "lon": 77.44238
+    },
+    "noida-sector-144": {
+      "lat": 28.486273,
+      "lon": 77.433048
+    },
+    "noida-sector-143": {
+      "lat": 28.494241,
+      "lon": 77.422352
+    },
+    "noida-sector-142": {
+      "lat": 28.49897,
+      "lon": 77.412846
+    },
+    "noida-sector-137": {
+      "lat": 28.51076,
+      "lon": 77.403577
+    },
+    "noida-sector-83": {
+      "lat": 28.522258,
+      "lon": 77.396414
+    },
+    "nsez": {
+      "lat": 28.53241,
+      "lon": 77.394722
+    },
+    "noida-sector-81": {
+      "lat": 28.549288,
+      "lon": 77.389911
+    },
+    "noida-sector-101": {
+      "lat": 28.556041,
+      "lon": 77.384917
+    },
+    "noida-sector-76": {
+      "lat": 28.56533,
+      "lon": 77.379627
+    },
+    "rainbow-metro-station": {
+      "lat": 28.574347,
+      "lon": 77.378212
+    },
+    "noida-sector-51": {
+      "lat": 28.585716,
+      "lon": 77.37524
+    }
+  },
+  "timings": {
+    "aqua": {
+      "monday": {
+        "depot-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "7-10 min"
+        },
+        "noida-sector-51": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "7-10 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "depot-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "7-10 min"
+        },
+        "noida-sector-51": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "7-10 min"
+        }
+      },
+      "saturday": {
+        "depot-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "7-10 min"
+        },
+        "noida-sector-51": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:00",
+          "frequency": "7-10 min"
+        }
+      },
+      "sunday": {
+        "depot-station": {
+          "firstTrain": "08:00",
+          "lastTrain": "22:00"
+        },
+        "noida-sector-51": {
+          "firstTrain": "08:00",
+          "lastTrain": "22:00"
+        }
+      }
+    }
+  }
+}

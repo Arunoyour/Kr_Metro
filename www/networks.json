@@ -98,5 +98,15 @@
         "data": "data/nagpur-metro.json"
       }
     }
+  },
+  "noida": {
+    "name": "Noida",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/noida-metro.json"
+      }
+    }
   }
 }
