@@ -28,5 +28,15 @@
         "data": "data/delhi-metro.json"
       }
     }
+  },
+  "hyderabad": {
+    "name": "Hyderabad",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/hyderabad-metro.json"
+      }
+    }
   }
 }

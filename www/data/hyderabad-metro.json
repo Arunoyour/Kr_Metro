@@ -1,0 +1,498 @@
+{
+  "meta": {
+    "name": "Hyderabad Metro",
+    "tagline": "Hyderabad's metro network — Red, Blue and Green lines linking Miyapur, LB Nagar, Nagole and Raidurg.",
+    "themeColor": "#c8102e"
+  },
+  "lines": {
+    "red": {
+      "name": "Red Line",
+      "color": "#e4002b",
+      "stations": [
+        "miyapur",
+        "jntu-college",
+        "kphb-colony",
+        "kukatpally",
+        "balanagar",
+        "moosapet",
+        "bharat-nagar",
+        "erragadda",
+        "esi-hospital",
+        "s-r-nagar",
+        "ameerpet",
+        "panjagutta",
+        "irrum-manzil",
+        "khairatabad",
+        "lakdi-ka-pul",
+        "assembly",
+        "nampally",
+        "gandhi-bhavan",
+        "osmania-medical-college",
+        "mahatma-gandhi-bus-station",
+        "malakpet",
+        "new-market",
+        "musarambagh",
+        "dilsukh-nagar",
+        "chaitanyapuri",
+        "victoria-memorial",
+        "l-b-nagar"
+      ]
+    },
+    "blue": {
+      "name": "Blue Line",
+      "color": "#0072bc",
+      "stations": [
+        "nagole",
+        "uppal",
+        "stadium",
+        "ngri",
+        "habsiguda",
+        "tarnaka",
+        "mettuguda",
+        "secunderabad-east",
+        "parade-grounds",
+        "paradise",
+        "rasoolpura",
+        "prakash-nagar",
+        "begumpet",
+        "ameerpet",
+        "madhura-nagar",
+        "yusufguda",
+        "road-no-5-jubilee-hills",
+        "jubilee-hills-checkpost",
+        "peddamma-gudi",
+        "madhapur",
+        "durgam-cheruvu",
+        "hitec-city",
+        "raidurg"
+      ]
+    },
+    "green": {
+      "name": "Green Line",
+      "color": "#00a651",
+      "stations": [
+        "parade-grounds",
+        "secunderabad-west",
+        "gandhi-hospital",
+        "musheerabad",
+        "rtc-cross-roads",
+        "chikkadpally",
+        "narayanaguda",
+        "sultan-bazar",
+        "mahatma-gandhi-bus-station"
+      ]
+    }
+  },
+  "stationNames": {
+    "miyapur": "Miyapur",
+    "jntu-college": "JNTU College",
+    "kphb-colony": "KPHB Colony",
+    "kukatpally": "Kukatpally",
+    "balanagar": "Balanagar",
+    "moosapet": "Moosapet",
+    "bharat-nagar": "Bharat Nagar",
+    "erragadda": "Erragadda",
+    "esi-hospital": "ESI Hospital",
+    "s-r-nagar": "S. R. Nagar",
+    "ameerpet": "Ameerpet",
+    "panjagutta": "Panjagutta",
+    "irrum-manzil": "Irrum Manzil",
+    "khairatabad": "Khairatabad",
+    "lakdi-ka-pul": "Lakdi-ka-pul",
+    "assembly": "Assembly",
+    "nampally": "Nampally",
+    "gandhi-bhavan": "Gandhi Bhavan",
+    "osmania-medical-college": "Osmania Medical College",
+    "mahatma-gandhi-bus-station": "Mahatma Gandhi Bus Station",
+    "malakpet": "Malakpet",
+    "new-market": "New Market",
+    "musarambagh": "Musarambagh",
+    "dilsukh-nagar": "Dilsukh Nagar",
+    "chaitanyapuri": "Chaitanyapuri",
+    "victoria-memorial": "Victoria Memorial",
+    "l-b-nagar": "L. B. Nagar",
+    "nagole": "Nagole",
+    "uppal": "Uppal",
+    "stadium": "Stadium",
+    "ngri": "NGRI",
+    "habsiguda": "Habsiguda",
+    "tarnaka": "Tarnaka",
+    "mettuguda": "Mettuguda",
+    "secunderabad-east": "Secunderabad East",
+    "parade-grounds": "Parade Grounds",
+    "paradise": "Paradise",
+    "rasoolpura": "Rasoolpura",
+    "prakash-nagar": "Prakash Nagar",
+    "begumpet": "Begumpet",
+    "madhura-nagar": "Madhura Nagar",
+    "yusufguda": "Yusufguda",
+    "road-no-5-jubilee-hills": "Road No 5 Jubilee Hills",
+    "jubilee-hills-checkpost": "Jubilee Hills Checkpost",
+    "peddamma-gudi": "Peddamma Gudi",
+    "madhapur": "Madhapur",
+    "durgam-cheruvu": "Durgam Cheruvu",
+    "hitec-city": "HITEC City",
+    "raidurg": "Raidurg",
+    "secunderabad-west": "Secunderabad West",
+    "gandhi-hospital": "Gandhi Hospital",
+    "musheerabad": "Musheerabad",
+    "rtc-cross-roads": "RTC Cross Roads",
+    "chikkadpally": "Chikkadpally",
+    "narayanaguda": "Narayanaguda",
+    "sultan-bazar": "Sultan Bazar"
+  },
+  "stationCoords": {
+    "miyapur": {
+      "lat": 17.496555,
+      "lon": 78.373025
+    },
+    "jntu-college": {
+      "lat": 17.498672,
+      "lon": 78.388868
+    },
+    "kphb-colony": {
+      "lat": 17.493819,
+      "lon": 78.401776
+    },
+    "kukatpally": {
+      "lat": 17.48493,
+      "lon": 78.411778
+    },
+    "balanagar": {
+      "lat": 17.47676,
+      "lon": 78.422101
+    },
+    "moosapet": {
+      "lat": 17.471885,
+      "lon": 78.426118
+    },
+    "bharat-nagar": {
+      "lat": 17.464041,
+      "lon": 78.430093
+    },
+    "erragadda": {
+      "lat": 17.457072,
+      "lon": 78.433594
+    },
+    "esi-hospital": {
+      "lat": 17.447016,
+      "lon": 78.438567
+    },
+    "s-r-nagar": {
+      "lat": 17.441713,
+      "lon": 78.441626
+    },
+    "ameerpet": {
+      "lat": 17.4355,
+      "lon": 78.444734
+    },
+    "panjagutta": {
+      "lat": 17.428446,
+      "lon": 78.451309
+    },
+    "irrum-manzil": {
+      "lat": 17.420229,
+      "lon": 78.456349
+    },
+    "khairatabad": {
+      "lat": 17.411161,
+      "lon": 78.460953
+    },
+    "lakdi-ka-pul": {
+      "lat": 17.40364,
+      "lon": 78.46532
+    },
+    "assembly": {
+      "lat": 17.397991,
+      "lon": 78.47088
+    },
+    "nampally": {
+      "lat": 17.392222,
+      "lon": 78.470161
+    },
+    "gandhi-bhavan": {
+      "lat": 17.385825,
+      "lon": 78.473335
+    },
+    "osmania-medical-college": {
+      "lat": 17.38212,
+      "lon": 78.481615
+    },
+    "mahatma-gandhi-bus-station": {
+      "lat": 17.379809,
+      "lon": 78.486212
+    },
+    "malakpet": {
+      "lat": 17.377205,
+      "lon": 78.493904
+    },
+    "new-market": {
+      "lat": 17.373445,
+      "lon": 78.503179
+    },
+    "musarambagh": {
+      "lat": 17.371087,
+      "lon": 78.511955
+    },
+    "dilsukh-nagar": {
+      "lat": 17.368563,
+      "lon": 78.525718
+    },
+    "chaitanyapuri": {
+      "lat": 17.36831,
+      "lon": 78.536191
+    },
+    "victoria-memorial": {
+      "lat": 17.361856,
+      "lon": 78.543962
+    },
+    "l-b-nagar": {
+      "lat": 17.349846,
+      "lon": 78.547941
+    },
+    "nagole": {
+      "lat": 17.391001,
+      "lon": 78.558815
+    },
+    "uppal": {
+      "lat": 17.400062,
+      "lon": 78.56021
+    },
+    "stadium": {
+      "lat": 17.40738,
+      "lon": 78.554228
+    },
+    "ngri": {
+      "lat": 17.414805,
+      "lon": 78.546315
+    },
+    "habsiguda": {
+      "lat": 17.420164,
+      "lon": 78.540528
+    },
+    "tarnaka": {
+      "lat": 17.428273,
+      "lon": 78.528426
+    },
+    "mettuguda": {
+      "lat": 17.435504,
+      "lon": 78.519557
+    },
+    "secunderabad-east": {
+      "lat": 17.435711,
+      "lon": 78.505433
+    },
+    "parade-grounds": {
+      "lat": 17.443171,
+      "lon": 78.497468
+    },
+    "paradise": {
+      "lat": 17.44344,
+      "lon": 78.486244
+    },
+    "rasoolpura": {
+      "lat": 17.443592,
+      "lon": 78.476406
+    },
+    "prakash-nagar": {
+      "lat": 17.444869,
+      "lon": 78.465874
+    },
+    "begumpet": {
+      "lat": 17.437561,
+      "lon": 78.456959
+    },
+    "madhura-nagar": {
+      "lat": 17.436951,
+      "lon": 78.439111
+    },
+    "yusufguda": {
+      "lat": 17.435108,
+      "lon": 78.427337
+    },
+    "road-no-5-jubilee-hills": {
+      "lat": 17.430027,
+      "lon": 78.4232
+    },
+    "jubilee-hills-checkpost": {
+      "lat": 17.42821,
+      "lon": 78.413683
+    },
+    "peddamma-gudi": {
+      "lat": 17.430637,
+      "lon": 78.408364
+    },
+    "madhapur": {
+      "lat": 17.437251,
+      "lon": 78.40041
+    },
+    "durgam-cheruvu": {
+      "lat": 17.442903,
+      "lon": 78.387557
+    },
+    "hitec-city": {
+      "lat": 17.448992,
+      "lon": 78.383119
+    },
+    "raidurg": {
+      "lat": 17.442181,
+      "lon": 78.377204
+    },
+    "secunderabad-west": {
+      "lat": 17.43378,
+      "lon": 78.499535
+    },
+    "gandhi-hospital": {
+      "lat": 17.425519,
+      "lon": 78.501919
+    },
+    "musheerabad": {
+      "lat": 17.417864,
+      "lon": 78.499533
+    },
+    "rtc-cross-roads": {
+      "lat": 17.407019,
+      "lon": 78.496832
+    },
+    "chikkadpally": {
+      "lat": 17.400357,
+      "lon": 78.494922
+    },
+    "narayanaguda": {
+      "lat": 17.394361,
+      "lon": 78.489976
+    },
+    "sultan-bazar": {
+      "lat": 17.384426,
+      "lon": 78.484052
+    }
+  },
+  "timings": {
+    "red": {
+      "monday": {
+        "miyapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "l-b-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "tuesdayToFriday": {
+        "miyapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "l-b-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "saturday": {
+        "miyapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "l-b-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "sunday": {
+        "miyapur": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "l-b-nagar": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      }
+    },
+    "blue": {
+      "monday": {
+        "nagole": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "raidurg": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "tuesdayToFriday": {
+        "nagole": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "raidurg": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "saturday": {
+        "nagole": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "raidurg": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      },
+      "sunday": {
+        "nagole": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        },
+        "raidurg": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:00"
+        }
+      }
+    },
+    "green": {
+      "monday": {
+        "parade-grounds": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        },
+        "mahatma-gandhi-bus-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        }
+      },
+      "tuesdayToFriday": {
+        "parade-grounds": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        },
+        "mahatma-gandhi-bus-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        }
+      },
+      "saturday": {
+        "parade-grounds": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        },
+        "mahatma-gandhi-bus-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        }
+      },
+      "sunday": {
+        "parade-grounds": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        },
+        "mahatma-gandhi-bus-station": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:35"
+        }
+      }
+    }
+  }
+}
