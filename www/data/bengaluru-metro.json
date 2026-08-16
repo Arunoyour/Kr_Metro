@@ -1,0 +1,683 @@
+{
+  "meta": {
+    "name": "Namma Metro",
+    "tagline": "Bengaluru's metro system — Purple, Green, and Yellow lines.",
+    "themeColor": "#2d3fd8"
+  },
+  "lines": {
+    "purple": {
+      "name": "Purple Line",
+      "color": "#8e2e8e",
+      "stations": [
+        "challaghatta",
+        "kengeri",
+        "kengeri_bus_terminal",
+        "pattanagere",
+        "jnanabharathi",
+        "rajarajeshwari_nagar",
+        "mysuru_road",
+        "pantharapalya_nayandahalli",
+        "deepanjali_nagar",
+        "attiguppe",
+        "vijayanagar",
+        "balagangadharanatha_swamiji_hosahalli",
+        "magadi_road",
+        "krantivira_sangolli_rayanna_railway_station",
+        "majestic",
+        "sir_m_visvesvaraya_station_central_college",
+        "dr_br_ambedkar_station_vidhana_soudha",
+        "cubbon_park",
+        "mahatma_gandhi_road",
+        "trinity",
+        "halasuru",
+        "indiranagar",
+        "swami_vivekananda_road",
+        "baiyappanahalli",
+        "benniganahalli",
+        "kr_pura",
+        "singayyanapalya",
+        "garudacharpalya",
+        "hoodi",
+        "seetharampalya",
+        "kundalahalli",
+        "nallurhalli",
+        "sri_sathya_sai_hospital",
+        "pattandur_agrahara",
+        "kadugodi_tree_park",
+        "hopefarm_channasandra",
+        "whitefield_kadugodi"
+      ]
+    },
+    "green": {
+      "name": "Green Line",
+      "color": "#2e9e3f",
+      "stations": [
+        "madavara",
+        "chikkabidarakallu",
+        "manjunatha_nagar",
+        "nagasandra",
+        "dasarahalli",
+        "jalahalli",
+        "peenya_industry",
+        "peenya",
+        "goraguntepalya",
+        "yeshwanthpur",
+        "sandal_soap_factory",
+        "mahalakshmi",
+        "rajajinagar",
+        "mahakavi_kuvempu_road",
+        "srirampura",
+        "mantri_square_sampige_road",
+        "majestic",
+        "chickpete",
+        "krishna_rajendra_market",
+        "national_college",
+        "lalbagh",
+        "south_end_circle",
+        "jayanagar",
+        "rv_road",
+        "banashankari",
+        "jaya_prakash_nagar",
+        "yelachenahalli",
+        "konanakunte_cross",
+        "doddakallasandra",
+        "vajarahalli",
+        "thalaghattapura",
+        "silk_institute"
+      ]
+    },
+    "yellow": {
+      "name": "Yellow Line",
+      "color": "#c99a00",
+      "stations": [
+        "rv_road",
+        "ragigudda",
+        "jayadeva_hospital",
+        "btm_layout",
+        "central_silk_board",
+        "bommanahalli",
+        "hongasandra",
+        "kudlu_gate",
+        "singasandra",
+        "hosa_road",
+        "beratena_agrahara",
+        "electronic_city",
+        "infosys_foundation_konappana_agrahara",
+        "huskur_road",
+        "biocon_hebbagodi",
+        "delta_electronics_bommasandra"
+      ]
+    }
+  },
+  "stationNames": {
+    "challaghatta": "Challaghatta",
+    "kengeri": "Kengeri",
+    "kengeri_bus_terminal": "Kengeri Bus Terminal",
+    "pattanagere": "Pattanagere",
+    "jnanabharathi": "Jnanabharathi",
+    "rajarajeshwari_nagar": "Rajarajeshwari Nagar",
+    "mysuru_road": "Mysuru Road",
+    "pantharapalya_nayandahalli": "Pantharapalya - Nayandahalli",
+    "deepanjali_nagar": "Deepanjali Nagar",
+    "attiguppe": "Attiguppe",
+    "vijayanagar": "Vijayanagar",
+    "balagangadharanatha_swamiji_hosahalli": "Balagangadharanatha Swamiji Station, Hosahalli",
+    "magadi_road": "Magadi Road",
+    "krantivira_sangolli_rayanna_railway_station": "Krantivira Sangolli Rayanna Railway Station",
+    "majestic": "Nadaprabhu Kempegowda Station, Majestic",
+    "sir_m_visvesvaraya_station_central_college": "Sir M. Visvesvaraya Station, Central College",
+    "dr_br_ambedkar_station_vidhana_soudha": "Dr. B. R. Ambedkar Station, Vidhana Soudha",
+    "cubbon_park": "Cubbon Park",
+    "mahatma_gandhi_road": "Mahatma Gandhi Road",
+    "trinity": "Trinity",
+    "halasuru": "Halasuru",
+    "indiranagar": "Indiranagar",
+    "swami_vivekananda_road": "Swami Vivekananda Road",
+    "baiyappanahalli": "Baiyappanahalli",
+    "benniganahalli": "Benniganahalli",
+    "kr_pura": "Krishna Raja Puram (K.R. Pura)",
+    "singayyanapalya": "Singayyanapalya",
+    "garudacharpalya": "Garudacharpalya",
+    "hoodi": "Hoodi",
+    "seetharampalya": "Seetharampalya",
+    "kundalahalli": "Kundalahalli",
+    "nallurhalli": "Nallurhalli",
+    "sri_sathya_sai_hospital": "Sri Sathya Sai Hospital",
+    "pattandur_agrahara": "Pattandur Agrahara",
+    "kadugodi_tree_park": "Kadugodi Tree Park",
+    "hopefarm_channasandra": "Hopefarm Channasandra",
+    "whitefield_kadugodi": "Whitefield (Kadugodi)",
+    "madavara": "Madavara",
+    "chikkabidarakallu": "Chikkabidarakallu",
+    "manjunatha_nagar": "Manjunatha Nagar",
+    "nagasandra": "Nagasandra",
+    "dasarahalli": "Dasarahalli",
+    "jalahalli": "Jalahalli",
+    "peenya_industry": "Peenya Industry",
+    "peenya": "Peenya",
+    "goraguntepalya": "Goraguntepalya",
+    "yeshwanthpur": "Yeshwanthpur",
+    "sandal_soap_factory": "Sandal Soap Factory",
+    "mahalakshmi": "Mahalakshmi",
+    "rajajinagar": "Rajajinagar",
+    "mahakavi_kuvempu_road": "Mahakavi Kuvempu Road",
+    "srirampura": "Srirampura",
+    "mantri_square_sampige_road": "Mantri Square Sampige Road",
+    "chickpete": "Chickpete",
+    "krishna_rajendra_market": "Krishna Rajendra Market",
+    "national_college": "National College",
+    "lalbagh": "Lalbagh",
+    "south_end_circle": "South End Circle",
+    "jayanagar": "Jayanagar",
+    "rv_road": "Rashtreeya Vidyalaya Road",
+    "banashankari": "Banashankari",
+    "jaya_prakash_nagar": "Jaya Prakash Nagar",
+    "yelachenahalli": "Yelachenahalli",
+    "konanakunte_cross": "Konanakunte Cross",
+    "doddakallasandra": "Doddakallasandra",
+    "vajarahalli": "Vajarahalli",
+    "thalaghattapura": "Thalaghattapura",
+    "silk_institute": "Silk Institute",
+    "ragigudda": "Ragigudda",
+    "jayadeva_hospital": "Jayadeva Hospital",
+    "btm_layout": "BTM Layout",
+    "central_silk_board": "Central Silk Board",
+    "bommanahalli": "Bommanahalli",
+    "hongasandra": "Hongasandra",
+    "kudlu_gate": "Kudlu Gate",
+    "singasandra": "Singasandra",
+    "hosa_road": "Hosa Road",
+    "beratena_agrahara": "Beratena Agrahara",
+    "electronic_city": "Electronic City",
+    "infosys_foundation_konappana_agrahara": "Infosys Foundation Konappana Agrahara",
+    "huskur_road": "Huskur Road",
+    "biocon_hebbagodi": "Biocon Hebbagodi",
+    "delta_electronics_bommasandra": "Delta Electronics Bommasandra"
+  },
+  "stationCoords": {
+    "challaghatta": {
+      "lat": 12.8973539,
+      "lon": 77.4612877
+    },
+    "kengeri": {
+      "lat": 12.9079105,
+      "lon": 77.4765784
+    },
+    "kengeri_bus_terminal": {
+      "lat": 12.914689,
+      "lon": 77.4878557
+    },
+    "pattanagere": {
+      "lat": 12.9242505,
+      "lon": 77.4983509
+    },
+    "jnanabharathi": {
+      "lat": 12.9354357,
+      "lon": 77.5124063
+    },
+    "rajarajeshwari_nagar": {
+      "lat": 12.9365996,
+      "lon": 77.5196788
+    },
+    "mysuru_road": {
+      "lat": 12.9467183,
+      "lon": 77.5301588
+    },
+    "pantharapalya_nayandahalli": {
+      "lat": 12.9416715,
+      "lon": 77.5251166
+    },
+    "deepanjali_nagar": {
+      "lat": 12.9520578,
+      "lon": 77.5370122
+    },
+    "attiguppe": {
+      "lat": 12.9618931,
+      "lon": 77.5335788
+    },
+    "vijayanagar": {
+      "lat": 12.9709559,
+      "lon": 77.5374044
+    },
+    "balagangadharanatha_swamiji_hosahalli": {
+      "lat": 12.9742933,
+      "lon": 77.5456215
+    },
+    "magadi_road": {
+      "lat": 12.975632,
+      "lon": 77.5553523
+    },
+    "krantivira_sangolli_rayanna_railway_station": {
+      "lat": 12.9758768,
+      "lon": 77.5653767
+    },
+    "majestic": {
+      "lat": 12.9757079,
+      "lon": 77.5728757
+    },
+    "sir_m_visvesvaraya_station_central_college": {
+      "lat": 12.9745197,
+      "lon": 77.58422
+    },
+    "dr_br_ambedkar_station_vidhana_soudha": {
+      "lat": 12.9787419,
+      "lon": 77.5916385
+    },
+    "cubbon_park": {
+      "lat": 12.9809575,
+      "lon": 77.5975756
+    },
+    "mahatma_gandhi_road": {
+      "lat": 12.9755264,
+      "lon": 77.6067902
+    },
+    "trinity": {
+      "lat": 12.9730218,
+      "lon": 77.6170205
+    },
+    "halasuru": {
+      "lat": 12.9764992,
+      "lon": 77.626686
+    },
+    "indiranagar": {
+      "lat": 12.9783325,
+      "lon": 77.6386612
+    },
+    "swami_vivekananda_road": {
+      "lat": 12.9859306,
+      "lon": 77.644897
+    },
+    "baiyappanahalli": {
+      "lat": 12.9907594,
+      "lon": 77.6523612
+    },
+    "benniganahalli": {
+      "lat": 12.9965158,
+      "lon": 77.6684619
+    },
+    "kr_pura": {
+      "lat": 12.9999024,
+      "lon": 77.6776703
+    },
+    "singayyanapalya": {
+      "lat": 12.9965445,
+      "lon": 77.6927176
+    },
+    "garudacharpalya": {
+      "lat": 12.9934505,
+      "lon": 77.7036768
+    },
+    "hoodi": {
+      "lat": 12.9888029,
+      "lon": 77.711326
+    },
+    "seetharampalya": {
+      "lat": 12.9808558,
+      "lon": 77.7087854
+    },
+    "kundalahalli": {
+      "lat": 12.977594,
+      "lon": 77.7155586
+    },
+    "nallurhalli": {
+      "lat": 12.9766408,
+      "lon": 77.7248845
+    },
+    "sri_sathya_sai_hospital": {
+      "lat": 12.9811949,
+      "lon": 77.7275361
+    },
+    "pattandur_agrahara": {
+      "lat": 12.9876393,
+      "lon": 77.7377718
+    },
+    "kadugodi_tree_park": {
+      "lat": 12.9856503,
+      "lon": 77.7470121
+    },
+    "hopefarm_channasandra": {
+      "lat": 12.9873426,
+      "lon": 77.7538033
+    },
+    "whitefield_kadugodi": {
+      "lat": 12.9957428,
+      "lon": 77.7579489
+    },
+    "madavara": {
+      "lat": 13.0574214,
+      "lon": 77.4728055
+    },
+    "chikkabidarakallu": {
+      "lat": 13.0523616,
+      "lon": 77.4879154
+    },
+    "manjunatha_nagar": {
+      "lat": 13.0500898,
+      "lon": 77.4944461
+    },
+    "nagasandra": {
+      "lat": 13.0479536,
+      "lon": 77.5001422
+    },
+    "dasarahalli": {
+      "lat": 13.0432607,
+      "lon": 77.5125535
+    },
+    "jalahalli": {
+      "lat": 13.0394104,
+      "lon": 77.5197351
+    },
+    "peenya_industry": {
+      "lat": 13.0363176,
+      "lon": 77.5254924
+    },
+    "peenya": {
+      "lat": 13.0330189,
+      "lon": 77.533201
+    },
+    "goraguntepalya": {
+      "lat": 13.028613,
+      "lon": 77.5404372
+    },
+    "yeshwanthpur": {
+      "lat": 13.0232678,
+      "lon": 77.5498751
+    },
+    "sandal_soap_factory": {
+      "lat": 13.0146544,
+      "lon": 77.5539839
+    },
+    "mahalakshmi": {
+      "lat": 13.0080475,
+      "lon": 77.5488066
+    },
+    "rajajinagar": {
+      "lat": 13.0005247,
+      "lon": 77.5496568
+    },
+    "mahakavi_kuvempu_road": {
+      "lat": 12.9985297,
+      "lon": 77.5568986
+    },
+    "srirampura": {
+      "lat": 12.9965253,
+      "lon": 77.5631963
+    },
+    "mantri_square_sampige_road": {
+      "lat": 12.9904629,
+      "lon": 77.5707293
+    },
+    "chickpete": {
+      "lat": 12.9668974,
+      "lon": 77.5745566
+    },
+    "krishna_rajendra_market": {
+      "lat": 12.9608788,
+      "lon": 77.5746578
+    },
+    "national_college": {
+      "lat": 12.9505266,
+      "lon": 77.5736898
+    },
+    "lalbagh": {
+      "lat": 12.9465265,
+      "lon": 77.580016
+    },
+    "south_end_circle": {
+      "lat": 12.9382573,
+      "lon": 77.5800556
+    },
+    "jayanagar": {
+      "lat": 12.9295069,
+      "lon": 77.5801439
+    },
+    "rv_road": {
+      "lat": 12.9215807,
+      "lon": 77.5802015
+    },
+    "banashankari": {
+      "lat": 12.9152208,
+      "lon": 77.573598
+    },
+    "jaya_prakash_nagar": {
+      "lat": 12.9074747,
+      "lon": 77.5731279
+    },
+    "yelachenahalli": {
+      "lat": 12.8960498,
+      "lon": 77.5701194
+    },
+    "konanakunte_cross": {
+      "lat": 12.8889671,
+      "lon": 77.5626665
+    },
+    "doddakallasandra": {
+      "lat": 12.8846435,
+      "lon": 77.5527546
+    },
+    "vajarahalli": {
+      "lat": 12.8774369,
+      "lon": 77.5447414
+    },
+    "thalaghattapura": {
+      "lat": 12.8714097,
+      "lon": 77.5383958
+    },
+    "silk_institute": {
+      "lat": 12.8617298,
+      "lon": 77.5299545
+    },
+    "ragigudda": {
+      "lat": 12.9170807,
+      "lon": 77.5883015
+    },
+    "jayadeva_hospital": {
+      "lat": 12.916731,
+      "lon": 77.5999663
+    },
+    "btm_layout": {
+      "lat": 12.9165878,
+      "lon": 77.6081182
+    },
+    "central_silk_board": {
+      "lat": 12.9165816,
+      "lon": 77.620567
+    },
+    "bommanahalli": {
+      "lat": 12.9106157,
+      "lon": 77.6264782
+    },
+    "hongasandra": {
+      "lat": 12.9016952,
+      "lon": 77.6319861
+    },
+    "kudlu_gate": {
+      "lat": 12.8899259,
+      "lon": 77.6392156
+    },
+    "singasandra": {
+      "lat": 12.8808178,
+      "lon": 77.6448456
+    },
+    "hosa_road": {
+      "lat": 12.8707491,
+      "lon": 77.652447
+    },
+    "beratena_agrahara": {
+      "lat": 12.863878,
+      "lon": 77.6579036
+    },
+    "electronic_city": {
+      "lat": 12.8565053,
+      "lon": 77.6635228
+    },
+    "infosys_foundation_konappana_agrahara": {
+      "lat": 12.8464399,
+      "lon": 77.6711872
+    },
+    "huskur_road": {
+      "lat": 12.8391572,
+      "lon": 77.6773716
+    },
+    "biocon_hebbagodi": {
+      "lat": 12.8290325,
+      "lon": 77.6813744
+    },
+    "delta_electronics_bommasandra": {
+      "lat": 12.8193944,
+      "lon": 77.6883453
+    }
+  },
+  "timings": {
+    "purple": {
+      "monday": {
+        "whitefield_kadugodi": {
+          "firstTrain": "04:15",
+          "lastTrain": "23:05",
+          "frequency": "8-20 min"
+        },
+        "challaghatta": {
+          "firstTrain": "04:15",
+          "lastTrain": "22:45",
+          "frequency": "8-20 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "whitefield_kadugodi": {
+          "firstTrain": "05:00",
+          "lastTrain": "23:05",
+          "frequency": "8-20 min"
+        },
+        "challaghatta": {
+          "firstTrain": "05:00",
+          "lastTrain": "22:45",
+          "frequency": "8-20 min"
+        }
+      },
+      "saturday": {
+        "whitefield_kadugodi": {
+          "firstTrain": "05:00",
+          "lastTrain": "23:05",
+          "frequency": "8-20 min"
+        },
+        "challaghatta": {
+          "firstTrain": "05:00",
+          "lastTrain": "22:45",
+          "frequency": "8-20 min"
+        }
+      },
+      "sunday": {
+        "whitefield_kadugodi": {
+          "firstTrain": "07:00",
+          "lastTrain": "23:05",
+          "frequency": "8-15 min"
+        },
+        "challaghatta": {
+          "firstTrain": "07:00",
+          "lastTrain": "22:45",
+          "frequency": "8-14 min"
+        }
+      }
+    },
+    "green": {
+      "monday": {
+        "madavara": {
+          "firstTrain": "04:15",
+          "lastTrain": "23:05",
+          "frequency": "8-20 min"
+        },
+        "silk_institute": {
+          "firstTrain": "04:15",
+          "lastTrain": "22:57",
+          "frequency": "7-25 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "madavara": {
+          "firstTrain": "05:00",
+          "lastTrain": "23:05",
+          "frequency": "8-15 min"
+        },
+        "silk_institute": {
+          "firstTrain": "05:00",
+          "lastTrain": "22:57",
+          "frequency": "7-15 min"
+        }
+      },
+      "saturday": {
+        "madavara": {
+          "firstTrain": "05:00",
+          "lastTrain": "23:05",
+          "frequency": "8-15 min"
+        },
+        "silk_institute": {
+          "firstTrain": "05:00",
+          "lastTrain": "23:00",
+          "frequency": "5.5-15 min"
+        }
+      },
+      "sunday": {
+        "madavara": {
+          "firstTrain": "07:00",
+          "lastTrain": "23:05",
+          "frequency": "8-15 min"
+        },
+        "silk_institute": {
+          "firstTrain": "07:00",
+          "lastTrain": "23:00",
+          "frequency": "8-15 min"
+        }
+      }
+    },
+    "yellow": {
+      "monday": {
+        "rv_road": {
+          "firstTrain": "05:05",
+          "lastTrain": "22:42",
+          "frequency": "6-30 min"
+        },
+        "delta_electronics_bommasandra": {
+          "firstTrain": "05:05",
+          "lastTrain": "23:55",
+          "frequency": "6-30 min"
+        }
+      },
+      "tuesdayToFriday": {
+        "rv_road": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:42",
+          "frequency": "6-20 min"
+        },
+        "delta_electronics_bommasandra": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:55",
+          "frequency": "6-25 min"
+        }
+      },
+      "saturday": {
+        "rv_road": {
+          "firstTrain": "06:00",
+          "lastTrain": "22:42",
+          "frequency": "10-20 min"
+        },
+        "delta_electronics_bommasandra": {
+          "firstTrain": "06:00",
+          "lastTrain": "23:55",
+          "frequency": "10-25 min"
+        }
+      },
+      "sunday": {
+        "rv_road": {
+          "firstTrain": "07:00",
+          "lastTrain": "22:42",
+          "frequency": "10-18 min"
+        },
+        "delta_electronics_bommasandra": {
+          "firstTrain": "07:00",
+          "lastTrain": "23:55",
+          "frequency": "10-25 min"
+        }
+      }
+    }
+  }
+}

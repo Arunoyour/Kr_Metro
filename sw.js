@@ -3,12 +3,20 @@
 // static (station data, routing logic) — nothing needs a live network call
 // to function, so a straightforward cache-first strategy is enough.
 
-const CACHE_NAME = "kr-metro-v7";
+const CACHE_NAME = "kr-metro-v8";
 const PRECACHE_URLS = [
+  // The portal shell (landing page + picker) and the shared network-app
+  // shell (code only) are always worth having offline immediately. Each
+  // network's own data file (e.g. data/bengaluru-metro.json) is deliberately
+  // NOT precached here — it's cached lazily, the first time that particular
+  // city+service is actually opened (via the runtime fetch-and-cache logic
+  // below), so visiting one city never downloads every other city's data.
   "./",
   "./index.html",
+  "./landing.js",
+  "./networks.json",
+  "./network.html",
   "./style.css",
-  "./data.js",
   "./timings.js",
   "./router.js",
   "./geo.js",

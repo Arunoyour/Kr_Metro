@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Namma Metro Route Finder</title>
+  <title>Transit Route Finder</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#2d3fd8" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
@@ -17,94 +16,30 @@
 <body>
   <div class="page">
     <header class="site-header">
-      <h1>Namma Metro Route Finder</h1>
-      <p>Pick a start and end station to get step-by-step directions, including where to switch lines.</p>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-swatch" style="background:#8e2e8e"></span>Purple Line</span>
-        <span class="legend-item"><span class="legend-swatch" style="background:#2e9e3f"></span>Green Line</span>
-        <span class="legend-item"><span class="legend-swatch" style="background:#c99a00"></span>Yellow Line</span>
-      </div>
+      <h1>Transit Route Finder</h1>
+      <p>Choose a city, then a service.</p>
     </header>
 
-    <section class="card locate-card">
-      <div class="locate-header">
-        <div>
-          <h2>Find your nearest station</h2>
-          <p class="locate-subtitle">Uses your location and needs internet to show the map (finding the station itself works offline).</p>
+    <main class="picker-main">
+      <section class="card" id="city-step">
+        <h2 class="step-heading">Choose a city</h2>
+        <div class="tile-grid" id="city-grid">
+          <p class="empty-state">Loading cities…</p>
         </div>
-        <button type="button" class="locate-btn" id="locate-btn">&#128205; Find Nearest Station</button>
-      </div>
-      <div class="locate-panel" id="locate-panel" hidden>
-        <div class="locate-result" id="locate-result"></div>
-        <div class="locate-map" id="locate-map" hidden></div>
-      </div>
-    </section>
-
-    <main>
-      <section class="card form-card">
-        <form class="route-form" id="route-form">
-          <div class="picker-row">
-            <div class="field-group">
-              <label for="from-input">From</label>
-              <div class="station-picker" id="from-picker">
-                <input
-                  type="text"
-                  id="from-input"
-                  class="picker-input"
-                  autocomplete="off"
-                  placeholder="Search station"
-                  role="combobox"
-                  aria-expanded="false"
-                />
-                <ul class="picker-list" role="listbox"></ul>
-              </div>
-            </div>
-
-            <button type="button" class="swap-btn" id="swap-btn" title="Swap From and To" aria-label="Swap From and To">
-              &#8645;
-            </button>
-
-            <div class="field-group">
-              <label for="to-input">To</label>
-              <div class="station-picker" id="to-picker">
-                <input
-                  type="text"
-                  id="to-input"
-                  class="picker-input"
-                  autocomplete="off"
-                  placeholder="Search station"
-                  role="combobox"
-                  aria-expanded="false"
-                />
-                <ul class="picker-list" role="listbox"></ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-error" id="form-error"></div>
-
-          <button type="submit" class="submit-btn">Find Route</button>
-        </form>
       </section>
 
-      <section class="card results-card" id="results-card">
-        <div id="results">
-          <p class="empty-state">Choose a From and To station to see your route.</p>
-        </div>
+      <section class="card" id="service-step" hidden>
+        <button type="button" class="back-link" id="back-to-cities">&larr; Choose a different city</button>
+        <h2 class="step-heading" id="service-step-heading">Choose a service</h2>
+        <div class="tile-grid" id="service-grid"></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      Covers the Purple, Green and Yellow operational lines of Namma Metro, Bengaluru.
+      More cities and services are added as data becomes available.
     </footer>
   </div>
 
-  <script src="data.js"></script>
-  <script src="timings.js"></script>
-  <script src="router.js"></script>
-  <script src="geo.js"></script>
-  <script src="vendor/leaflet/leaflet.js"></script>
-  <script src="map.js"></script>
-  <script src="app.js"></script>
+  <script src="landing.js"></script>
 </body>
 </html>

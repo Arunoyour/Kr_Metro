@@ -686,6 +686,78 @@ footer.site-footer {
   margin-top: 24px;
 }
 
+/* Landing page: city/service picker tiles. Deliberately generic — nothing
+   here references a specific city or transit mode, since the tiles are
+   entirely data-driven from networks.json. */
+.picker-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-heading {
+  font-size: 0.95rem;
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 22px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  min-height: 88px;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+
+.tile:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.tile-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
 /* Tablet and up: form fields sit in a tighter row, more breathing room */
 @media (min-width: 600px) {
   .page {

@@ -1,0 +1,12 @@
+{
+  "bengaluru": {
+    "name": "Bengaluru",
+    "services": {
+      "metro": {
+        "label": "Metro",
+        "icon": "🚇",
+        "data": "data/bengaluru-metro.json"
+      }
+    }
+  }
+}

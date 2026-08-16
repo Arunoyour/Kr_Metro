@@ -66,9 +66,86 @@ function hideInstallBanner() {
   setTimeout(() => banner.remove(), 300);
 }
 
-const ALL_STATION_IDS = Object.keys(STATION_NAMES).sort((a, b) =>
-  STATION_NAMES[a].localeCompare(STATION_NAMES[b])
-);
+// Populated once loadNetworkData() has fetched this instance's data — every
+// other place that reads STATION_NAMES/METRO_LINES/etc. already does so
+// lazily (inside a function, at call time), not at parse time, so this is
+// the only piece of app.js that genuinely needed restructuring to work with
+// data arriving asynchronously instead of via a <script> tag.
+let ALL_STATION_IDS = [];
+
+// Fetches this page's network data (?data=<path from networks.json>),
+// populates the same globals data.js/timings.js used to define directly,
+// and applies this network's branding (name, tagline, line legend, theme
+// color) to the shared page shell. Returns false (and shows an error) if
+// there's no network to load or the fetch fails, so the caller knows not to
+// start the rest of the app against missing data.
+async function loadNetworkData() {
+  const params = new URLSearchParams(location.search);
+  const dataPath = params.get("data");
+  const resultsEl = document.getElementById("results");
+
+  if (!dataPath) {
+    if (resultsEl) {
+      resultsEl.innerHTML = `<p class="empty-state">No network selected. <a href="index.html">Choose a city and service</a>.</p>`;
+    }
+    return false;
+  }
+
+  let json;
+  try {
+    const res = await fetch(dataPath);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    json = await res.json();
+  } catch (err) {
+    if (resultsEl) {
+      resultsEl.innerHTML = `<p class="empty-state">Couldn't load this network's data. Check your connection and try again.</p>`;
+    }
+    return false;
+  }
+
+  window.METRO_LINES = json.lines || {};
+  window.STATION_NAMES = json.stationNames || {};
+  window.STATION_COORDS = json.stationCoords || {};
+  window.METRO_TIMINGS = json.timings || {};
+
+  applyNetworkBranding(json.meta, json.lines);
+  initRouterData(window.METRO_LINES);
+  ALL_STATION_IDS = Object.keys(STATION_NAMES).sort((a, b) =>
+    STATION_NAMES[a].localeCompare(STATION_NAMES[b])
+  );
+
+  return true;
+}
+
+// The page shell (title, header, line-color legend, theme color) is generic
+// — this is what makes it a "Namma Metro" page or a future "Kochi Metro"
+// page purely from data, with no per-network code branch anywhere.
+function applyNetworkBranding(meta, lines) {
+  if (meta && meta.name) {
+    document.title = meta.name;
+    const h1 = document.querySelector(".site-header h1");
+    if (h1) h1.textContent = meta.name;
+  }
+  if (meta && meta.tagline) {
+    const tagline = document.querySelector(".site-header p");
+    if (tagline) tagline.textContent = meta.tagline;
+  }
+  if (meta && meta.themeColor) {
+    document.documentElement.style.setProperty("--accent", meta.themeColor);
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.setAttribute("content", meta.themeColor);
+  }
+
+  const legendEl = document.querySelector(".legend");
+  if (legendEl && lines) {
+    legendEl.innerHTML = Object.values(lines)
+      .map(
+        (line) =>
+          `<span class="legend-item"><span class="legend-swatch" style="background:${line.color}"></span>${line.name}</span>`
+      )
+      .join("");
+  }
+}
 
 // Proximity alert: a short two-tone chime + a vibration pulse when the next
 // stop is within range. Generated with the Web Audio API rather than an
@@ -269,7 +346,16 @@ class StationPicker {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const ready = await loadNetworkData();
+  if (!ready) return;
+  startApp();
+});
+
+function startApp() {
+  document.getElementById("from-input").disabled = false;
+  document.getElementById("to-input").disabled = false;
+
   const fromPicker = new StationPicker(document.getElementById("from-picker"));
   const toPicker = new StationPicker(document.getElementById("to-picker"));
   const form = document.getElementById("route-form");
@@ -336,6 +422,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fromPicker.setStation(savedFrom);
     toPicker.setStation(savedTo);
     runRouteSearch();
+  } else {
+    // No saved route — replace the static "Loading network data…" placeholder
+    // with the real empty-state prompt now that data has actually arrived.
+    resultsEl.innerHTML = `<p class="empty-state">Choose a From and To station to see your route.</p>`;
   }
 
   function renderResult(result, fromId, toId) {
@@ -613,4 +703,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+}

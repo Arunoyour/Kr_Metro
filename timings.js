@@ -1,70 +1,7 @@
-// Metro operating hours, transcribed from BMRC's official timetable images
-// (https://www.bmrc.co.in/metro-timings/ — each day-type/line combination is
-// published as a scanned image, not structured data, so this was read by hand).
-//
-// Scoped to what a rider actually needs in the moment: first train, last
-// train, and the frequency range across the day — not the full operational
-// schedule (which also includes short-turning services and specific-time
-// morning/evening loop trains between arbitrary station pairs).
-//
-// Keyed by [line][dayType][towardsStationId] since that matches how a
-// boarded segment already identifies itself (see router.js's `towards`).
-const METRO_TIMINGS = {
-  purple: {
-    monday: {
-      whitefield_kadugodi: { firstTrain: "04:15", lastTrain: "23:05", frequency: "8-20 min" },
-      challaghatta: { firstTrain: "04:15", lastTrain: "22:45", frequency: "8-20 min" }
-    },
-    tuesdayToFriday: {
-      whitefield_kadugodi: { firstTrain: "05:00", lastTrain: "23:05", frequency: "8-20 min" },
-      challaghatta: { firstTrain: "05:00", lastTrain: "22:45", frequency: "8-20 min" }
-    },
-    saturday: {
-      whitefield_kadugodi: { firstTrain: "05:00", lastTrain: "23:05", frequency: "8-20 min" },
-      challaghatta: { firstTrain: "05:00", lastTrain: "22:45", frequency: "8-20 min" }
-    },
-    sunday: {
-      whitefield_kadugodi: { firstTrain: "07:00", lastTrain: "23:05", frequency: "8-15 min" },
-      challaghatta: { firstTrain: "07:00", lastTrain: "22:45", frequency: "8-14 min" }
-    }
-  },
-  green: {
-    monday: {
-      madavara: { firstTrain: "04:15", lastTrain: "23:05", frequency: "8-20 min" },
-      silk_institute: { firstTrain: "04:15", lastTrain: "22:57", frequency: "7-25 min" }
-    },
-    tuesdayToFriday: {
-      madavara: { firstTrain: "05:00", lastTrain: "23:05", frequency: "8-15 min" },
-      silk_institute: { firstTrain: "05:00", lastTrain: "22:57", frequency: "7-15 min" }
-    },
-    saturday: {
-      madavara: { firstTrain: "05:00", lastTrain: "23:05", frequency: "8-15 min" },
-      silk_institute: { firstTrain: "05:00", lastTrain: "23:00", frequency: "5.5-15 min" }
-    },
-    sunday: {
-      madavara: { firstTrain: "07:00", lastTrain: "23:05", frequency: "8-15 min" },
-      silk_institute: { firstTrain: "07:00", lastTrain: "23:00", frequency: "8-15 min" }
-    }
-  },
-  yellow: {
-    monday: {
-      rv_road: { firstTrain: "05:05", lastTrain: "22:42", frequency: "6-30 min" },
-      delta_electronics_bommasandra: { firstTrain: "05:05", lastTrain: "23:55", frequency: "6-30 min" }
-    },
-    tuesdayToFriday: {
-      rv_road: { firstTrain: "06:00", lastTrain: "22:42", frequency: "6-20 min" },
-      delta_electronics_bommasandra: { firstTrain: "06:00", lastTrain: "23:55", frequency: "6-25 min" }
-    },
-    saturday: {
-      rv_road: { firstTrain: "06:00", lastTrain: "22:42", frequency: "10-20 min" },
-      delta_electronics_bommasandra: { firstTrain: "06:00", lastTrain: "23:55", frequency: "10-25 min" }
-    },
-    sunday: {
-      rv_road: { firstTrain: "07:00", lastTrain: "22:42", frequency: "10-18 min" },
-      delta_electronics_bommasandra: { firstTrain: "07:00", lastTrain: "23:55", frequency: "10-25 min" }
-    }
-  }
-};
+// Operating-hours lookup helpers. The actual timing data (METRO_TIMINGS)
+// now comes from each network's own JSON file (see app.js's
+// loadNetworkData()) rather than being hardcoded here — this file just
+// holds the generic logic that works against whatever data was loaded.
 
 function metroDayTypeKey(date) {
   const day = date.getDay(); // 0=Sun, 1=Mon, 2-5=Tue-Fri, 6=Sat

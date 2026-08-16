@@ -47,7 +47,18 @@ function buildGraph(lines) {
   return { graph, stationLines };
 }
 
-const { graph: GRAPH, stationLines: STATION_LINES } = buildGraph(METRO_LINES);
+// Populated by initRouterData() once a network's data has been fetched --
+// this used to run as a top-level side effect against a script-tag-loaded
+// METRO_LINES, but data now arrives asynchronously (fetched JSON per
+// city+service), so building the graph has to wait for that.
+let GRAPH = null;
+let STATION_LINES = null;
+
+function initRouterData(lines) {
+  const built = buildGraph(lines);
+  GRAPH = built.graph;
+  STATION_LINES = built.stationLines;
+}
 
 function dijkstra(originId, destId) {
   if (!STATION_LINES[originId] || !STATION_LINES[destId]) return null;
